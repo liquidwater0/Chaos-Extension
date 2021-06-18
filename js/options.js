@@ -36,6 +36,19 @@ function saveTheme() {
     chrome.storage.sync.set({"currentTheme": html.getAttribute("data-theme")});
 }
 
+const selectAllEffectsButton = document.getElementById("selectAllEffectsButton");
+const effectsCheckboxes = document.querySelectorAll("#effectsCheckboxes input[type='checkbox']");
+
+let effectsCheckState;
+
+selectAllEffectsButton.addEventListener("click", function() {
+    effectsCheckState = !effectsCheckState;
+
+    effectsCheckboxes.forEach(function(checkbox) {
+        checkbox.checked = effectsCheckState;
+    });
+});
+
 const nothingEffectCheckbox = document.getElementById("nothingEffectCheckbox")
 const rainbowTextEffectCheckbox = document.getElementById("rainbowTextEffectCheckbox");
 const flipPageEffectCheckbox = document.getElementById("flipPageEffectCheckbox");
