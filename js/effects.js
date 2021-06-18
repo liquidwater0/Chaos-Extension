@@ -6,7 +6,7 @@ let effects = [];
 
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
-    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true
+    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, removeAllTextChecked: true
 }, function(items) {
     effects = [
         {
@@ -125,6 +125,27 @@ chrome.storage.sync.get({
                 const elements = document.querySelectorAll("*");
 
                 elements[Math.floor(Math.random() * elements.length)].scrollIntoView();
+            }
+        },
+
+        {
+            name: "Remove All Text",
+            enabled: items.removeAllTextChecked,
+            
+            setDefaultValues: function() {
+                const elements = document.querySelectorAll("*");
+
+                elements.forEach(function(element) {
+                    element.style.color = "";
+                });
+            },
+    
+            effectCode: function() { 
+                const elements = document.querySelectorAll("*");
+
+                elements.forEach(function(element) {
+                    element.style.color = "rgba(0, 0, 0, 0)";
+                });
             }
         }
     ];
