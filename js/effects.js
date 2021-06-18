@@ -5,7 +5,8 @@ function getRandomNumber(min, max) {
 let effects = [];
 
 chrome.storage.sync.get({
-    nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true
+    nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
+    reloadPageEffectChecked: true, getAlertEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -89,6 +90,28 @@ chrome.storage.sync.get({
                 elements.forEach(function(element) {
                     element.style.overflow = "hidden";
                 });
+            }
+        },
+
+        {
+            name: "Refresh Page",
+            enabled: items.reloadPageEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() { 
+                location.reload();
+            }
+        },
+
+        {
+            name: "Get Alert",
+            enabled: items.getAlertEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() { 
+                setTimeout(function() { alert("Alert!") }, 250);
             }
         }
     ];
