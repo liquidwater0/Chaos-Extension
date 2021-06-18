@@ -50,11 +50,12 @@ html[data-theme="light"] {
 	margin: 0;
 	padding: 0;
 	color: var(--textColor);
-    font-family: Roboto, sans-serif;
+	font-family: Roboto, sans-serif;
 }
 
 body {
 	background-color: var(--background);
+	margin: 20px;
 }
 
 button {
@@ -130,11 +131,6 @@ button:hover {
 .switch input[type="checkbox"]:checked + .lever,
 .switch input[type="checkbox"] + .lever {
 	background-color: var(--primaryColor2) !important;
-}
-
-/* Options CSS */
-#optionsBody {
-    margin: 20px;
 }
 
 form {
