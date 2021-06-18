@@ -153,6 +153,10 @@ form label {
     margin-bottom: 20px;
 }
 
+.default {
+	color: var(--primaryTextColor);
+}
+
 .section {
     display: grid;
 	grid-template-areas: "line section line2";
