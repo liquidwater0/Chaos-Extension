@@ -58,14 +58,14 @@ const newEffectTimerTextField = document.getElementById("newEffectTimerTextField
 const reloadPageEffectCheckbox = document.getElementById("reloadPageEffectCheckbox");
 const getAlertEffectCheckbox = document.getElementById("getAlertEffectCheckbox");
 const scrollToElementEffectCheckbox = document.getElementById("scrollToElementEffectCheckbox");
-const removeAllTextCheckbox = document.getElementById("removeAllTextCheckbox");
+const invisibleTextCheckbox = document.getElementById("invisibleTextCheckbox");
 
 function save() {
     chrome.storage.sync.set({
         "nothingEffectChecked": nothingEffectCheckbox.checked, "rainbowTextEffectChecked": rainbowTextEffectCheckbox.checked, "flipPageEffectChecked": flipPageEffectCheckbox.checked,
         "disableEverythingEffectChecked": disableEverythingEffectCheckbox.checked, "removeScrollbarsEffectChecked": removeScrollbarsEffectCheckbox.checked, 
         "newEffectTimer": newEffectTimerTextField.value.split(" ")[0], "reloadPageEffectChecked": reloadPageEffectCheckbox.checked, "getAlertEffectChecked": getAlertEffectCheckbox.checked,
-        "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "removeAllTextChecked": removeAllTextCheckbox.checked
+        "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -84,7 +84,7 @@ function save() {
 function get() {
     chrome.storage.sync.get({
         currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true,
-        removeScrollbarsEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, removeAllTextChecked: true
+        removeScrollbarsEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -97,6 +97,6 @@ function get() {
         reloadPageEffectCheckbox.checked = items.reloadPageEffectChecked;
         getAlertEffectCheckbox.checked = items.getAlertEffectChecked;
         scrollToElementEffectCheckbox.checked = items.scrollToElementEffectChecked;
-        removeAllTextCheckbox.checked = items.removeAllTextChecked;
+        invisibleTextCheckbox.checked = items.invisibleTextChecked;
     });
 }
