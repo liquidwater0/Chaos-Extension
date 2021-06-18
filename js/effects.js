@@ -94,7 +94,7 @@ chrome.storage.sync.get({
         },
 
         {
-            name: "Refresh Page",
+            name: "Reload Page",
             enabled: items.reloadPageEffectChecked,
             
             setDefaultValues: function() {},
