@@ -6,7 +6,7 @@ let effects = [];
 
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
-    reloadPageEffectChecked: true, getAlertEffectChecked: true
+    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -112,6 +112,19 @@ chrome.storage.sync.get({
     
             effectCode: function() { 
                 setTimeout(function() { alert("Alert!") }, 250);
+            }
+        },
+
+        {
+            name: "Scroll To Random Element",
+            enabled: items.scrollToElementEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() { 
+                const elements = document.querySelectorAll("*");
+
+                elements[Math.floor(Math.random() * elements.length)].scrollIntoView();
             }
         }
     ];
