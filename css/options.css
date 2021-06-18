@@ -8,6 +8,7 @@
 
 html[data-theme="dark"] {
 	--background: rgb(45, 45, 45);
+	--background2: rgb(55, 55, 55);
     --textColor: white;
 	--primaryTextColor: rgb(230, 230, 230);
 
@@ -20,6 +21,7 @@ html[data-theme="dark"] {
 
 html[data-theme="light"] {
 	--background: rgb(235, 235, 235);
+	--background2: rgb(225, 225, 225);
     --textColor: black;
 	--primaryTextColor: rgb(50, 50, 50);
 
@@ -50,7 +52,7 @@ html[data-theme="light"] {
 	margin: 0;
 	padding: 0;
 	color: var(--textColor);
-	font-family: Roboto, sans-serif;
+    font-family: Roboto, sans-serif;
 }
 
 body {
@@ -133,6 +135,24 @@ button:hover {
 	background-color: var(--primaryColor2) !important;
 }
 
+.selectAll button {
+	all: unset;
+	background-color: rgba(0, 0, 0, 0) !important;
+	color: var(--primaryColor1);
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 8px 15px;
+	border-radius: 5px;
+	margin-bottom: 13px;
+	user-select: none;
+	transition: 0.25s background-color;
+}
+
+.selectAll button:hover {
+	background-color: var(--background2) !important;
+}
+
 form {
     display: grid;
 }
@@ -154,14 +174,14 @@ form label {
 }
 
 .section {
-    display: grid;
+    	display: grid;
 	grid-template-areas: "line section line2";
 	align-items: center;
-    color: var(--primaryTextColor);
-    font-size: 33px;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 10px;
+    	color: var(--primaryTextColor);
+    	font-size: 33px;
+    	font-weight: 500;
+    	text-align: center;
+    	margin-bottom: 10px;
 }
 
 .section::before, .section::after {
