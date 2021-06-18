@@ -6,7 +6,7 @@ let effects = [];
 
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
-    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, removeAllTextChecked: true
+    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true
 }, function(items) {
     effects = [
         {
@@ -129,8 +129,8 @@ chrome.storage.sync.get({
         },
 
         {
-            name: "Remove All Text",
-            enabled: items.removeAllTextChecked,
+            name: "Invisible Text",
+            enabled: items.invisibleTextChecked,
             
             setDefaultValues: function() {
                 const elements = document.querySelectorAll("*");
