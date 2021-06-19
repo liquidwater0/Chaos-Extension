@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "Chaos Extension",
 	"version": "1.0",
-	"description": "A fun little extension that activates a random effect on a site after a certain amount of time. This extension was inspired by the GTA Chaos Mods made by Lordmau5 and Pongo1231.",
+	"description": "A fun little extension that activates a random effect on a site after a certain amount of time.",
 	"permissions": ["storage"],
 	"options_ui": {
 		"page": "options.html",
