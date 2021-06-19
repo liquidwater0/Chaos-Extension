@@ -37,7 +37,7 @@ chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
     const timerBarWidth = Number(window.getComputedStyle(timerBar, null).getPropertyValue("width").replace("px", ""));
 
     if (!timerPause) {
-      timerBar.style.width = `${timerBarWidth - (timerBarWidth / 100 * (100 / timerSeconds--))}px`;
+      timerBar.style.width = `${parseInt(timerBarWidth - (timerBarWidth / 100 * (100 / timerSeconds--)))}px`;
       timeRemaining.textContent = timerSeconds;
     }
 
