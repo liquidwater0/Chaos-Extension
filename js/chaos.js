@@ -1,4 +1,4 @@
-document.body.insertAdjacentHTML("afterbegin", `
+document.body.insertAdjacentHTML("beforebegin", `
   <div data-extension="chaosExtension">
     <div id="effectTimer">
       <div id="timerBarContainer">
