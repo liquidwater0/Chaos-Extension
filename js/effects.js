@@ -149,16 +149,16 @@ chrome.storage.sync.get({
             }
         },
 
-        { //make timer bar and active effect stay the same size after scaling down the page
+        {
             name: "Half Size",
             enabled: items.halfSizeEffectChecked,
             
             setDefaultValues: function() {
-                document.querySelector("html").style.transform = "";
+                document.body.style.transform = "";
             },
     
             effectCode: function() { 
-                document.querySelector("html").style.transform = "scale(0.5)";
+                document.body.style.transform = "scale(0.5)";
             }
         }
     ];
