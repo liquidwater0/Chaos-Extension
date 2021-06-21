@@ -6,7 +6,7 @@ let effects = [];
 
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
-    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true
+    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -146,6 +146,19 @@ chrome.storage.sync.get({
                 elements.forEach(function(element) {
                     element.style.color = "rgba(0, 0, 0, 0)";
                 });
+            }
+        },
+
+        { //make timer bar and active effect stay the same size after scaling down the page
+            name: "Half Size",
+            enabled: items.halfSizeEffectChecked,
+            
+            setDefaultValues: function() {
+                document.querySelector("html").style.transform = "";
+            },
+    
+            effectCode: function() { 
+                document.querySelector("html").style.transform = "scale(0.5)";
             }
         }
     ];
