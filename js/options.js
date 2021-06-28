@@ -58,13 +58,15 @@ const getAlertEffectCheckbox = document.getElementById("getAlertEffectCheckbox")
 const scrollToElementEffectCheckbox = document.getElementById("scrollToElementEffectCheckbox");
 const invisibleTextCheckbox = document.getElementById("invisibleTextCheckbox");
 const halfSizeEffectCheckbox = document.getElementById("halfSizeEffectCheckbox");
+const randomTextSelectEffectCheckbox = document.getElementById("randomTextSelectEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
         "nothingEffectChecked": nothingEffectCheckbox.checked, "rainbowTextEffectChecked": rainbowTextEffectCheckbox.checked, "flipPageEffectChecked": flipPageEffectCheckbox.checked,
         "disableEverythingEffectChecked": disableEverythingEffectCheckbox.checked, "removeScrollbarsEffectChecked": removeScrollbarsEffectCheckbox.checked, 
         "newEffectTimer": newEffectTimerTextField.value.split(" ")[0], "reloadPageEffectChecked": reloadPageEffectCheckbox.checked, "getAlertEffectChecked": getAlertEffectCheckbox.checked,
-        "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked, "halfSizeEffectChecked": halfSizeEffectCheckbox.checked
+        "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked, "halfSizeEffectChecked": halfSizeEffectCheckbox.checked,
+        "randomTextSelectEffectChecked": randomTextSelectEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -72,6 +74,9 @@ function save() {
         chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
             if (items.newEffectTimer == "") {
                 newEffectTimerTextField.value = 10;
+                save();
+            } else if (items.newEffectTimer < 1) {
+                newEffectTimerTextField.value = 1;
                 save();
             } else {
                 newEffectTimerTextField.value = (items.newEffectTimer == 1) ? `${items.newEffectTimer} second` : `${items.newEffectTimer} seconds`;
@@ -84,7 +89,7 @@ function get() {
     chrome.storage.sync.get({
         currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true,
         removeScrollbarsEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
-        halfSizeEffectChecked: true
+        halfSizeEffectChecked: true, randomTextSelectEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -99,5 +104,6 @@ function get() {
         scrollToElementEffectCheckbox.checked = items.scrollToElementEffectChecked;
         invisibleTextCheckbox.checked = items.invisibleTextChecked;
         halfSizeEffectCheckbox.checked = items.halfSizeEffectChecked;
+        randomTextSelectEffectCheckbox.checked = items.randomTextSelectEffectChecked;
     });
 }
