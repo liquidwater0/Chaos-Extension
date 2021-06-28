@@ -6,7 +6,8 @@ let effects = [];
 
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
-    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true
+    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
+    randomTextSelectEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -159,6 +160,28 @@ chrome.storage.sync.get({
     
             effectCode: function() { 
                 document.body.style.transform = "scale(0.5)";
+            }
+        },
+
+        {
+            name: "Random Text Selection",
+            enabled: items.randomTextSelectEffectChecked,
+            
+            setDefaultValues: function() {
+                const textSelectionStyle = document.querySelector("[data-extension='chaosExtension']#textSelection");
+
+                if (textSelectionStyle) textSelectionStyle.remove();
+            },
+    
+            effectCode: function() { 
+                document.head.insertAdjacentHTML("beforeend", `
+                    <style data-extension="chaosExtension" id="textSelection">
+                        ::selection {
+                            background-color: rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}) !important;
+                            color: rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}) !important;
+                        }
+                    </style>
+                `);
             }
         }
     ];
