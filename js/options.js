@@ -59,6 +59,7 @@ const scrollToElementEffectCheckbox = document.getElementById("scrollToElementEf
 const invisibleTextCheckbox = document.getElementById("invisibleTextCheckbox");
 const halfSizeEffectCheckbox = document.getElementById("halfSizeEffectCheckbox");
 const randomTextSelectEffectCheckbox = document.getElementById("randomTextSelectEffectCheckbox");
+const terminalEffectCheckbox = document.getElementById("terminalEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -66,7 +67,7 @@ function save() {
         "disableEverythingEffectChecked": disableEverythingEffectCheckbox.checked, "removeScrollbarsEffectChecked": removeScrollbarsEffectCheckbox.checked, 
         "newEffectTimer": newEffectTimerTextField.value.split(" ")[0], "reloadPageEffectChecked": reloadPageEffectCheckbox.checked, "getAlertEffectChecked": getAlertEffectCheckbox.checked,
         "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked, "halfSizeEffectChecked": halfSizeEffectCheckbox.checked,
-        "randomTextSelectEffectChecked": randomTextSelectEffectCheckbox.checked
+        "randomTextSelectEffectChecked": randomTextSelectEffectCheckbox.checked, "terminalEffectChecked": terminalEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -89,7 +90,7 @@ function get() {
     chrome.storage.sync.get({
         currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true,
         removeScrollbarsEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
-        halfSizeEffectChecked: true, randomTextSelectEffectChecked: true
+        halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -105,5 +106,6 @@ function get() {
         invisibleTextCheckbox.checked = items.invisibleTextChecked;
         halfSizeEffectCheckbox.checked = items.halfSizeEffectChecked;
         randomTextSelectEffectCheckbox.checked = items.randomTextSelectEffectChecked;
+        terminalEffectCheckbox.checked = items.terminalEffectChecked;
     });
 }
