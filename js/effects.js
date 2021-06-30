@@ -7,7 +7,7 @@ let effects = [];
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
-    randomTextSelectEffectChecked: true
+    randomTextSelectEffectChecked: true, terminalEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -183,6 +183,63 @@ chrome.storage.sync.get({
                     </style>
                 `);
             }
-        }
+        },
+
+        { //fix background color not changing on some elements and make it so extension elements are unaffected
+            name: "Terminal Style",
+            enabled: items.terminalEffectChecked,
+            
+            setDefaultValues: function() {
+                const elements = document.querySelectorAll("*");
+                const terminalStyle = document.querySelector("[data-extension='chaosExtension']#terminalStyle");
+
+                if (terminalStyle) terminalStyle.remove();
+
+                elements.forEach(function(element) {
+                    element.style.backgroundColor = "";
+                });
+            },
+    
+            effectCode: function() { 
+                const elements = document.querySelectorAll("*");
+                const terminalStyle = document.querySelector("[data-extension='chaosExtension']#terminalStyle");
+
+                if (terminalStyle) terminalStyle.remove();
+
+                document.head.insertAdjacentHTML("beforeend", `
+                    <style data-extension="chaosExtension" id="terminalStyle">
+                        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+                        ::selection {
+                            background-color: rgba(0, 255, 0, 0.75) !important;
+                            color: white !important;
+                        }
+
+                        :not([data-extension]) {
+                            font-family: 'Roboto Mono', monospace !important;
+                            color: rgb(0, 255, 0) !important;
+                        }
+
+                        :not([data-extension]) a {
+                            color: rgba(0, 255, 0, 0.5) !important;
+                        }
+                    </style>
+                `);
+
+                function getColor(element) {
+                    const parts = window.getComputedStyle(element, null).getPropertyValue("background-color").match(/[\d.]+/g);
+
+                    if (parts.length == 3) {
+                        return "rgb(25, 25, 25)";
+                    } else {
+                        return `rgba(25, 25, 25, ${parts[3]})`;
+                    }
+                }
+
+                elements.forEach(function(element) {
+                    element.style.setProperty("background-color", getColor(element), "important");
+                });
+            }
+        },
     ];
 });
