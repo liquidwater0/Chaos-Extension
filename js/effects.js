@@ -7,7 +7,7 @@ let effects = [];
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
-    randomTextSelectEffectChecked: true, terminalEffectChecked: true
+    randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -202,9 +202,6 @@ chrome.storage.sync.get({
     
             effectCode: function() { 
                 const elements = document.querySelectorAll("*");
-                const terminalStyle = document.querySelector("[data-extension='chaosExtension']#terminalStyle");
-
-                if (terminalStyle) terminalStyle.remove();
 
                 document.head.insertAdjacentHTML("beforeend", `
                     <style data-extension="chaosExtension" id="terminalStyle">
@@ -239,6 +236,27 @@ chrome.storage.sync.get({
                 elements.forEach(function(element) {
                     element.style.setProperty("background-color", getColor(element), "important");
                 });
+            }
+        },
+
+        {
+            name: "Remove Images",
+            enabled: items.removeImagesEffectChecked,
+            
+            setDefaultValues: function() {
+                const hideImagesStyle = document.querySelector("[data-extension]#hideImagesStyle");
+
+                if (hideImagesStyle) hideImagesStyle.remove();
+            },
+    
+            effectCode: function() { 
+                document.head.insertAdjacentHTML("beforeend", `
+                    <style data-extension="chaosExtension" id="hideImagesStyle">
+                        img {
+                            opacity: 0 !important;
+                        }
+                    </style>
+                `);
             }
         },
     ];
