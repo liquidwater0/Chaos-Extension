@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/materialize.min.css">
-    <link rel="stylesheet" href="css/options.css">
-    <script src="js/options.js" type="text/javascript" defer></script>
-    <title>Chaos Extension Options</title>
-</head>
-<body id="optionsBody">
-    <div id="keyCombination">Shift + P to Pause</div>
-    <div>
-        <div class="section">Effects</div>
-        <div class="selectAll"><button id="selectAllEffectsButton">Select All</button></div>
-        <form id="effectsCheckboxes">
-            <label><input class="filled-in" id="disableEverythingEffectCheckbox" type="checkbox"><span>Disable Everything</span></label>
-            <label><input class="filled-in" id="flipPageEffectCheckbox" type="checkbox"><span>Flip Page</span></label>
-            <label><input class="filled-in" id="getAlertEffectCheckbox" type="checkbox"><span>Get Alert</span></label>
-            <label><input class="filled-in" id="halfSizeEffectCheckbox" type="checkbox"><span>Half Size</span></label>
-            <label><input class="filled-in" id="invisibleTextCheckbox" type="checkbox"><span>Invisible Text</span></label>
-            <label><input class="filled-in" id="nothingEffectCheckbox" type="checkbox"><span>Nothing</span></label>
-            <label><input class="filled-in" id="rainbowTextEffectCheckbox" type="checkbox"><span>Rainbow Text</span></label>
-            <label><input class="filled-in" id="randomTextSelectEffectCheckbox" type="checkbox"><span>Random Text Selection</span></label>
-            <label><input class="filled-in" id="reloadPageEffectCheckbox" type="checkbox"><span>Reload Page</span></label>
-            <label><input class="filled-in" id="removeScrollbarsEffectCheckbox" type="checkbox"><span>Remove All Scrollbars</span></label>
-            <label><input class="filled-in" id="removeImagesEffectCheckbox" type="checkbox"><span>Remove Images</span></label>
-            <label><input class="filled-in" id="scrollToElementEffectCheckbox" type="checkbox"><span>Scroll To Random Element</span></label>
-            <label><input class="filled-in" id="terminalEffectCheckbox" type="checkbox"><span>Terminal Style</span></label>
-        </form>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/materialize.min.css">
+        <link rel="stylesheet" href="css/options.css">
+        <title>Chaos Extension Options</title>
+    </head>
+    <body>
+        <div id="keyCombination">Shift + P to Pause</div>
+        <div>
+            <div class="section">Effects</div>
+            <div class="selectAll"><button id="selectAllEffectsButton">Select All</button></div>
+            <form id="effectsCheckboxes">
+                <label><input class="filled-in" id="disableEverythingEffectCheckbox" type="checkbox"><span>Disable Everything</span></label>
+                <label><input class="filled-in" id="flipPageEffectCheckbox" type="checkbox"><span>Flip Page</span></label>
+                <label><input class="filled-in" id="getAlertEffectCheckbox" type="checkbox"><span>Get Alert</span></label>
+                <label><input class="filled-in" id="halfSizeEffectCheckbox" type="checkbox"><span>Half Size</span></label>
+                <label><input class="filled-in" id="invisibleTextCheckbox" type="checkbox"><span>Invisible Text</span></label>
+                <label><input class="filled-in" id="nothingEffectCheckbox" type="checkbox"><span>Nothing</span></label>
+                <label><input class="filled-in" id="rainbowTextEffectCheckbox" type="checkbox"><span>Rainbow Text</span></label>
+                <label><input class="filled-in" id="randomTextSelectEffectCheckbox" type="checkbox"><span>Random Text Selection</span></label>
+                <label><input class="filled-in" id="reloadPageEffectCheckbox" type="checkbox"><span>Reload Page</span></label>
+                <label><input class="filled-in" id="removeScrollbarsEffectCheckbox" type="checkbox"><span>Remove All Scrollbars</span></label>
+                <label><input class="filled-in" id="removeImagesEffectCheckbox" type="checkbox"><span>Remove Images</span></label>
+                <label><input class="filled-in" id="scrollToElementEffectCheckbox" type="checkbox"><span>Scroll To Random Element</span></label>
+                <label><input class="filled-in" id="terminalEffectCheckbox" type="checkbox"><span>Terminal Style</span></label>
+            </form>
+        </div>
 
-    <div>
-        <div class="section">Options</div>
-        <form>
-            <div class="input-field"><input placeholder="Enter Seconds" id="newEffectTimerTextField" type="text"><label>New Effect Timer<span class="default"> - Default: 10 seconds</span></label></div>
-        </form>
-    </div>
+        <div>
+            <div class="section">Options</div>
+            <form>
+                <div class="input-field"><input placeholder="Enter Seconds" id="newEffectTimerTextField" type="text"><label>New Effect Timer<span class="default"> - Default: 10 seconds</span></label></div>
+            </form>
+        </div>
 
-    <div>
-        <div class="section">Theme</div>
-        <div class="switch"><label>Light<input id="themeSwitch" type="checkbox"><span class="lever"></span>Dark</label></div>
-    </div>
+        <div>
+            <div class="section">Theme</div>
+            <div class="switch"><label>Light<input id="themeSwitch" type="checkbox"><span class="lever"></span>Dark</label></div>
+        </div>
 
-    <div class="z-depth-3" id="bottomBar">
-        <span id="optionsVersion"></span>
-        <button class="waves-effect waves-light btn" id="saveButton">Save</button>
-    </div>
-    <br><br><br><br><br><br>
+        <div class="z-depth-3" id="bottomBar">
+            <span id="optionsVersion"></span>
+            <button class="waves-effect waves-light btn" id="saveButton">Save</button>
+        </div>
+        <br><br><br><br><br><br>
 
-    <script src="js/materialize.min.js"></script>
-</body>
+        <script src="js/materialize.min.js"></script>
+        <script src="js/options.js" type="text/javascript"></script>
+    </body>
 </html>
