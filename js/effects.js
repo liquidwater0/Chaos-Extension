@@ -74,7 +74,7 @@ chrome.storage.sync.get({
         },
     
         {
-            name: "Remove All Scrollbars",
+            name: "Remove Scrollbars",
             enabled: items.removeScrollbarsEffectChecked,
             
             setDefaultValues: function() { 
