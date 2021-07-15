@@ -186,7 +186,7 @@ chrome.storage.sync.get({
         },
 
         { //fix background color not changing on some elements and make it so extension elements are unaffected
-            name: "Terminal Style",
+            name: "Terminalify",
             enabled: items.terminalEffectChecked,
             
             setDefaultValues: function() {
@@ -258,6 +258,6 @@ chrome.storage.sync.get({
                     </style>
                 `);
             }
-        },
+        }
     ];
 });
