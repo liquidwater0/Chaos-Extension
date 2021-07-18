@@ -30,13 +30,15 @@ chrome.storage.sync.get({
                 });
             },
     
-            effectCode: function() {
+            effectCode: function() {  
                 const elements = document.querySelectorAll("*");
     
                 elements.forEach(function(element) {
+                    element.style.color = `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`;
+
                     const interval = setInterval(function() {
                         element.style.color = `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`;
-                    }, 500);
+                    }, 1000);
     
                     setTimeout(function() { clearInterval(interval) }, timer * 1000);
                 });
