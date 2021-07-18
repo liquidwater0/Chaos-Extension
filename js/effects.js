@@ -7,7 +7,7 @@ let effects = [];
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
-    randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true
+    randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, blackWhiteEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -273,6 +273,23 @@ chrome.storage.sync.get({
             effectCode: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" id="blurOverlay"></div>
+                `);
+            }
+        },
+
+        {
+            name: "Black and White",
+            enabled: items.blackWhiteEffectChecked,
+            
+            setDefaultValues: function() { 
+                const bwOverlay = document.querySelector("[data-extension='chaosExtension']#bwOverlay");
+                
+                if (bwOverlay) bwOverlay.remove();
+            },
+    
+            effectCode: function() {
+                document.body.insertAdjacentHTML("afterbegin", `
+                    <div data-extension="chaosExtension" id="bwOverlay"></div>
                 `);
             }
         }
