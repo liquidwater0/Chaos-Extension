@@ -7,7 +7,7 @@ let effects = [];
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
-    randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true
+    randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -61,14 +61,14 @@ chrome.storage.sync.get({
             enabled: items.disableEverythingEffectChecked,
     
             setDefaultValues: function() { 
-                const overlay = document.querySelector("[data-extension='chaosExtension']#overlay");
+                const disableOverlay = document.querySelector("[data-extension='chaosExtension']#disableOverlay");
                 
-                if (overlay) overlay.remove();
+                if (disableOverlay) disableOverlay.remove();
             },
     
             effectCode: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" id="overlay"></div>
+                    <div data-extension="chaosExtension" id="disableOverlay"></div>
                 `);
             }
         },
@@ -256,6 +256,23 @@ chrome.storage.sync.get({
                             opacity: 0 !important;
                         }
                     </style>
+                `);
+            }
+        },
+
+        {
+            name: "Blurry Vision",
+            enabled: items.blurryVisionEffectChecked,
+            
+            setDefaultValues: function() { 
+                const blurOverlay = document.querySelector("[data-extension='chaosExtension']#blurOverlay");
+                
+                if (blurOverlay) blurOverlay.remove();
+            },
+    
+            effectCode: function() {
+                document.body.insertAdjacentHTML("afterbegin", `
+                    <div data-extension="chaosExtension" id="blurOverlay"></div>
                 `);
             }
         }
