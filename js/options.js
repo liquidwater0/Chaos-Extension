@@ -61,6 +61,7 @@ const halfSizeEffectCheckbox = document.getElementById("halfSizeEffectCheckbox")
 const randomTextSelectEffectCheckbox = document.getElementById("randomTextSelectEffectCheckbox");
 const terminalEffectCheckbox = document.getElementById("terminalEffectCheckbox");
 const removeImagesEffectCheckbox = document.getElementById("removeImagesEffectCheckbox");
+const blurryVisionEffectCheckbox = document.getElementById("blurryVisionEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -68,7 +69,8 @@ function save() {
         "disableEverythingEffectChecked": disableEverythingEffectCheckbox.checked, "removeScrollbarsEffectChecked": removeScrollbarsEffectCheckbox.checked, 
         "newEffectTimer": newEffectTimerTextField.value.split(" ")[0], "reloadPageEffectChecked": reloadPageEffectCheckbox.checked, "getAlertEffectChecked": getAlertEffectCheckbox.checked,
         "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked, "halfSizeEffectChecked": halfSizeEffectCheckbox.checked,
-        "randomTextSelectEffectChecked": randomTextSelectEffectCheckbox.checked, "terminalEffectChecked": terminalEffectCheckbox.checked, "removeImagesEffectChecked": removeImagesEffectCheckbox.checked
+        "randomTextSelectEffectChecked": randomTextSelectEffectCheckbox.checked, "terminalEffectChecked": terminalEffectCheckbox.checked, "removeImagesEffectChecked": removeImagesEffectCheckbox.checked,
+        "blurryVisionEffectChecked": blurryVisionEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -91,7 +93,7 @@ function get() {
     chrome.storage.sync.get({
         currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true,
         removeScrollbarsEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
-        halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true
+        halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -109,5 +111,6 @@ function get() {
         randomTextSelectEffectCheckbox.checked = items.randomTextSelectEffectChecked;
         terminalEffectCheckbox.checked = items.terminalEffectChecked;
         removeImagesEffectCheckbox.checked = items.removeImagesEffectChecked;
+        blurryVisionEffectCheckbox.checked = items.blurryVisionEffectChecked;
     });
 }
