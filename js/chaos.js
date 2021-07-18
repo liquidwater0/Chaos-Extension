@@ -22,24 +22,24 @@ chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
   const timeRemaining = document.querySelector("[data-extension='chaosExtension'] #timeRemaining");
   timeRemaining.textContent = timerSeconds;
 
-  let timerPause = false;
+  let timerPaused = false;
 
   document.addEventListener("keydown", function(event) {
     if (event.shiftKey && event.keyCode == 80) { //Shift + P (80)
-      timerPause = !timerPause;
+      timerPaused = !timerPaused;
     }
   });
 
   setInterval(updateTimerBar, 1000);
 
   function updateTimerBar() {
+    if (timerPaused) return;
+
     const timerBar = document.querySelector("[data-extension='chaosExtension'] #timerBar");
     const timerBarWidth = Number(window.getComputedStyle(timerBar, null).getPropertyValue("width").replace("px", ""));
 
-    if (!timerPause) {
-      timerBar.style.width = `${parseInt(timerBarWidth - (timerBarWidth / 100 * (100 / timerSeconds--)))}px`;
-      timeRemaining.textContent = timerSeconds;
-    }
+    timerBar.style.width = `${parseInt(timerBarWidth - (timerBarWidth / 100 * (100 / timerSeconds--)))}px`;
+    timeRemaining.textContent = timerSeconds;
 
     if (timerSeconds < 0) {
       timerBar.style.width = "100%";
@@ -60,7 +60,6 @@ chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
 
     if (randomEffect) {
       effectContainer.style.display = "block";
-
       effectName.textContent = randomEffect.name;
       randomEffect.effectCode();
     }
