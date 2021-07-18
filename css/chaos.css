@@ -72,7 +72,7 @@
 }
 
 [data-extension="chaosExtension"]#blurOverlay {
-    backdrop-filter: blur(2px) !important;
+    backdrop-filter: blur(1.5px) !important;
 }
 
 [data-extension="chaosExtension"]#bwOverlay {
