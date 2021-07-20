@@ -57,7 +57,7 @@
 /* Effects Styles */
 [data-extension="chaosExtension"]#disableOverlay,
 [data-extension="chaosExtension"]#blurOverlay,
-[data-extension="chaosExtension"]#bwOverlay {
+[data-extension="chaosExtension"]#y1950sOverlay {
     position: fixed !important;
     top: 0px !important;
     left: 0px !important;
@@ -67,7 +67,7 @@
 }
 
 [data-extension="chaosExtension"]#blurOverlay,
-[data-extension="chaosExtension"]#bwOverlay {
+[data-extension="chaosExtension"]#y1950sOverlay {
     pointer-events: none !important;
 }
 
@@ -75,6 +75,6 @@
     backdrop-filter: blur(1.5px) !important;
 }
 
-[data-extension="chaosExtension"]#bwOverlay {
-    backdrop-filter: grayscale(100%) !important;
+[data-extension="chaosExtension"]#y1950sOverlay {
+    backdrop-filter: grayscale(100%) sepia(15%) blur(0.66px) !important;
 }
