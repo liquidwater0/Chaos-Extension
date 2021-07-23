@@ -5,9 +5,10 @@ function getRandomNumber(min, max) {
 let effects = [];
 
 chrome.storage.sync.get({
-    nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, removeScrollbarsEffectChecked: true, 
+    nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, disableScrollingEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
-    randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true
+    randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
+    hideScrollbarsEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -76,8 +77,8 @@ chrome.storage.sync.get({
         },
     
         {
-            name: "Remove Scrollbars",
-            enabled: items.removeScrollbarsEffectChecked,
+            name: "Disable Scrolling",
+            enabled: items.disableScrollingEffectChecked,
             
             setDefaultValues: function() { 
                 const elements = document.querySelectorAll("*");
@@ -292,6 +293,27 @@ chrome.storage.sync.get({
             effectCode: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" id="y1950sOverlay"></div>
+                `);
+            }
+        },
+
+        {
+            name: "Hide Scrollbars",
+            enabled: items.hideScrollbarsEffectChecked,
+            
+            setDefaultValues: function() { 
+                const hideScrollbarsStyle = document.querySelector("[data-extension='chaosExtension']#hideScrollbarsStyle");
+                
+                if (hideScrollbarsStyle) hideScrollbarsStyle.remove();
+            },
+    
+            effectCode: function() {
+                document.head.insertAdjacentHTML("beforeend", `
+                    <style data-extension="chaosExtension" id="hideScrollbarsStyle">
+                        ::-webkit-scrollbar {
+                            width: 0px !important;
+                        }
+                    </style>
                 `);
             }
         }
