@@ -64,6 +64,8 @@ const removeImagesEffectCheckbox = document.getElementById("removeImagesEffectCh
 const blurryVisionEffectCheckbox = document.getElementById("blurryVisionEffectCheckbox");
 const y1950sEffectCheckbox = document.getElementById("y1950sEffectCheckbox");
 const hideScrollbarsEffectCheckbox = document.getElementById("hideScrollbarsEffectCheckbox");
+const selectAllTextEffectCheckbox = document.getElementById("selectAllTextEffectCheckbox");
+const hideTextSelectionEffectCheckbox = document.getElementById("hideTextSelectionEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -72,7 +74,8 @@ function save() {
         "newEffectTimer": newEffectTimerTextField.value.split(" ")[0], "reloadPageEffectChecked": reloadPageEffectCheckbox.checked, "getAlertEffectChecked": getAlertEffectCheckbox.checked,
         "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked, "halfSizeEffectChecked": halfSizeEffectCheckbox.checked,
         "randomTextSelectEffectChecked": randomTextSelectEffectCheckbox.checked, "terminalEffectChecked": terminalEffectCheckbox.checked, "removeImagesEffectChecked": removeImagesEffectCheckbox.checked,
-        "blurryVisionEffectChecked": blurryVisionEffectCheckbox.checked, "y1950sEffectChecked": y1950sEffectCheckbox.checked, "hideScrollbarsEffectChecked": hideScrollbarsEffectCheckbox.checked
+        "blurryVisionEffectChecked": blurryVisionEffectCheckbox.checked, "y1950sEffectChecked": y1950sEffectCheckbox.checked, "hideScrollbarsEffectChecked": hideScrollbarsEffectCheckbox.checked,
+        "selectAllTextEffectChecked": selectAllTextEffectCheckbox.checked, "hideTextSelectionEffectChecked": hideTextSelectionEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -85,7 +88,7 @@ function save() {
                 newEffectTimerTextField.value = 1;
                 save();
             } else {
-                newEffectTimerTextField.value = (items.newEffectTimer == 1) ? `${items.newEffectTimer} second` : `${items.newEffectTimer} seconds`;
+                newEffectTimerTextField.value = items.newEffectTimer == 1 ? `${items.newEffectTimer} second` : `${items.newEffectTimer} seconds`;
             }
         });
     });
@@ -96,7 +99,7 @@ function get() {
         currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true,
         disableScrollingEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
         halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
-        hideScrollbarsEffectChecked: true
+        hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -105,7 +108,7 @@ function get() {
         flipPageEffectCheckbox.checked = items.flipPageEffectChecked;
         disableMouseInputEffectCheckbox.checked = items.disableMouseInputEffectChecked;
         disableScrollingEffectCheckbox.checked = items.disableScrollingEffectChecked;
-        newEffectTimerTextField.value = (items.newEffectTimer == 1) ? `${items.newEffectTimer} second` : `${items.newEffectTimer} seconds`;
+        newEffectTimerTextField.value = items.newEffectTimer == 1 ? `${items.newEffectTimer} second` : `${items.newEffectTimer} seconds`;
         reloadPageEffectCheckbox.checked = items.reloadPageEffectChecked;
         getAlertEffectCheckbox.checked = items.getAlertEffectChecked;
         scrollToElementEffectCheckbox.checked = items.scrollToElementEffectChecked;
@@ -117,5 +120,7 @@ function get() {
         blurryVisionEffectCheckbox.checked = items.blurryVisionEffectChecked;
         y1950sEffectCheckbox.checked = items.y1950sEffectChecked;
         hideScrollbarsEffectCheckbox.checked = items.hideScrollbarsEffectChecked;
+        selectAllTextEffectCheckbox.checked = items.selectAllTextEffectChecked;
+        hideTextSelectionEffectCheckbox.checked = items.hideTextSelectionEffectChecked;
     });
 }
