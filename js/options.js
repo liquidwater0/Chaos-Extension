@@ -50,7 +50,7 @@ selectAllEffectsButton.addEventListener("click", function() {
 const nothingEffectCheckbox = document.getElementById("nothingEffectCheckbox")
 const rainbowTextEffectCheckbox = document.getElementById("rainbowTextEffectCheckbox");
 const flipPageEffectCheckbox = document.getElementById("flipPageEffectCheckbox");
-const disableEverythingEffectCheckbox = document.getElementById("disableEverythingEffectCheckbox");
+const disableMouseInputEffectCheckbox = document.getElementById("disableMouseInputEffectCheckbox");
 const disableScrollingEffectCheckbox = document.getElementById("disableScrollingEffectCheckbox");
 const newEffectTimerTextField = document.getElementById("newEffectTimerTextField");
 const reloadPageEffectCheckbox = document.getElementById("reloadPageEffectCheckbox");
@@ -68,7 +68,7 @@ const hideScrollbarsEffectCheckbox = document.getElementById("hideScrollbarsEffe
 function save() {
     chrome.storage.sync.set({
         "nothingEffectChecked": nothingEffectCheckbox.checked, "rainbowTextEffectChecked": rainbowTextEffectCheckbox.checked, "flipPageEffectChecked": flipPageEffectCheckbox.checked,
-        "disableEverythingEffectChecked": disableEverythingEffectCheckbox.checked, "disableScrollingEffectChecked": disableScrollingEffectCheckbox.checked, 
+        "disableMouseInputEffectChecked": disableMouseInputEffectCheckbox.checked, "disableScrollingEffectChecked": disableScrollingEffectCheckbox.checked, 
         "newEffectTimer": newEffectTimerTextField.value.split(" ")[0], "reloadPageEffectChecked": reloadPageEffectCheckbox.checked, "getAlertEffectChecked": getAlertEffectCheckbox.checked,
         "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked, "halfSizeEffectChecked": halfSizeEffectCheckbox.checked,
         "randomTextSelectEffectChecked": randomTextSelectEffectCheckbox.checked, "terminalEffectChecked": terminalEffectCheckbox.checked, "removeImagesEffectChecked": removeImagesEffectCheckbox.checked,
@@ -93,7 +93,7 @@ function save() {
 
 function get() {
     chrome.storage.sync.get({
-        currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true,
+        currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true,
         disableScrollingEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
         halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
         hideScrollbarsEffectChecked: true
@@ -103,7 +103,7 @@ function get() {
         nothingEffectCheckbox.checked = items.nothingEffectChecked;
         rainbowTextEffectCheckbox.checked = items.rainbowTextEffectChecked;
         flipPageEffectCheckbox.checked = items.flipPageEffectChecked;
-        disableEverythingEffectCheckbox.checked = items.disableEverythingEffectChecked;
+        disableMouseInputEffectCheckbox.checked = items.disableMouseInputEffectChecked;
         disableScrollingEffectCheckbox.checked = items.disableScrollingEffectChecked;
         newEffectTimerTextField.value = (items.newEffectTimer == 1) ? `${items.newEffectTimer} second` : `${items.newEffectTimer} seconds`;
         reloadPageEffectCheckbox.checked = items.reloadPageEffectChecked;
