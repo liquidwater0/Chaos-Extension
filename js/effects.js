@@ -5,7 +5,7 @@ function getRandomNumber(min, max) {
 let effects = [];
 
 chrome.storage.sync.get({
-    nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true, disableScrollingEffectChecked: true, 
+    nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true, disableScrollingEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true
@@ -60,8 +60,8 @@ chrome.storage.sync.get({
         },
     
         {
-            name: "Disable Everything",
-            enabled: items.disableEverythingEffectChecked,
+            name: "Disable Mouse Input",
+            enabled: items.disableMouseInputEffectChecked,
     
             setDefaultValues: function() { 
                 const disableOverlay = document.querySelector("[data-extension='chaosExtension']#disableOverlay");
