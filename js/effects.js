@@ -137,19 +137,19 @@ chrome.storage.sync.get({
             enabled: items.invisibleTextChecked,
             
             setDefaultValues: function() {
-                const elements = document.querySelectorAll("*");
+                const invisibleTextStyle = document.querySelector("[data-extension='chaosExtension']#invisibleTextStyle");
 
-                elements.forEach(function(element) {
-                    element.style.color = "";
-                });
+                if (invisibleTextStyle) invisibleTextStyle.remove();
             },
     
             effectCode: function() { 
-                const elements = document.querySelectorAll("*");
-
-                elements.forEach(function(element) {
-                    element.style.color = "rgba(0, 0, 0, 0)";
-                });
+                document.head.insertAdjacentHTML("beforeend", `
+                    <style data-extension="chaosExtension" id="invisibleTextStyle">
+                        * {
+                            color: rgba(0, 0, 0, 0) !important;
+                        }
+                    </style>
+                `);
             }
         },
 
