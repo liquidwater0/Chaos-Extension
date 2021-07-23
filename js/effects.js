@@ -8,7 +8,7 @@ chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true, disableScrollingEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
-    hideScrollbarsEffectChecked: true
+    hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -312,6 +312,39 @@ chrome.storage.sync.get({
                     <style data-extension="chaosExtension" id="hideScrollbarsStyle">
                         ::-webkit-scrollbar {
                             width: 0px !important;
+                        }
+                    </style>
+                `);
+            }
+        },
+
+        {
+            name: "Select All Text",
+            enabled: items.selectAllTextEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() {
+                document.getSelection().selectAllChildren(document.body);
+            }
+        },
+
+        {
+            name: "Hide Text Selection",
+            enabled: items.hideTextSelectionEffectChecked,
+            
+            setDefaultValues: function() { 
+                const hideTextSelectionStyle = document.querySelector("[data-extension='chaosExtension']#hideTextSelectionStyle");
+                
+                if (hideTextSelectionStyle) hideTextSelectionStyle.remove();
+            },
+    
+            effectCode: function() {
+                document.head.insertAdjacentHTML("beforeend", `
+                    <style data-extension="chaosExtension" id="hideTextSelectionStyle">
+                        ::selection {
+                            background-color: rgba(0, 0, 0, 0) !important;
+                            color: currentColor !important;
                         }
                     </style>
                 `);
