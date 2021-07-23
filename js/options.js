@@ -51,7 +51,7 @@ const nothingEffectCheckbox = document.getElementById("nothingEffectCheckbox")
 const rainbowTextEffectCheckbox = document.getElementById("rainbowTextEffectCheckbox");
 const flipPageEffectCheckbox = document.getElementById("flipPageEffectCheckbox");
 const disableEverythingEffectCheckbox = document.getElementById("disableEverythingEffectCheckbox");
-const removeScrollbarsEffectCheckbox = document.getElementById("removeScrollbarsEffectCheckbox");
+const disableScrollingEffectCheckbox = document.getElementById("disableScrollingEffectCheckbox");
 const newEffectTimerTextField = document.getElementById("newEffectTimerTextField");
 const reloadPageEffectCheckbox = document.getElementById("reloadPageEffectCheckbox");
 const getAlertEffectCheckbox = document.getElementById("getAlertEffectCheckbox");
@@ -63,15 +63,16 @@ const terminalEffectCheckbox = document.getElementById("terminalEffectCheckbox")
 const removeImagesEffectCheckbox = document.getElementById("removeImagesEffectCheckbox");
 const blurryVisionEffectCheckbox = document.getElementById("blurryVisionEffectCheckbox");
 const y1950sEffectCheckbox = document.getElementById("y1950sEffectCheckbox");
+const hideScrollbarsEffectCheckbox = document.getElementById("hideScrollbarsEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
         "nothingEffectChecked": nothingEffectCheckbox.checked, "rainbowTextEffectChecked": rainbowTextEffectCheckbox.checked, "flipPageEffectChecked": flipPageEffectCheckbox.checked,
-        "disableEverythingEffectChecked": disableEverythingEffectCheckbox.checked, "removeScrollbarsEffectChecked": removeScrollbarsEffectCheckbox.checked, 
+        "disableEverythingEffectChecked": disableEverythingEffectCheckbox.checked, "disableScrollingEffectChecked": disableScrollingEffectCheckbox.checked, 
         "newEffectTimer": newEffectTimerTextField.value.split(" ")[0], "reloadPageEffectChecked": reloadPageEffectCheckbox.checked, "getAlertEffectChecked": getAlertEffectCheckbox.checked,
         "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked, "halfSizeEffectChecked": halfSizeEffectCheckbox.checked,
         "randomTextSelectEffectChecked": randomTextSelectEffectCheckbox.checked, "terminalEffectChecked": terminalEffectCheckbox.checked, "removeImagesEffectChecked": removeImagesEffectCheckbox.checked,
-        "blurryVisionEffectChecked": blurryVisionEffectCheckbox.checked, "y1950sEffectChecked": y1950sEffectCheckbox.checked
+        "blurryVisionEffectChecked": blurryVisionEffectCheckbox.checked, "y1950sEffectChecked": y1950sEffectCheckbox.checked, "hideScrollbarsEffectChecked": hideScrollbarsEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -93,8 +94,9 @@ function save() {
 function get() {
     chrome.storage.sync.get({
         currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableEverythingEffectChecked: true,
-        removeScrollbarsEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
-        halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true
+        disableScrollingEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
+        halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
+        hideScrollbarsEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -102,7 +104,7 @@ function get() {
         rainbowTextEffectCheckbox.checked = items.rainbowTextEffectChecked;
         flipPageEffectCheckbox.checked = items.flipPageEffectChecked;
         disableEverythingEffectCheckbox.checked = items.disableEverythingEffectChecked;
-        removeScrollbarsEffectCheckbox.checked = items.removeScrollbarsEffectChecked;
+        disableScrollingEffectCheckbox.checked = items.disableScrollingEffectChecked;
         newEffectTimerTextField.value = (items.newEffectTimer == 1) ? `${items.newEffectTimer} second` : `${items.newEffectTimer} seconds`;
         reloadPageEffectCheckbox.checked = items.reloadPageEffectChecked;
         getAlertEffectCheckbox.checked = items.getAlertEffectChecked;
@@ -114,5 +116,6 @@ function get() {
         removeImagesEffectCheckbox.checked = items.removeImagesEffectChecked;
         blurryVisionEffectCheckbox.checked = items.blurryVisionEffectChecked;
         y1950sEffectCheckbox.checked = items.y1950sEffectChecked;
+        hideScrollbarsEffectCheckbox.checked = items.hideScrollbarsEffectChecked;
     });
 }
