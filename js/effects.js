@@ -8,7 +8,8 @@ chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true, disableScrollingEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
-    hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true
+    hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
+    hideCursorEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -345,6 +346,69 @@ chrome.storage.sync.get({
                         ::selection {
                             background-color: rgba(0, 0, 0, 0) !important;
                             color: currentColor !important;
+                        }
+                    </style>
+                `);
+            }
+        },
+
+        {
+            name: "No CSS",
+            enabled: items.noCSSEffectChecked,
+            
+            setDefaultValues: function() {
+                const stylesheets = document.styleSheets;
+
+                for (stylesheet of stylesheets) {
+                    stylesheet.disabled = false;
+                }
+            },
+    
+            effectCode: function() {
+                const stylesheets = document.styleSheets;
+
+                for (stylesheet of stylesheets) {
+                    stylesheet.disabled = true;
+                }
+            }
+        },
+
+        {
+            name: "Random Text Color",
+            enabled: items.randomTextColorEffectChecked,
+            
+            setDefaultValues: function() { 
+                const randomTextColorStyle = document.querySelector("[data-extension='chaosExtension']#randomTextColorStyle");
+                
+                if (randomTextColorStyle) randomTextColorStyle.remove();
+            },
+    
+            effectCode: function() {
+                document.head.insertAdjacentHTML("beforeend", `
+                    <style data-extension="chaosExtension" id="randomTextColorStyle">
+                        *:not([data-extension="chaosExtension"]) {
+                            color: rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}) !important;
+                        }
+                    </style>
+                `);
+            }
+        },
+
+        {
+            name: "Hide Cursor",
+            enabled: items.hideCursorEffectChecked,
+            
+            setDefaultValues: function() { 
+                const hideCursorStyle = document.querySelector("[data-extension='chaosExtension']#hideCursorStyle");
+                
+                if (hideCursorStyle) hideCursorStyle.remove();
+            },
+    
+            effectCode: function() {
+                document.head.insertAdjacentHTML("beforeend", `
+                    <style data-extension="chaosExtension" id="hideCursorStyle">
+                        * {
+                            cursor: none !important;
                         }
                     </style>
                 `);
