@@ -66,6 +66,9 @@ const y1950sEffectCheckbox = document.getElementById("y1950sEffectCheckbox");
 const hideScrollbarsEffectCheckbox = document.getElementById("hideScrollbarsEffectCheckbox");
 const selectAllTextEffectCheckbox = document.getElementById("selectAllTextEffectCheckbox");
 const hideTextSelectionEffectCheckbox = document.getElementById("hideTextSelectionEffectCheckbox");
+const noCSSEffectCheckbox = document.getElementById("noCSSEffectCheckbox");
+const randomTextColorEffectCheckbox = document.getElementById("randomTextColorEffectCheckbox");
+const hideCursorEffectCheckbox = document.getElementById("hideCursorEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -75,7 +78,8 @@ function save() {
         "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked, "halfSizeEffectChecked": halfSizeEffectCheckbox.checked,
         "randomTextSelectEffectChecked": randomTextSelectEffectCheckbox.checked, "terminalEffectChecked": terminalEffectCheckbox.checked, "removeImagesEffectChecked": removeImagesEffectCheckbox.checked,
         "blurryVisionEffectChecked": blurryVisionEffectCheckbox.checked, "y1950sEffectChecked": y1950sEffectCheckbox.checked, "hideScrollbarsEffectChecked": hideScrollbarsEffectCheckbox.checked,
-        "selectAllTextEffectChecked": selectAllTextEffectCheckbox.checked, "hideTextSelectionEffectChecked": hideTextSelectionEffectCheckbox.checked
+        "selectAllTextEffectChecked": selectAllTextEffectCheckbox.checked, "hideTextSelectionEffectChecked": hideTextSelectionEffectCheckbox.checked, "noCSSEffectChecked": noCSSEffectCheckbox.checked,
+        "randomTextColorEffectChecked": randomTextColorEffectCheckbox.checked, "hideCursorEffectChecked": hideCursorEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -99,7 +103,8 @@ function get() {
         currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true,
         disableScrollingEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
         halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
-        hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true
+        hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true, 
+        hideCursorEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -122,5 +127,8 @@ function get() {
         hideScrollbarsEffectCheckbox.checked = items.hideScrollbarsEffectChecked;
         selectAllTextEffectCheckbox.checked = items.selectAllTextEffectChecked;
         hideTextSelectionEffectCheckbox.checked = items.hideTextSelectionEffectChecked;
+        noCSSEffectCheckbox.checked = items.noCSSEffectChecked;
+        randomTextColorEffectCheckbox.checked = items.randomTextColorEffectChecked;
+        hideCursorEffectCheckbox.checked = items.hideCursorEffectChecked;
     });
 }
