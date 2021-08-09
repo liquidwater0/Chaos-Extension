@@ -9,7 +9,7 @@ chrome.storage.sync.get({
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
-    hideCursorEffectChecked: true
+    hideCursorEffectChecked: true, doubleSizeEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -412,6 +412,21 @@ chrome.storage.sync.get({
                         }
                     </style>
                 `);
+            }
+        },
+
+        {
+            name: "Double Size",
+            enabled: items.doubleSizeEffectChecked,
+
+            setDefaultValues: function() { 
+                document.body.style.transform = "";
+                document.body.style.overflowX = "";
+            },
+    
+            effectCode: function() {
+                document.body.style.transform = "scale(2) translate(25%, 25%)";
+                document.body.style.overflowX = "auto";
             }
         }
     ];
