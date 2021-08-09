@@ -9,7 +9,8 @@ chrome.storage.sync.get({
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
-    hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true
+    hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
+    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -454,6 +455,66 @@ chrome.storage.sync.get({
     
             effectCode: function() {
                 document.getSelection().selectAllChildren(document.head);
+            }
+        },
+
+        {
+            name: "Mute Everything",
+            enabled: items.muteEverythingEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() {
+                const audioVideos = document.querySelectorAll("audio, video");
+
+                audioVideos.forEach(function(element) {
+                    element.muted = true;
+                });
+            }
+        },
+
+        {
+            name: "Unmute Everything",
+            enabled: items.unmuteEverythingEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() {
+                const audioVideos = document.querySelectorAll("audio, video");
+
+                audioVideos.forEach(function(element) {
+                    element.muted = false;
+                });
+            }
+        },
+
+        {
+            name: "Play Everything",
+            enabled: items.playEverythingEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() {
+                const audioVideos = document.querySelectorAll("audio, video");
+
+                audioVideos.forEach(function(element) {
+                    element.play();
+                });
+            }
+        },
+
+        {
+            name: "Pause Everything",
+            enabled: items.pauseEverythingEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() {
+                const audioVideos = document.querySelectorAll("audio, video");
+
+                audioVideos.forEach(function(element) {
+                    element.pause();
+                });
             }
         }
     ];
