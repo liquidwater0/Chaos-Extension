@@ -58,7 +58,7 @@ chrome.storage.sync.get({
             },
     
             effectCode: function() { 
-                document.body.insertAdjacentHTML("afterbegin", `
+                document.head.insertAdjacentHTML("beforeend", `
                     <style data-extension="chaosExtension" id="flipPageStyle">
                         html, body {
                             overflow: auto !important;
