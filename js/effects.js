@@ -47,16 +47,32 @@ chrome.storage.sync.get({
             }
         },
     
-        { //fix broken site when flipped
+        {
             name: "Flip Page",
             enabled: items.flipPageEffectChecked,
-    
+
             setDefaultValues: function() { 
-                document.querySelector("html").style.transform = "";
+                const flipPageStyle = document.querySelector("[data-extension='chaosExtension']#flipPageStyle");
+                
+                if (flipPageStyle) flipPageStyle.remove();
             },
     
             effectCode: function() { 
-                document.querySelector("html").style.transform = "rotate(180deg)";
+                document.body.insertAdjacentHTML("afterbegin", `
+                    <style data-extension="chaosExtension" id="flipPageStyle">
+                        html, body {
+                            overflow: auto !important;
+                        }
+
+                        body {
+                            position: fixed !important;
+                            transform: rotate(180deg) !important;
+                            bottom: 0px !important;
+                            width: 100% !important;
+                            height: 100% !important;
+                        }
+                    </style>
+                `);
             }
         },
     
