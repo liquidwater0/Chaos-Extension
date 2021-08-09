@@ -71,6 +71,10 @@ const randomTextColorEffectCheckbox = document.getElementById("randomTextColorEf
 const hideCursorEffectCheckbox = document.getElementById("hideCursorEffectCheckbox");
 const doubleSizeEffectCheckbox = document.getElementById("doubleSizeEffectCheckbox");
 const unselectAllTextEffectCheckbox = document.getElementById("unselectAllTextEffectCheckbox");
+const muteEverythingEffectCheckbox = document.getElementById("muteEverythingEffectCheckbox");
+const unmuteEverythingEffectCheckbox = document.getElementById("unmuteEverythingEffectCheckbox");
+const playEverythingEffectCheckbox = document.getElementById("playEverythingEffectCheckbox");
+const pauseEverythingEffectCheckbox = document.getElementById("pauseEverythingEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -82,7 +86,8 @@ function save() {
         "blurryVisionEffectChecked": blurryVisionEffectCheckbox.checked, "y1950sEffectChecked": y1950sEffectCheckbox.checked, "hideScrollbarsEffectChecked": hideScrollbarsEffectCheckbox.checked,
         "selectAllTextEffectChecked": selectAllTextEffectCheckbox.checked, "hideTextSelectionEffectChecked": hideTextSelectionEffectCheckbox.checked, "noCSSEffectChecked": noCSSEffectCheckbox.checked,
         "randomTextColorEffectChecked": randomTextColorEffectCheckbox.checked, "hideCursorEffectChecked": hideCursorEffectCheckbox.checked, "doubleSizeEffectChecked": doubleSizeEffectCheckbox.checked,
-        "unselectAllTextEffectChecked": unselectAllTextEffectCheckbox.checked
+        "unselectAllTextEffectChecked": unselectAllTextEffectCheckbox.checked, "muteEverythingEffectChecked": muteEverythingEffectCheckbox.checked, "unmuteEverythingEffectChecked": unmuteEverythingEffectCheckbox.checked,
+        "playEverythingEffectChecked": playEverythingEffectCheckbox.checked, "pauseEverythingEffectChecked": pauseEverythingEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -107,7 +112,8 @@ function get() {
         disableScrollingEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
         halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
         hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
-        hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true
+        hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
+        playEverythingEffectChecked: true, pauseEverythingEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -135,5 +141,9 @@ function get() {
         hideCursorEffectCheckbox.checked = items.hideCursorEffectChecked;
         doubleSizeEffectCheckbox.checked = items.doubleSizeEffectChecked;
         unselectAllTextEffectCheckbox.checked = items.unselectAllTextEffectChecked;
+        muteEverythingEffectCheckbox.checked = items.muteEverythingEffectChecked;
+        unmuteEverythingEffectCheckbox.checked = items.unmuteEverythingEffectChecked;
+        playEverythingEffectCheckbox.checked = items.playEverythingEffectChecked;
+        pauseEverythingEffectCheckbox.checked = items.pauseEverythingEffectChecked;
     });
 }
