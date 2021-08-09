@@ -163,7 +163,7 @@ chrome.storage.sync.get({
             },
     
             effectCode: function() { 
-                document.body.style.transform = "scale(0.5)";
+                document.body.style.transform = "scale(0.5) translateY(-50%)";
             }
         },
 
