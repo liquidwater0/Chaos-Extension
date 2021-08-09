@@ -9,7 +9,7 @@ chrome.storage.sync.get({
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
-    hideCursorEffectChecked: true, doubleSizeEffectChecked: true
+    hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -443,6 +443,17 @@ chrome.storage.sync.get({
             effectCode: function() {
                 document.body.style.transform = "scale(2) translate(25%, 25%)";
                 document.body.style.overflowX = "auto";
+            }
+        },
+
+        {
+            name: "Unselect All Text",
+            enabled: items.unselectAllTextEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() {
+                document.getSelection().selectAllChildren(document.head);
             }
         }
     ];
