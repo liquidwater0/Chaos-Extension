@@ -14,10 +14,11 @@ document.body.insertAdjacentHTML("beforebegin", `
 `);
 
 let timer;
+let timerSeconds;
 
 chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
   timer = items.newEffectTimer;
-  let timerSeconds = timer;
+  timerSeconds = timer;
 
   const timeRemaining = document.querySelector("[data-extension='chaosExtension'] #timeRemaining");
   timeRemaining.textContent = timerSeconds;
