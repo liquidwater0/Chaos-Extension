@@ -20,5 +20,5 @@
 }
 
 [data-extension="chaosExtension"]#invertOverlay {
-    backdrop-filter: invert(100%);
+    backdrop-filter: invert(100%) !important;
 }
