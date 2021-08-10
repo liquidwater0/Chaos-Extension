@@ -10,7 +10,7 @@ chrome.storage.sync.get({
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
-    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true
+    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -89,7 +89,7 @@ chrome.storage.sync.get({
     
             effectCode: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" id="disableOverlay"></div>
+                    <div data-extension="chaosExtension" class="overlay" id="disableOverlay"></div>
                 `);
             }
         },
@@ -293,7 +293,7 @@ chrome.storage.sync.get({
     
             effectCode: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" id="blurOverlay"></div>
+                    <div data-extension="chaosExtension" class="overlay noPointerEvents" id="blurOverlay"></div>
                 `);
             }
         },
@@ -310,7 +310,7 @@ chrome.storage.sync.get({
     
             effectCode: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" id="y1950sOverlay"></div>
+                    <div data-extension="chaosExtension" class="overlay noPointerEvents" id="y1950sOverlay"></div>
                 `);
             }
         },
@@ -515,6 +515,23 @@ chrome.storage.sync.get({
                 audioVideos.forEach(function(element) {
                     element.pause();
                 });
+            }
+        },
+
+        {
+            name: "Inverted Colors",
+            enabled: items.invertedColorsEffectChecked,
+            
+            setDefaultValues: function() { 
+                const invertOverlay = document.querySelector("[data-extension='chaosExtension']#invertOverlay");
+                
+                if (invertOverlay) invertOverlay.remove();
+            },
+    
+            effectCode: function() {
+                document.body.insertAdjacentHTML("afterbegin", `
+                    <div data-extension="chaosExtension" class="overlay noPointerEvents" id="invertOverlay"></div>
+                `);
             }
         }
     ];
