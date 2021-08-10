@@ -27,7 +27,10 @@
 				"js/effects.js",
 				"js/chaos.js"
 			],
-			"css": ["css/chaos.css"]
+			"css": [
+				"css/chaos.css",
+				"css/effects.css"
+			]
 		}
 	]
 }
