@@ -20,8 +20,8 @@ chrome.storage.sync.get({
             setDefaultValues: function() {},
             effectCode: function() {}
         },
-    
-        { //make clear interval happen when default values are set
+
+        {
             name: "Rainbow Text",
             enabled: items.rainbowTextEffectChecked,
     
@@ -32,18 +32,22 @@ chrome.storage.sync.get({
                     element.style.color = "";
                 });
             },
-    
+
             effectCode: function() {  
                 const elements = document.querySelectorAll("*");
     
                 elements.forEach(function(element) {
-                    element.style.color = `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`;
+                    const interval = setInterval(randomizeColors, 1000);
 
-                    const interval = setInterval(function() {
+                    randomizeColors();
+
+                    function randomizeColors() {
                         element.style.color = `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`;
+                    }
+
+                    setInterval(function() {
+                        if (timerSeconds <= 0) clearInterval(interval);
                     }, 1000);
-    
-                    setTimeout(function() { clearInterval(interval) }, timer * 1000);
                 });
             }
         },
