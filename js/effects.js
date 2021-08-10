@@ -57,27 +57,11 @@ chrome.storage.sync.get({
             enabled: items.flipPageEffectChecked,
 
             setDefaultValues: function() { 
-                const flipPageStyle = document.querySelector("[data-extension='chaosExtension']#flipPageStyle");
-                
-                if (flipPageStyle) flipPageStyle.remove();
+                document.querySelector("html").classList.remove("flipPageEffect");
             },
     
             effectCode: function() { 
-                document.head.insertAdjacentHTML("beforeend", `
-                    <style data-extension="chaosExtension" id="flipPageStyle">
-                        html, body {
-                            overflow: auto !important;
-                        }
-
-                        body {
-                            position: fixed !important;
-                            transform: rotate(180deg) !important;
-                            bottom: 0px !important;
-                            width: 100% !important;
-                            height: 100% !important;
-                        }
-                    </style>
-                `);
+                document.querySelector("html").classList.add("flipPageEffect");
             }
         },
     
@@ -103,19 +87,11 @@ chrome.storage.sync.get({
             enabled: items.disableScrollingEffectChecked,
             
             setDefaultValues: function() { 
-                const elements = document.querySelectorAll("*");
-    
-                elements.forEach(function(element) {
-                    element.style.overflow = "";
-                });
+                document.querySelector("html").classList.remove("disableScrollingEffect");
             },
     
             effectCode: function() { 
-                const elements = document.querySelectorAll("*");
-    
-                elements.forEach(function(element) {
-                    element.style.overflow = "hidden";
-                });
+                document.querySelector("html").classList.add("disableScrollingEffect");
             }
         },
 
@@ -158,20 +134,12 @@ chrome.storage.sync.get({
             name: "Invisible Text",
             enabled: items.invisibleTextChecked,
             
-            setDefaultValues: function() {
-                const invisibleTextStyle = document.querySelector("[data-extension='chaosExtension']#invisibleTextStyle");
-
-                if (invisibleTextStyle) invisibleTextStyle.remove();
+            setDefaultValues: function() { 
+                document.querySelector("html").classList.remove("invisibleTextEffect");
             },
     
             effectCode: function() { 
-                document.head.insertAdjacentHTML("beforeend", `
-                    <style data-extension="chaosExtension" id="invisibleTextStyle">
-                        * {
-                            color: rgba(0, 0, 0, 0) !important;
-                        }
-                    </style>
-                `);
+                document.querySelector("html").classList.add("invisibleTextEffect");
             }
         },
 
@@ -179,12 +147,12 @@ chrome.storage.sync.get({
             name: "Half Size",
             enabled: items.halfSizeEffectChecked,
             
-            setDefaultValues: function() {
-                document.body.style.transform = "";
+            setDefaultValues: function() { 
+                document.querySelector("html").classList.remove("halfSizeEffect");
             },
     
             effectCode: function() { 
-                document.body.style.transform = "scale(0.5) translateY(-50%)";
+                document.querySelector("html").classList.add("halfSizeEffect");
             }
         },
 
@@ -193,20 +161,15 @@ chrome.storage.sync.get({
             enabled: items.randomTextSelectEffectChecked,
             
             setDefaultValues: function() {
-                const textSelectionStyle = document.querySelector("[data-extension='chaosExtension']#textSelection");
-
-                if (textSelectionStyle) textSelectionStyle.remove();
+                document.querySelector("html").classList.remove("randomTextSelectionEffect");
             },
     
             effectCode: function() { 
-                document.head.insertAdjacentHTML("beforeend", `
-                    <style data-extension="chaosExtension" id="textSelection">
-                        ::selection {
-                            background-color: rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}) !important;
-                            color: rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}) !important;
-                        }
-                    </style>
-                `);
+                const html = document.querySelector("html");
+
+                html.classList.add("randomTextSelectionEffect");
+                html.style.setProperty("--randomBackgroundColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
+                html.style.setProperty("--randomTextColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
             }
         },
 
@@ -215,10 +178,9 @@ chrome.storage.sync.get({
             enabled: items.terminalEffectChecked,
             
             setDefaultValues: function() {
-                const elements = document.querySelectorAll("*");
-                const terminalStyle = document.querySelector("[data-extension='chaosExtension']#terminalStyle");
+                document.querySelector("html").classList.remove("terminalifyEffect");
 
-                if (terminalStyle) terminalStyle.remove();
+                const elements = document.querySelectorAll("*");
 
                 elements.forEach(function(element) {
                     element.style.backgroundColor = "";
@@ -226,27 +188,9 @@ chrome.storage.sync.get({
             },
     
             effectCode: function() { 
+                document.querySelector("html").classList.add("terminalifyEffect");
+
                 const elements = document.querySelectorAll("body *, body, html");
-
-                document.head.insertAdjacentHTML("beforeend", `
-                    <style data-extension="chaosExtension" id="terminalStyle">
-                        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-
-                        ::selection {
-                            background-color: rgba(0, 255, 0, 0.75) !important;
-                            color: white !important;
-                        }
-
-                        *:not([data-extension='chaosExtension']) {
-                            font-family: 'Roboto Mono', monospace !important;
-                            color: rgb(0, 255, 0) !important;
-                        }
-
-                        :not([data-extension='chaosExtension']) a {
-                            color: rgba(0, 255, 0, 0.5) !important;
-                        }
-                    </style>
-                `);
 
                 function getColor(element) {
                     const parts = window.getComputedStyle(element, null).getPropertyValue("background-color").match(/[\d.]+/g);
@@ -268,20 +212,12 @@ chrome.storage.sync.get({
             name: "Remove Images",
             enabled: items.removeImagesEffectChecked,
             
-            setDefaultValues: function() {
-                const hideImagesStyle = document.querySelector("[data-extension]#hideImagesStyle");
-
-                if (hideImagesStyle) hideImagesStyle.remove();
+            setDefaultValues: function() { 
+                document.querySelector("html").classList.remove("removeImagesEffect");
             },
     
             effectCode: function() { 
-                document.head.insertAdjacentHTML("beforeend", `
-                    <style data-extension="chaosExtension" id="hideImagesStyle">
-                        img {
-                            opacity: 0 !important;
-                        }
-                    </style>
-                `);
+                document.querySelector("html").classList.add("removeImagesEffect");
             }
         },
 
@@ -324,19 +260,11 @@ chrome.storage.sync.get({
             enabled: items.hideScrollbarsEffectChecked,
             
             setDefaultValues: function() { 
-                const hideScrollbarsStyle = document.querySelector("[data-extension='chaosExtension']#hideScrollbarsStyle");
-                
-                if (hideScrollbarsStyle) hideScrollbarsStyle.remove();
+                document.querySelector("html").classList.remove("hideScrollbarsEffect");
             },
     
-            effectCode: function() {
-                document.head.insertAdjacentHTML("beforeend", `
-                    <style data-extension="chaosExtension" id="hideScrollbarsStyle">
-                        ::-webkit-scrollbar {
-                            width: 0px !important;
-                        }
-                    </style>
-                `);
+            effectCode: function() { 
+                document.querySelector("html").classList.add("hideScrollbarsEffect");
             }
         },
 
@@ -356,20 +284,11 @@ chrome.storage.sync.get({
             enabled: items.hideTextSelectionEffectChecked,
             
             setDefaultValues: function() { 
-                const hideTextSelectionStyle = document.querySelector("[data-extension='chaosExtension']#hideTextSelectionStyle");
-                
-                if (hideTextSelectionStyle) hideTextSelectionStyle.remove();
+                document.querySelector("html").classList.remove("hideTextSelectionEffect");
             },
     
-            effectCode: function() {
-                document.head.insertAdjacentHTML("beforeend", `
-                    <style data-extension="chaosExtension" id="hideTextSelectionStyle">
-                        ::selection {
-                            background-color: rgba(0, 0, 0, 0) !important;
-                            color: currentColor !important;
-                        }
-                    </style>
-                `);
+            effectCode: function() { 
+                document.querySelector("html").classList.add("hideTextSelectionEffect");
             }
         },
 
@@ -399,19 +318,14 @@ chrome.storage.sync.get({
             enabled: items.randomTextColorEffectChecked,
             
             setDefaultValues: function() { 
-                const randomTextColorStyle = document.querySelector("[data-extension='chaosExtension']#randomTextColorStyle");
-                
-                if (randomTextColorStyle) randomTextColorStyle.remove();
+                document.querySelector("html").classList.remove("randomTextColorEffect");
             },
     
             effectCode: function() {
-                document.head.insertAdjacentHTML("beforeend", `
-                    <style data-extension="chaosExtension" id="randomTextColorStyle">
-                        *:not([data-extension="chaosExtension"]) {
-                            color: rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}) !important;
-                        }
-                    </style>
-                `);
+                const html = document.querySelector("html");
+
+                html.classList.add("randomTextColorEffect");
+                html.style.setProperty("--randomTextColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
             }
         },
 
@@ -420,19 +334,11 @@ chrome.storage.sync.get({
             enabled: items.hideCursorEffectChecked,
             
             setDefaultValues: function() { 
-                const hideCursorStyle = document.querySelector("[data-extension='chaosExtension']#hideCursorStyle");
-                
-                if (hideCursorStyle) hideCursorStyle.remove();
+                document.querySelector("html").classList.remove("hideCursorEffect");
             },
     
-            effectCode: function() {
-                document.head.insertAdjacentHTML("beforeend", `
-                    <style data-extension="chaosExtension" id="hideCursorStyle">
-                        * {
-                            cursor: none !important;
-                        }
-                    </style>
-                `);
+            effectCode: function() { 
+                document.querySelector("html").classList.add("hideCursorEffect");
             }
         },
 
@@ -441,13 +347,11 @@ chrome.storage.sync.get({
             enabled: items.doubleSizeEffectChecked,
 
             setDefaultValues: function() { 
-                document.body.style.transform = "";
-                document.body.style.overflowX = "";
+                document.querySelector("html").classList.remove("doubleSizeEffect");
             },
     
-            effectCode: function() {
-                document.body.style.transform = "scale(2) translate(25%, 25%)";
-                document.body.style.overflowX = "auto";
+            effectCode: function() { 
+                document.querySelector("html").classList.add("doubleSizeEffect");
             }
         },
 
