@@ -11,14 +11,101 @@
     pointer-events: none !important;
 }
 
+/* Flip Page */
+html[data-extension="chaosExtension"].flipPageEffect,
+html[data-extension="chaosExtension"].flipPageEffect body {
+    overflow: auto !important;
+}
+
+html[data-extension="chaosExtension"].flipPageEffect body {
+    position: fixed !important;
+    transform: rotate(180deg) !important;
+    bottom: 0px !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Disable Scrolling */
+html[data-extension="chaosExtension"].disableScrollingEffect * {
+    overflow: hidden !important;
+}
+
+/* Invisible Text */
+html[data-extension="chaosExtension"].invisibleTextEffect * {
+    color: transparent !important;
+}
+
+/* Half Size */
+html[data-extension="chaosExtension"].halfSizeEffect body {
+    transform: scale(0.5) translateY(-50%) !important;
+}
+
+/* Random Text Selection */
+html[data-extension="chaosExtension"].randomTextSelectionEffect ::selection {
+    background-color: var(--randomBackgroundColor) !important;
+    color: var(--randomTextColor) !important;
+}
+
+/* Terminalify */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+html[data-extension="chaosExtension"].terminalifyEffect ::selection {
+    background-color: rgba(0, 255, 0, 0.75) !important;
+    color: white !important;
+}
+
+html[data-extension="chaosExtension"].terminalifyEffect *:not([data-extension='chaosExtension']) {
+    font-family: 'Roboto Mono', monospace !important;
+    color: rgb(0, 255, 0) !important;
+}
+
+html[data-extension="chaosExtension"].terminalifyEffect :not([data-extension='chaosExtension']) a {
+    color: rgba(0, 255, 0, 0.5) !important;
+}
+
+/* Remove Images */
+html[data-extension="chaosExtension"].removeImagesEffect img {
+    opacity: 0 !important;
+}
+
+/* Blurry Vision */
 [data-extension="chaosExtension"]#blurOverlay {
     backdrop-filter: blur(1.5px) !important;
 }
 
+/* 1950s */
 [data-extension="chaosExtension"]#y1950sOverlay {
     backdrop-filter: grayscale(100%) sepia(15%) blur(0.66px) !important;
 }
 
+/* Hide Scrollbars */
+html[data-extension="chaosExtension"].hideScrollbarsEffect ::-webkit-scrollbar {
+    width: 0px !important;
+}
+
+/* Hide Text Selection */
+html[data-extension="chaosExtension"].hideTextSelectionEffect ::selection {
+    background-color: transparent !important;
+    color: currentColor !important;
+}
+
+/* Random Text Color */
+html[data-extension="chaosExtension"].randomTextColorEffect * {
+    color: var(--randomTextColor) !important;
+}
+
+/* Hide Cursor */
+html[data-extension="chaosExtension"].hideCursorEffect * {
+    cursor: none !important;
+}
+
+/* Double Size */
+html[data-extension="chaosExtension"].doubleSizeEffect body {
+    transform: scale(2) translate(25%, 25%) !important;
+    overflow-x: auto !important;
+}
+
+/* Inverted Colors */
 [data-extension="chaosExtension"]#invertOverlay {
     backdrop-filter: invert(100%) !important;
 }
