@@ -210,7 +210,7 @@ chrome.storage.sync.get({
             }
         },
 
-        { //fix background color not changing on some elements and make it so extension elements are unaffected
+        {//extension elements font is still being affected and some sites still have some unchanged backgrounds
             name: "Terminalify",
             enabled: items.terminalEffectChecked,
             
@@ -226,7 +226,7 @@ chrome.storage.sync.get({
             },
     
             effectCode: function() { 
-                const elements = document.querySelectorAll("*");
+                const elements = document.querySelectorAll("body *, body, html");
 
                 document.head.insertAdjacentHTML("beforeend", `
                     <style data-extension="chaosExtension" id="terminalStyle">
@@ -237,12 +237,12 @@ chrome.storage.sync.get({
                             color: white !important;
                         }
 
-                        :not([data-extension]) {
+                        *:not([data-extension='chaosExtension']) {
                             font-family: 'Roboto Mono', monospace !important;
                             color: rgb(0, 255, 0) !important;
                         }
 
-                        :not([data-extension]) a {
+                        :not([data-extension='chaosExtension']) a {
                             color: rgba(0, 255, 0, 0.5) !important;
                         }
                     </style>
