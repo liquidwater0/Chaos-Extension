@@ -1,0 +1,24 @@
+[data-extension="chaosExtension"].overlay {
+    position: fixed !important;
+    top: 0px !important;
+    left: 0px !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1000000000 !important;
+}
+
+[data-extension="chaosExtension"].noPointerEvents {
+    pointer-events: none !important;
+}
+
+[data-extension="chaosExtension"]#blurOverlay {
+    backdrop-filter: blur(1.5px) !important;
+}
+
+[data-extension="chaosExtension"]#y1950sOverlay {
+    backdrop-filter: grayscale(100%) sepia(15%) blur(0.66px) !important;
+}
+
+[data-extension="chaosExtension"]#invertOverlay {
+    backdrop-filter: invert(100%);
+}
