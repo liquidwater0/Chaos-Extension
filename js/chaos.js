@@ -13,7 +13,7 @@ document.body.insertAdjacentHTML("beforebegin", `
   </div>
 `);
 
-document.querySelector("html").setAttribute("data-extension", "chaosExtension");
+document.documentElement.setAttribute("data-extension", "chaosExtension");
 
 let timer;
 let timerSeconds;
