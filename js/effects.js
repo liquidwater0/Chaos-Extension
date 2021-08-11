@@ -57,11 +57,11 @@ chrome.storage.sync.get({
             enabled: items.flipPageEffectChecked,
 
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("flipPageEffect");
+                document.documentElement.classList.remove("flipPageEffect");
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("flipPageEffect");
+                document.documentElement.classList.add("flipPageEffect");
             }
         },
     
@@ -87,11 +87,11 @@ chrome.storage.sync.get({
             enabled: items.disableScrollingEffectChecked,
             
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("disableScrollingEffect");
+                document.documentElement.classList.remove("disableScrollingEffect");
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("disableScrollingEffect");
+                document.documentElement.classList.add("disableScrollingEffect");
             }
         },
 
@@ -135,11 +135,11 @@ chrome.storage.sync.get({
             enabled: items.invisibleTextChecked,
             
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("invisibleTextEffect");
+                document.documentElement.classList.remove("invisibleTextEffect");
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("invisibleTextEffect");
+                document.documentElement.classList.add("invisibleTextEffect");
             }
         },
 
@@ -148,11 +148,11 @@ chrome.storage.sync.get({
             enabled: items.halfSizeEffectChecked,
             
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("halfSizeEffect");
+                document.documentElement.classList.remove("halfSizeEffect");
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("halfSizeEffect");
+                document.documentElement.classList.add("halfSizeEffect");
             }
         },
 
@@ -161,11 +161,11 @@ chrome.storage.sync.get({
             enabled: items.randomTextSelectEffectChecked,
             
             setDefaultValues: function() {
-                document.querySelector("html").classList.remove("randomTextSelectionEffect");
+                document.documentElement.classList.remove("randomTextSelectionEffect");
             },
     
             effectCode: function() { 
-                const html = document.querySelector("html");
+                const html = document.documentElement;
 
                 html.classList.add("randomTextSelectionEffect");
                 html.style.setProperty("--randomBackgroundColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
@@ -178,7 +178,7 @@ chrome.storage.sync.get({
             enabled: items.terminalEffectChecked,
             
             setDefaultValues: function() {
-                document.querySelector("html").classList.remove("terminalifyEffect");
+                document.documentElement.classList.remove("terminalifyEffect");
 
                 const elements = document.querySelectorAll("*");
 
@@ -188,7 +188,7 @@ chrome.storage.sync.get({
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("terminalifyEffect");
+                document.documentElement.classList.add("terminalifyEffect");
 
                 const elements = document.querySelectorAll("body *, body, html");
 
@@ -213,11 +213,11 @@ chrome.storage.sync.get({
             enabled: items.removeImagesEffectChecked,
             
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("removeImagesEffect");
+                document.documentElement.classList.remove("removeImagesEffect");
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("removeImagesEffect");
+                document.documentElement.classList.add("removeImagesEffect");
             }
         },
 
@@ -260,11 +260,11 @@ chrome.storage.sync.get({
             enabled: items.hideScrollbarsEffectChecked,
             
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("hideScrollbarsEffect");
+                document.documentElement.classList.remove("hideScrollbarsEffect");
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("hideScrollbarsEffect");
+                document.documentElement.classList.add("hideScrollbarsEffect");
             }
         },
 
@@ -284,11 +284,11 @@ chrome.storage.sync.get({
             enabled: items.hideTextSelectionEffectChecked,
             
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("hideTextSelectionEffect");
+                document.documentElement.classList.remove("hideTextSelectionEffect");
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("hideTextSelectionEffect");
+                document.documentElement.classList.add("hideTextSelectionEffect");
             }
         },
 
@@ -318,11 +318,11 @@ chrome.storage.sync.get({
             enabled: items.randomTextColorEffectChecked,
             
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("randomTextColorEffect");
+                document.documentElement.classList.remove("randomTextColorEffect");
             },
     
             effectCode: function() {
-                const html = document.querySelector("html");
+                const html = document.documentElement;
 
                 html.classList.add("randomTextColorEffect");
                 html.style.setProperty("--randomTextColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
@@ -334,11 +334,11 @@ chrome.storage.sync.get({
             enabled: items.hideCursorEffectChecked,
             
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("hideCursorEffect");
+                document.documentElement.classList.remove("hideCursorEffect");
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("hideCursorEffect");
+                document.documentElement.classList.add("hideCursorEffect");
             }
         },
 
@@ -347,11 +347,11 @@ chrome.storage.sync.get({
             enabled: items.doubleSizeEffectChecked,
 
             setDefaultValues: function() { 
-                document.querySelector("html").classList.remove("doubleSizeEffect");
+                document.documentElement.classList.remove("doubleSizeEffect");
             },
     
             effectCode: function() { 
-                document.querySelector("html").classList.add("doubleSizeEffect");
+                document.documentElement.classList.add("doubleSizeEffect");
             }
         },
 
