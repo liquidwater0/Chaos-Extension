@@ -77,6 +77,7 @@ const playEverythingEffectCheckbox = document.getElementById("playEverythingEffe
 const pauseEverythingEffectCheckbox = document.getElementById("pauseEverythingEffectCheckbox");
 const invertedColorsEffectCheckbox = document.getElementById("invertedColorsEffectCheckbox");
 const invertedPageEffectCheckbox = document.getElementById("invertedPageEffectCheckbox");
+const sidewaysPageEffectCheckbox = document.getElementById("sidewaysPageEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -90,7 +91,7 @@ function save() {
         "randomTextColorEffectChecked": randomTextColorEffectCheckbox.checked, "hideCursorEffectChecked": hideCursorEffectCheckbox.checked, "doubleSizeEffectChecked": doubleSizeEffectCheckbox.checked,
         "unselectAllTextEffectChecked": unselectAllTextEffectCheckbox.checked, "muteEverythingEffectChecked": muteEverythingEffectCheckbox.checked, "unmuteEverythingEffectChecked": unmuteEverythingEffectCheckbox.checked,
         "playEverythingEffectChecked": playEverythingEffectCheckbox.checked, "pauseEverythingEffectChecked": pauseEverythingEffectCheckbox.checked, "invertedColorsEffectChecked": invertedColorsEffectCheckbox.checked,
-        "invertedPageEffectChecked": invertedPageEffectCheckbox.checked
+        "invertedPageEffectChecked": invertedPageEffectCheckbox.checked, "sidewaysPageEffectChecked": sidewaysPageEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -116,7 +117,7 @@ function get() {
         halfSizeEffectChecked: true, randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
         hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
         hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
-        playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true
+        playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -150,5 +151,6 @@ function get() {
         pauseEverythingEffectCheckbox.checked = items.pauseEverythingEffectChecked;
         invertedColorsEffectCheckbox.checked = items.invertedColorsEffectChecked;
         invertedPageEffectCheckbox.checked = items.invertedPageEffectChecked;
+        sidewaysPageEffectCheckbox.checked = items.sidewaysPageEffectChecked;
     });
 }
