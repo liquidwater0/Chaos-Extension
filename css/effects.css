@@ -114,3 +114,24 @@ html[data-extension="chaosExtension"].doubleSizeEffect body {
 html[data-extension="chaosExtension"].invertedPageEffect body {
     transform: rotateY(180deg) !important;
 }
+
+/* Sideways Page */
+html[data-extension="chaosExtension"].sidewaysPageEffect,
+html[data-extension="chaosExtension"].sidewaysPageEffect body {
+    overflow: auto !important;
+}
+
+html[data-extension="chaosExtension"].sidewaysPageEffect {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+html[data-extension="chaosExtension"].sidewaysPageEffect body { 
+    position: fixed !important;
+    transform: rotate(-90deg) !important;
+    width: 100vh !important;
+    height: 100vw !important;
+}
