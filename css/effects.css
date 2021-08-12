@@ -109,3 +109,8 @@ html[data-extension="chaosExtension"].doubleSizeEffect body {
 [data-extension="chaosExtension"]#invertOverlay {
     backdrop-filter: invert(100%) !important;
 }
+
+/* Inverted Page */
+html[data-extension="chaosExtension"].invertedPageEffect body {
+    transform: rotateY(180deg) !important;
+}
