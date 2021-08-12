@@ -10,7 +10,7 @@ chrome.storage.sync.get({
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
-    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true
+    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -453,6 +453,19 @@ chrome.storage.sync.get({
     
             effectCode: function() { 
                 document.documentElement.classList.add("invertedPageEffect");
+            }
+        },
+
+        {
+            name: "Sideways Page",
+            enabled: items.sidewaysPageEffectChecked,
+
+            setDefaultValues: function() { 
+                document.documentElement.classList.remove("sidewaysPageEffect");
+            },
+    
+            effectCode: function() { 
+                document.documentElement.classList.add("sidewaysPageEffect");
             }
         }
     ];
