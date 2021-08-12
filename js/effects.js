@@ -10,7 +10,7 @@ chrome.storage.sync.get({
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
-    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true
+    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -440,6 +440,19 @@ chrome.storage.sync.get({
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" class="overlay noPointerEvents" id="invertOverlay"></div>
                 `);
+            }
+        },
+
+        {
+            name: "Inverted Page",
+            enabled: items.invertedPageEffectChecked,
+
+            setDefaultValues: function() { 
+                document.documentElement.classList.remove("invertedPageEffect");
+            },
+    
+            effectCode: function() { 
+                document.documentElement.classList.add("invertedPageEffect");
             }
         }
     ];
