@@ -10,7 +10,8 @@ chrome.storage.sync.get({
     randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
-    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true
+    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
+    midasTouchEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -466,6 +467,40 @@ chrome.storage.sync.get({
     
             effectCode: function() { 
                 document.documentElement.classList.add("sidewaysPageEffect");
+            }
+        },
+
+        {/*Make it so the the event listener doesn't multiply when effect happens more than once in a row.
+           Make it so extension elements are unaffected.*/
+            name: "Midas Touch",
+            enabled: items.midasTouchEffectChecked,
+
+            setDefaultValues: function() { 
+                document.documentElement.classList.remove("midasTouchEffect");
+
+                const elements = document.querySelectorAll("*");
+
+                elements.forEach(function(element) {
+                    element.style.backgroundColor = "";
+                    element.style.color = "";
+                    element.classList.remove("midasTouchGold");
+                });
+            },
+    
+            effectCode: function() {
+                document.documentElement.classList.add("midasTouchEffect");
+
+                document.addEventListener("click", makeGold);
+
+                function makeGold(event) {
+                    if (!document.documentElement.classList.contains("midasTouchEffect")) {
+                        document.removeEventListener("click", makeGold);
+                        return;
+                    }
+
+                    event.target.classList.add("midasTouchGold");
+                }
+                
             }
         }
     ];
