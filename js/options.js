@@ -13,11 +13,7 @@ const themeSwitch = document.getElementById("themeSwitch");
 themeSwitch.addEventListener("input", function() {
     chrome.storage.sync.set({"themeSwitchChecked": themeSwitch.checked});
 
-    if (themeSwitch.checked == true) {
-        darkMode();
-    } else {
-        lightMode();
-    }
+    themeSwitch.checked ? darkMode() : lightMode();
 });
 
 function lightMode() {
