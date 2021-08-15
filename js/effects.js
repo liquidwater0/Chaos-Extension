@@ -481,8 +481,6 @@ chrome.storage.sync.get({
                 const elements = document.querySelectorAll("*");
 
                 elements.forEach(function(element) {
-                    element.style.backgroundColor = "";
-                    element.style.color = "";
                     element.classList.remove("midasTouchGold");
                 });
             },
