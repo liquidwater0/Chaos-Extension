@@ -135,3 +135,9 @@ html[data-extension="chaosExtension"].sidewaysPageEffect body {
     width: 100vh !important;
     height: 100vw !important;
 }
+
+/* Midas Touch */
+html[data-extension="chaosExtension"].midasTouchEffect .midasTouchGold {
+    background-color: gold !important;
+    color: white !important;
+}
