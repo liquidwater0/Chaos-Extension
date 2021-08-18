@@ -470,8 +470,7 @@ chrome.storage.sync.get({
             }
         },
 
-        {/*Make it so the the event listener doesn't multiply when effect happens more than once in a row.
-           Make it so extension elements are unaffected.*/
+        {//Make it so the the event listener doesn't multiply when effect happens more than once in a row.
             name: "Midas Touch",
             enabled: items.midasTouchEffectChecked,
 
@@ -498,7 +497,6 @@ chrome.storage.sync.get({
 
                     event.target.classList.add("midasTouchGold");
                 }
-                
             }
         }
     ];
