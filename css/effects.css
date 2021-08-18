@@ -137,7 +137,7 @@ html[data-extension="chaosExtension"].sidewaysPageEffect body {
 }
 
 /* Midas Touch */
-html[data-extension="chaosExtension"].midasTouchEffect .midasTouchGold {
+html[data-extension="chaosExtension"].midasTouchEffect .midasTouchGold:not(html [data-extension="chaosExtension"] *, [data-extension="chaosExtension"]) {
     background-color: gold !important;
     color: white !important;
 }
