@@ -11,7 +11,7 @@ chrome.storage.sync.get({
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-    midasTouchEffectChecked: true
+    midasTouchEffectChecked: true, blackoutEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -497,6 +497,23 @@ chrome.storage.sync.get({
 
                     event.target.classList.add("midasTouchGold");
                 }
+            }
+        },
+
+        {
+            name: "Blackout",
+            enabled: items.blackoutEffectChecked,
+            
+            setDefaultValues: function() { 
+                const blackoutOverlay = document.querySelector("[data-extension='chaosExtension']#blackoutOverlay");
+                
+                if (blackoutOverlay) blackoutOverlay.remove();
+            },
+    
+            effectCode: function() {
+                document.body.insertAdjacentHTML("afterbegin", `
+                    <div data-extension="chaosExtension" class="overlay noPointerEvents" id="blackoutOverlay"></div>
+                `);
             }
         }
     ];
