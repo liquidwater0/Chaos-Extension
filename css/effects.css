@@ -141,3 +141,8 @@ html[data-extension="chaosExtension"].midasTouchEffect .midasTouchGold:not(html 
     background-color: gold !important;
     color: white !important;
 }
+
+/* Blackout */
+[data-extension="chaosExtension"]#blackoutOverlay {
+    backdrop-filter: brightness(12%) !important;
+}
