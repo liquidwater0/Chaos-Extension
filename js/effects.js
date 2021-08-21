@@ -174,7 +174,7 @@ chrome.storage.sync.get({
             }
         },
 
-        {//extension elements font is still being affected and some sites still have some unchanged backgrounds
+        {//Maybe find a better way to set a dark background on everything
             name: "Terminalify",
             enabled: items.terminalEffectChecked,
             
