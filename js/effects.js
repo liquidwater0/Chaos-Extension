@@ -470,12 +470,17 @@ chrome.storage.sync.get({
             }
         },
 
-        {//Make it so the the event listener doesn't multiply when effect happens more than once in a row.
+        {
             name: "Midas Touch",
             enabled: items.midasTouchEffectChecked,
 
+            makeGold: function(event) {
+                event.target.classList.add("midasTouchGold");
+            },
+
             setDefaultValues: function() { 
                 document.documentElement.classList.remove("midasTouchEffect");
+                document.removeEventListener("click", this.makeGold);
 
                 const elements = document.querySelectorAll("*");
 
@@ -486,17 +491,7 @@ chrome.storage.sync.get({
     
             effectCode: function() {
                 document.documentElement.classList.add("midasTouchEffect");
-
-                document.addEventListener("click", makeGold);
-
-                function makeGold(event) {
-                    if (!document.documentElement.classList.contains("midasTouchEffect")) {
-                        document.removeEventListener("click", makeGold);
-                        return;
-                    }
-
-                    event.target.classList.add("midasTouchGold");
-                }
+                document.addEventListener("click", this.makeGold);
             }
         },
 
