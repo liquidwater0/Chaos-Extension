@@ -54,12 +54,12 @@ html[data-extension="chaosExtension"].terminalifyEffect ::selection {
     color: white !important;
 }
 
-html[data-extension="chaosExtension"].terminalifyEffect *:not([data-extension='chaosExtension']) {
+html[data-extension="chaosExtension"].terminalifyEffect *:not(html [data-extension="chaosExtension"] *, [data-extension="chaosExtension"]) {
     font-family: 'Roboto Mono', monospace !important;
     color: rgb(0, 255, 0) !important;
 }
 
-html[data-extension="chaosExtension"].terminalifyEffect :not([data-extension='chaosExtension']) a {
+html[data-extension="chaosExtension"].terminalifyEffect *:not(html [data-extension="chaosExtension"] *, [data-extension="chaosExtension"]) a {
     color: rgba(0, 255, 0, 0.5) !important;
 }
 
