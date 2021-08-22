@@ -76,6 +76,7 @@ const invertedPageEffectCheckbox = document.getElementById("invertedPageEffectCh
 const sidewaysPageEffectCheckbox = document.getElementById("sidewaysPageEffectCheckbox");
 const midasTouchEffectCheckbox = document.getElementById("midasTouchEffectCheckbox");
 const blackoutEffectCheckbox = document.getElementById("blackoutEffectCheckbox");
+const emptyValuesEffectCheckbox = document.getElementById("emptyValuesEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -90,7 +91,7 @@ function save() {
         "unselectAllTextEffectChecked": unselectAllTextEffectCheckbox.checked, "muteEverythingEffectChecked": muteEverythingEffectCheckbox.checked, "unmuteEverythingEffectChecked": unmuteEverythingEffectCheckbox.checked,
         "playEverythingEffectChecked": playEverythingEffectCheckbox.checked, "pauseEverythingEffectChecked": pauseEverythingEffectCheckbox.checked, "invertedColorsEffectChecked": invertedColorsEffectCheckbox.checked,
         "invertedPageEffectChecked": invertedPageEffectCheckbox.checked, "sidewaysPageEffectChecked": sidewaysPageEffectCheckbox.checked, "midasTouchEffectChecked": midasTouchEffectCheckbox.checked,
-        "blackoutEffectChecked": blackoutEffectCheckbox.checked
+        "blackoutEffectChecked": blackoutEffectCheckbox.checked, "emptyValuesEffectChecked": emptyValuesEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -117,7 +118,7 @@ function get() {
         hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
         hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
         playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-        midasTouchEffectChecked: true, blackoutEffectChecked: true
+        midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -154,5 +155,6 @@ function get() {
         sidewaysPageEffectCheckbox.checked = items.sidewaysPageEffectChecked;
         midasTouchEffectCheckbox.checked = items.midasTouchEffectChecked;
         blackoutEffectCheckbox.checked = items.blackoutEffectChecked;
+        emptyValuesEffectCheckbox.checked = items.emptyValuesEffectChecked;
     });
 }
