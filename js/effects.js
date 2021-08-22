@@ -11,7 +11,7 @@ chrome.storage.sync.get({
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-    midasTouchEffectChecked: true, blackoutEffectChecked: true
+    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -509,6 +509,22 @@ chrome.storage.sync.get({
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" class="overlay noPointerEvents" id="blackoutOverlay"></div>
                 `);
+            }
+        },
+
+        {
+            name: "Empty Input Values",
+            enabled: items.emptyValuesEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() {
+                const inputs = document.querySelectorAll("input:not([type='button']), textarea");
+
+                inputs.forEach(function(input) {
+                    if (input.type == "color") input.value = "#000000";
+                    if (input.value && input.type != "color") input.value = "";
+                });
             }
         }
     ];
