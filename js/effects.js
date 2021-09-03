@@ -163,6 +163,8 @@ chrome.storage.sync.get({
             
             setDefaultValues: function() {
                 document.documentElement.classList.remove("randomTextSelectionEffect");
+                document.documentElement.style.removeProperty("--randomBackgroundColor");
+                document.documentElement.style.removeProperty("--randomTextColor");
             },
     
             effectCode: function() { 
@@ -320,6 +322,7 @@ chrome.storage.sync.get({
             
             setDefaultValues: function() { 
                 document.documentElement.classList.remove("randomTextColorEffect");
+                document.documentElement.style.removeProperty("--randomTextColor");
             },
     
             effectCode: function() {
