@@ -1,7 +1,7 @@
 const manifest = chrome.runtime.getManifest();
 const version = document.getElementById("optionsVersion");
 const saveButton = document.getElementById("saveButton");
-const html = document.querySelector("html");
+const html = document.documentElement;
 
 version.textContent = `Chaos Extension v${manifest.version}`;
 
