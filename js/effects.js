@@ -11,7 +11,7 @@ chrome.storage.sync.get({
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true
+    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -525,6 +525,17 @@ chrome.storage.sync.get({
                     if (input.type == "color") input.value = "#000000";
                     if (input.value && input.type != "color") input.value = "";
                 });
+            }
+        },
+
+        {
+            name: "Scroll To The Top",
+            enabled: items.scrollToTopEffectChecked,
+            
+            setDefaultValues: function() {},
+    
+            effectCode: function() {
+                window.scrollTo(0, 0);
             }
         }
     ];
