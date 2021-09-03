@@ -11,7 +11,7 @@ chrome.storage.sync.get({
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true
+    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -539,6 +539,19 @@ chrome.storage.sync.get({
     
             effectCode: function() {
                 window.scrollTo(0, 0);
+            }
+        },
+
+        {
+            name: "Disable Text Selection",
+            enabled: items.disableTextSelectionEffectChecked,
+            
+            setDefaultValues: function() { 
+                document.documentElement.classList.remove("disableTextSelectionEffect");
+            },
+    
+            effectCode: function() { 
+                document.documentElement.classList.add("disableTextSelectionEffect");
             }
         }
     ];
