@@ -79,6 +79,8 @@ const blackoutEffectCheckbox = document.getElementById("blackoutEffectCheckbox")
 const emptyValuesEffectCheckbox = document.getElementById("emptyValuesEffectCheckbox");
 const scrollToTopEffectCheckbox = document.getElementById("scrollToTopEffectCheckbox");
 const disableTextSelectionEffectCheckbox = document.getElementById("disableTextSelectionEffectCheckbox");
+const doublePlaybackSpeedEffectCheckbox = document.getElementById("doublePlaybackSpeedEffectCheckbox");
+const halfPlaybackSpeedEffectCheckbox = document.getElementById("halfPlaybackSpeedEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -94,7 +96,8 @@ function save() {
         "playEverythingEffectChecked": playEverythingEffectCheckbox.checked, "pauseEverythingEffectChecked": pauseEverythingEffectCheckbox.checked, "invertedColorsEffectChecked": invertedColorsEffectCheckbox.checked,
         "invertedPageEffectChecked": invertedPageEffectCheckbox.checked, "sidewaysPageEffectChecked": sidewaysPageEffectCheckbox.checked, "midasTouchEffectChecked": midasTouchEffectCheckbox.checked,
         "blackoutEffectChecked": blackoutEffectCheckbox.checked, "emptyValuesEffectChecked": emptyValuesEffectCheckbox.checked, "scrollToTopEffectChecked": scrollToTopEffectCheckbox.checked,
-        "disableTextSelectionEffectChecked": disableTextSelectionEffectCheckbox.checked
+        "disableTextSelectionEffectChecked": disableTextSelectionEffectCheckbox.checked, "doublePlaybackSpeedEffectChecked": doublePlaybackSpeedEffectCheckbox.checked,
+        "halfPlaybackSpeedEffectChecked": halfPlaybackSpeedEffectCheckbox.checked
     }, function() {
         saveButton.textContent = "Saved!";
         setTimeout(function() { saveButton.textContent = "Save" }, 3000);
@@ -121,7 +124,8 @@ function get() {
         hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
         hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
         playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-        midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true
+        midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
+        doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true
     }, function(items) {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -161,5 +165,7 @@ function get() {
         emptyValuesEffectCheckbox.checked = items.emptyValuesEffectChecked;
         scrollToTopEffectCheckbox.checked = items.scrollToTopEffectChecked;
         disableTextSelectionEffectCheckbox.checked = items.disableTextSelectionEffectChecked;
+        doublePlaybackSpeedEffectCheckbox.checked = items.doublePlaybackSpeedEffectChecked;
+        halfPlaybackSpeedEffectCheckbox.checked = items.halfPlaybackSpeedEffectChecked;
     });
 }
