@@ -11,7 +11,8 @@ chrome.storage.sync.get({
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true
+    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
+    doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -552,6 +553,52 @@ chrome.storage.sync.get({
     
             effectCode: function() { 
                 document.documentElement.classList.add("disableTextSelectionEffect");
+            }
+        },
+
+        {
+            name: "Double Playback Speed",
+            enabled: items.doublePlaybackSpeedEffectChecked,
+            
+            setDefaultValues: function() { 
+                const videoAndAudio = document.querySelectorAll("video, audio");
+
+                videoAndAudio.forEach(function(media) {
+                    media.preservesPitch = true;
+                    media.playbackRate = 1;
+                });
+            },
+    
+            effectCode: function() { 
+                const videoAndAudio = document.querySelectorAll("video, audio");
+
+                videoAndAudio.forEach(function(media) {
+                    media.preservesPitch = false;
+                    media.playbackRate = 2;
+                });
+            }
+        },
+
+        {
+            name: "Half Playback Speed",
+            enabled: items.halfPlaybackSpeedEffectChecked,
+            
+            setDefaultValues: function() { 
+                const videoAndAudio = document.querySelectorAll("video, audio");
+
+                videoAndAudio.forEach(function(media) {
+                    media.preservesPitch = true;
+                    media.playbackRate = 1;
+                });
+            },
+    
+            effectCode: function() { 
+                const videoAndAudio = document.querySelectorAll("video, audio");
+
+                videoAndAudio.forEach(function(media) {
+                    media.preservesPitch = false;
+                    media.playbackRate = 0.5;
+                });
             }
         }
     ];
