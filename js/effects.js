@@ -539,7 +539,7 @@ chrome.storage.sync.get({
             setDefaultValues: function() {},
     
             effectCode: function() {
-                window.scrollTo(0, 0);
+                window.scrollTo(window.scrollX, 0);
             }
         },
 
