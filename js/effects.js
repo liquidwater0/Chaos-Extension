@@ -12,7 +12,7 @@ chrome.storage.sync.get({
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
     midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
-    doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true
+    doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -599,6 +599,19 @@ chrome.storage.sync.get({
                     media.preservesPitch = false;
                     media.playbackRate = 0.5;
                 });
+            }
+        },
+
+        {
+            name: "Spinning Page",
+            enabled: items.spinningPageEffectChecked,
+            
+            setDefaultValues: function() { 
+                document.documentElement.classList.remove("spinningPageEffect");
+            },
+    
+            effectCode: function() { 
+                document.documentElement.classList.add("spinningPageEffect");
             }
         }
     ];
