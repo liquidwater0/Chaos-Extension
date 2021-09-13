@@ -26,6 +26,7 @@ html[data-extension="chaosExtension"].flipPageEffect body {
 }
 
 /* Disable Scrolling */
+html[data-extension="chaosExtension"].disableScrollingEffect,
 html[data-extension="chaosExtension"].disableScrollingEffect * {
     overflow: hidden !important;
 }
