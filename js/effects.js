@@ -301,18 +301,18 @@ chrome.storage.sync.get({
             enabled: items.noCSSEffectChecked,
             
             setDefaultValues: function() {
-                const stylesheets = document.styleSheets;
+                const styleSheets = document.styleSheets;
 
-                for (stylesheet of stylesheets) {
-                    stylesheet.disabled = false;
+                for (styleSheet of styleSheets) {
+                    styleSheet.disabled = false;
                 }
             },
     
             effectCode: function() {
-                const stylesheets = document.styleSheets;
+                const styleSheets = document.styleSheets;
 
-                for (stylesheet of stylesheets) {
-                    stylesheet.disabled = true;
+                for (styleSheet of styleSheets) {
+                    styleSheet.disabled = true;
                 }
             }
         },
