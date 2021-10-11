@@ -19,15 +19,15 @@ chrome.storage.sync.get({
             name: "Nothing",
             enabled: items.nothingEffectChecked,
     
-            setDefaultValues: function() {},
-            effectCode: function() {}
+            revertEffect: function() {},
+            activateEffect: function() {}
         },
 
         {
             name: "Rainbow Text",
             enabled: items.rainbowTextEffectChecked,
     
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 const elements = document.querySelectorAll("*");
     
                 elements.forEach(function(element) {
@@ -35,7 +35,7 @@ chrome.storage.sync.get({
                 });
             },
 
-            effectCode: function() {  
+            activateEffect: function() {  
                 const elements = document.querySelectorAll("*");
     
                 elements.forEach(function(element) {
@@ -58,11 +58,11 @@ chrome.storage.sync.get({
             name: "Flip Page",
             enabled: items.flipPageEffectChecked,
 
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("flipPageEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("flipPageEffect");
             }
         },
@@ -71,13 +71,13 @@ chrome.storage.sync.get({
             name: "Disable Mouse Input",
             enabled: items.disableMouseInputEffectChecked,
     
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 const disableOverlay = document.querySelector("[data-extension='chaosExtension']#disableOverlay");
                 
                 if (disableOverlay) disableOverlay.remove();
             },
     
-            effectCode: function() {
+            activateEffect: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" class="overlay" id="disableOverlay"></div>
                 `);
@@ -88,11 +88,11 @@ chrome.storage.sync.get({
             name: "Disable Scrolling",
             enabled: items.disableScrollingEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("disableScrollingEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("disableScrollingEffect");
             }
         },
@@ -101,9 +101,9 @@ chrome.storage.sync.get({
             name: "Reload Page",
             enabled: items.reloadPageEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 location.reload();
             }
         },
@@ -112,9 +112,9 @@ chrome.storage.sync.get({
             name: "Get Alert",
             enabled: items.getAlertEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 setTimeout(function() { alert("Alert!") }, 250);
             }
         },
@@ -123,9 +123,9 @@ chrome.storage.sync.get({
             name: "Scroll To Random Element",
             enabled: items.scrollToElementEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 const elements = document.querySelectorAll("*");
 
                 elements[Math.floor(Math.random() * elements.length)].scrollIntoView();
@@ -136,11 +136,11 @@ chrome.storage.sync.get({
             name: "Invisible Text",
             enabled: items.invisibleTextChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("invisibleTextEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("invisibleTextEffect");
             }
         },
@@ -149,11 +149,11 @@ chrome.storage.sync.get({
             name: "Half Size",
             enabled: items.halfSizeEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("halfSizeEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("halfSizeEffect");
             }
         },
@@ -162,13 +162,13 @@ chrome.storage.sync.get({
             name: "Random Text Selection",
             enabled: items.randomTextSelectEffectChecked,
             
-            setDefaultValues: function() {
+            revertEffect: function() {
                 document.documentElement.classList.remove("randomTextSelectionEffect");
                 document.documentElement.style.removeProperty("--randomBackgroundColor");
                 document.documentElement.style.removeProperty("--randomTextColor");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 const html = document.documentElement;
 
                 html.classList.add("randomTextSelectionEffect");
@@ -181,7 +181,7 @@ chrome.storage.sync.get({
             name: "Terminalify",
             enabled: items.terminalEffectChecked,
             
-            setDefaultValues: function() {
+            revertEffect: function() {
                 document.documentElement.classList.remove("terminalifyEffect");
 
                 const elements = document.querySelectorAll("*");
@@ -191,7 +191,7 @@ chrome.storage.sync.get({
                 });
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("terminalifyEffect");
 
                 const elements = document.querySelectorAll("body *, body, html");
@@ -216,11 +216,11 @@ chrome.storage.sync.get({
             name: "Remove Images",
             enabled: items.removeImagesEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("removeImagesEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("removeImagesEffect");
             }
         },
@@ -229,13 +229,13 @@ chrome.storage.sync.get({
             name: "Blurry Vision",
             enabled: items.blurryVisionEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 const blurOverlay = document.querySelector("[data-extension='chaosExtension']#blurOverlay");
                 
                 if (blurOverlay) blurOverlay.remove();
             },
     
-            effectCode: function() {
+            activateEffect: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" class="overlay noPointerEvents" id="blurOverlay"></div>
                 `);
@@ -246,13 +246,13 @@ chrome.storage.sync.get({
             name: "1950s",
             enabled: items.y1950sEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 const y1950sOverlay = document.querySelector("[data-extension='chaosExtension']#y1950sOverlay");
                 
                 if (y1950sOverlay) y1950sOverlay.remove();
             },
     
-            effectCode: function() {
+            activateEffect: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" class="overlay noPointerEvents" id="y1950sOverlay"></div>
                 `);
@@ -263,11 +263,11 @@ chrome.storage.sync.get({
             name: "Hide Scrollbars",
             enabled: items.hideScrollbarsEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("hideScrollbarsEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("hideScrollbarsEffect");
             }
         },
@@ -276,9 +276,9 @@ chrome.storage.sync.get({
             name: "Select All Text",
             enabled: items.selectAllTextEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() {
+            activateEffect: function() {
                 document.getSelection().selectAllChildren(document.body);
             }
         },
@@ -287,11 +287,11 @@ chrome.storage.sync.get({
             name: "Hide Text Selection",
             enabled: items.hideTextSelectionEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("hideTextSelectionEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("hideTextSelectionEffect");
             }
         },
@@ -300,7 +300,7 @@ chrome.storage.sync.get({
             name: "No CSS",
             enabled: items.noCSSEffectChecked,
             
-            setDefaultValues: function() {
+            revertEffect: function() {
                 const styleSheets = document.styleSheets;
 
                 for (styleSheet of styleSheets) {
@@ -308,7 +308,7 @@ chrome.storage.sync.get({
                 }
             },
     
-            effectCode: function() {
+            activateEffect: function() {
                 const styleSheets = document.styleSheets;
 
                 for (styleSheet of styleSheets) {
@@ -321,12 +321,12 @@ chrome.storage.sync.get({
             name: "Random Text Color",
             enabled: items.randomTextColorEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("randomTextColorEffect");
                 document.documentElement.style.removeProperty("--randomTextColor");
             },
     
-            effectCode: function() {
+            activateEffect: function() {
                 const html = document.documentElement;
 
                 html.classList.add("randomTextColorEffect");
@@ -338,11 +338,11 @@ chrome.storage.sync.get({
             name: "Hide Cursor",
             enabled: items.hideCursorEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("hideCursorEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("hideCursorEffect");
             }
         },
@@ -351,11 +351,11 @@ chrome.storage.sync.get({
             name: "Double Size",
             enabled: items.doubleSizeEffectChecked,
 
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("doubleSizeEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("doubleSizeEffect");
             }
         },
@@ -364,9 +364,9 @@ chrome.storage.sync.get({
             name: "Unselect All Text",
             enabled: items.unselectAllTextEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() {
+            activateEffect: function() {
                 document.getSelection().selectAllChildren(document.head);
             }
         },
@@ -375,9 +375,9 @@ chrome.storage.sync.get({
             name: "Mute Everything",
             enabled: items.muteEverythingEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() {
+            activateEffect: function() {
                 const audioVideos = document.querySelectorAll("audio, video");
 
                 audioVideos.forEach(function(element) {
@@ -390,9 +390,9 @@ chrome.storage.sync.get({
             name: "Unmute Everything",
             enabled: items.unmuteEverythingEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() {
+            activateEffect: function() {
                 const audioVideos = document.querySelectorAll("audio, video");
 
                 audioVideos.forEach(function(element) {
@@ -405,9 +405,9 @@ chrome.storage.sync.get({
             name: "Play Everything",
             enabled: items.playEverythingEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() {
+            activateEffect: function() {
                 const audioVideos = document.querySelectorAll("audio, video");
 
                 audioVideos.forEach(function(element) {
@@ -420,9 +420,9 @@ chrome.storage.sync.get({
             name: "Pause Everything",
             enabled: items.pauseEverythingEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() {
+            activateEffect: function() {
                 const audioVideos = document.querySelectorAll("audio, video");
 
                 audioVideos.forEach(function(element) {
@@ -435,13 +435,13 @@ chrome.storage.sync.get({
             name: "Inverted Colors",
             enabled: items.invertedColorsEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 const invertOverlay = document.querySelector("[data-extension='chaosExtension']#invertOverlay");
                 
                 if (invertOverlay) invertOverlay.remove();
             },
     
-            effectCode: function() {
+            activateEffect: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" class="overlay noPointerEvents" id="invertOverlay"></div>
                 `);
@@ -452,11 +452,11 @@ chrome.storage.sync.get({
             name: "Inverted Page",
             enabled: items.invertedPageEffectChecked,
 
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("invertedPageEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("invertedPageEffect");
             }
         },
@@ -465,11 +465,11 @@ chrome.storage.sync.get({
             name: "Sideways Page",
             enabled: items.sidewaysPageEffectChecked,
 
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("sidewaysPageEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("sidewaysPageEffect");
             }
         },
@@ -482,7 +482,7 @@ chrome.storage.sync.get({
                 event.target.classList.add("midasTouchGold");
             },
 
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("midasTouchEffect");
                 document.removeEventListener("click", this.makeGold);
 
@@ -493,7 +493,7 @@ chrome.storage.sync.get({
                 });
             },
     
-            effectCode: function() {
+            activateEffect: function() {
                 document.documentElement.classList.add("midasTouchEffect");
                 document.addEventListener("click", this.makeGold);
             }
@@ -503,13 +503,13 @@ chrome.storage.sync.get({
             name: "Blackout",
             enabled: items.blackoutEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 const blackoutOverlay = document.querySelector("[data-extension='chaosExtension']#blackoutOverlay");
                 
                 if (blackoutOverlay) blackoutOverlay.remove();
             },
     
-            effectCode: function() {
+            activateEffect: function() {
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" class="overlay noPointerEvents" id="blackoutOverlay"></div>
                 `);
@@ -520,9 +520,9 @@ chrome.storage.sync.get({
             name: "Empty Input Values",
             enabled: items.emptyValuesEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() {
+            activateEffect: function() {
                 const inputs = document.querySelectorAll("input:not([type='button']), textarea");
 
                 inputs.forEach(function(input) {
@@ -536,9 +536,9 @@ chrome.storage.sync.get({
             name: "Scroll To The Top",
             enabled: items.scrollToTopEffectChecked,
             
-            setDefaultValues: function() {},
+            revertEffect: function() {},
     
-            effectCode: function() {
+            activateEffect: function() {
                 window.scrollTo(window.scrollX, 0);
             }
         },
@@ -547,11 +547,11 @@ chrome.storage.sync.get({
             name: "Disable Text Selection",
             enabled: items.disableTextSelectionEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("disableTextSelectionEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("disableTextSelectionEffect");
             }
         },
@@ -560,7 +560,7 @@ chrome.storage.sync.get({
             name: "Double Playback Speed",
             enabled: items.doublePlaybackSpeedEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 const videoAndAudio = document.querySelectorAll("video, audio");
 
                 videoAndAudio.forEach(function(media) {
@@ -569,7 +569,7 @@ chrome.storage.sync.get({
                 });
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 const videoAndAudio = document.querySelectorAll("video, audio");
 
                 videoAndAudio.forEach(function(media) {
@@ -583,7 +583,7 @@ chrome.storage.sync.get({
             name: "Half Playback Speed",
             enabled: items.halfPlaybackSpeedEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 const videoAndAudio = document.querySelectorAll("video, audio");
 
                 videoAndAudio.forEach(function(media) {
@@ -592,7 +592,7 @@ chrome.storage.sync.get({
                 });
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 const videoAndAudio = document.querySelectorAll("video, audio");
 
                 videoAndAudio.forEach(function(media) {
@@ -606,11 +606,11 @@ chrome.storage.sync.get({
             name: "Spinning Page",
             enabled: items.spinningPageEffectChecked,
             
-            setDefaultValues: function() { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("spinningPageEffect");
             },
     
-            effectCode: function() { 
+            activateEffect: function() { 
                 document.documentElement.classList.add("spinningPageEffect");
             }
         }
