@@ -59,12 +59,12 @@ chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
     const effectContainer = document.querySelector("[data-extension='chaosExtension'] #effectContainer");
     const effectName = document.querySelector("[data-extension='chaosExtension'] #effectName");
     
-    enabledEffects.forEach(function(enabledEffect) { enabledEffect.setDefaultValues() });
+    enabledEffects.forEach(function(enabledEffect) { enabledEffect.revertEffect() });
 
     if (randomEffect) {
       effectContainer.style.display = "block";
       effectName.textContent = randomEffect.name;
-      randomEffect.effectCode();
+      randomEffect.activateEffect();
     }
   }
 });
