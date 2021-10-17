@@ -7,7 +7,7 @@ let effects = [];
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true, disableScrollingEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
-    randomTextSelectEffectChecked: true, terminalEffectChecked: true, removeImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
+    randomTextSelectEffectChecked: true, terminalEffectChecked: true, hideImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
@@ -213,15 +213,15 @@ chrome.storage.sync.get({
         },
 
         {
-            name: "Remove Images",
-            enabled: items.removeImagesEffectChecked,
+            name: "Hide Images",
+            enabled: items.hideImagesEffectChecked,
             
             revertEffect: function() { 
-                document.documentElement.classList.remove("removeImagesEffect");
+                document.documentElement.classList.remove("hideImagesEffect");
             },
     
             activateEffect: function() { 
-                document.documentElement.classList.add("removeImagesEffect");
+                document.documentElement.classList.add("hideImagesEffect");
             }
         },
 
