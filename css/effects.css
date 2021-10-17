@@ -65,8 +65,8 @@ html[data-extension="chaosExtension"].terminalifyEffect *:not(html [data-extensi
     color: rgba(0, 255, 0, 0.5) !important;
 }
 
-/* Remove Images */
-html[data-extension="chaosExtension"].removeImagesEffect img {
+/* Hide Images */
+html[data-extension="chaosExtension"].hideImagesEffect img {
     opacity: 0 !important;
 }
 
