@@ -43,7 +43,7 @@ html[data-extension="chaosExtension"].halfSizeEffect body {
 }
 
 /* Random Selection Color */
-html[data-extension="chaosExtension"].randomSelectionColor ::selection {
+html[data-extension="chaosExtension"].randomSelectionColorEffect ::selection {
     background-color: var(--randomBackgroundColor) !important;
     color: var(--randomTextColor) !important;
 }
