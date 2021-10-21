@@ -42,8 +42,8 @@ html[data-extension="chaosExtension"].halfSizeEffect body {
     transform: scale(0.5) translateY(-50%) !important;
 }
 
-/* Random Text Selection */
-html[data-extension="chaosExtension"].randomTextSelectionEffect ::selection {
+/* Random Selection Color */
+html[data-extension="chaosExtension"].randomSelectionColor ::selection {
     background-color: var(--randomBackgroundColor) !important;
     color: var(--randomTextColor) !important;
 }
