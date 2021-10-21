@@ -163,7 +163,7 @@ chrome.storage.sync.get({
             enabled: items.randomSelectionColorEffectChecked,
             
             revertEffect: function() {
-                document.documentElement.classList.remove("randomSelectionColor");
+                document.documentElement.classList.remove("randomSelectionColorEffect");
                 document.documentElement.style.removeProperty("--randomBackgroundColor");
                 document.documentElement.style.removeProperty("--randomTextColor");
             },
@@ -171,7 +171,7 @@ chrome.storage.sync.get({
             activateEffect: function() { 
                 const html = document.documentElement;
 
-                html.classList.add("randomSelectionColor");
+                html.classList.add("randomSelectionColorEffect");
                 html.style.setProperty("--randomBackgroundColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
                 html.style.setProperty("--randomTextColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
             }
