@@ -7,7 +7,7 @@ let effects = [];
 chrome.storage.sync.get({
     nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true, disableScrollingEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
-    randomTextSelectEffectChecked: true, terminalEffectChecked: true, hideImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
+    randomSelectionColorEffectChecked: true, terminalEffectChecked: true, hideImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
@@ -159,11 +159,11 @@ chrome.storage.sync.get({
         },
 
         {
-            name: "Random Text Selection",
-            enabled: items.randomTextSelectEffectChecked,
+            name: "Random Selection Color",
+            enabled: items.randomSelectionColorEffectChecked,
             
             revertEffect: function() {
-                document.documentElement.classList.remove("randomTextSelectionEffect");
+                document.documentElement.classList.remove("randomSelectionColor");
                 document.documentElement.style.removeProperty("--randomBackgroundColor");
                 document.documentElement.style.removeProperty("--randomTextColor");
             },
@@ -171,7 +171,7 @@ chrome.storage.sync.get({
             activateEffect: function() { 
                 const html = document.documentElement;
 
-                html.classList.add("randomTextSelectionEffect");
+                html.classList.add("randomSelectionColor");
                 html.style.setProperty("--randomBackgroundColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
                 html.style.setProperty("--randomTextColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
             }
