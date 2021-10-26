@@ -15,6 +15,7 @@ document.body.insertAdjacentHTML("beforebegin", `
 
 document.documentElement.setAttribute("data-extension", "chaosExtension");
 
+let timerPaused = false;
 let timer;
 let timerSeconds;
 
@@ -25,12 +26,8 @@ chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
   const timeRemaining = document.querySelector("[data-extension='chaosExtension'] #timeRemaining");
   timeRemaining.textContent = timerSeconds;
 
-  let timerPaused = false;
-
   document.addEventListener("keydown", function(event) {
-    if (event.shiftKey && event.keyCode == 80) { //Shift + P (80)
-      timerPaused = !timerPaused;
-    }
+    if (event.shiftKey && event.key == "p" || event.shiftKey && event.key == "P") timerPaused = !timerPaused;
   });
 
   setInterval(updateTimerBar, 1000);
