@@ -187,3 +187,19 @@ html[data-extension="chaosExtension"].spinningPageEffect body {
         transform: rotate(360deg);
     }
 }
+
+/* Roll */
+html[data-extension="chaosExtension"].rollEffect body {
+    transform-origin: center !important;
+    animation: roll 2s infinite linear !important;
+}
+
+@keyframes roll {
+    from {
+        transform: rotateX(0deg);
+    }
+
+    to {
+        transform: rotateX(360deg);
+    }
+}
