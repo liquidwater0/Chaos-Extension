@@ -12,7 +12,7 @@ chrome.storage.sync.get({
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
     midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
-    doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true
+    doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true
 }, function(items) {
     effects = [
         {
@@ -612,6 +612,19 @@ chrome.storage.sync.get({
     
             activateEffect: function() { 
                 document.documentElement.classList.add("spinningPageEffect");
+            }
+        },
+
+        {
+            name: "Roll",
+            enabled: items.rollEffectChecked,
+            
+            revertEffect: function() { 
+                document.documentElement.classList.remove("rollEffect");
+            },
+    
+            activateEffect: function() { 
+                document.documentElement.classList.add("rollEffect");
             }
         }
     ];
