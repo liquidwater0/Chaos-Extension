@@ -32,7 +32,8 @@ html[data-extension="chaosExtension"].disableScrollingEffect * {
 }
 
 /* Invisible Text */
-html[data-extension="chaosExtension"].invisibleTextEffect * {
+html[data-extension="chaosExtension"].invisibleTextEffect *,
+html[data-extension="chaosExtension"].invisibleTextEffect *::placeholder {
     color: transparent !important;
     text-shadow: none !important;
 }
