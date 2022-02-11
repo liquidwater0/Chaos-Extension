@@ -19,14 +19,14 @@ let timerPaused = false;
 let timer;
 let timerSeconds;
 
-chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
+chrome.storage.sync.get({ newEffectTimer: 10 }, items => {
   timer = items.newEffectTimer;
   timerSeconds = timer;
 
   const timeRemaining = document.querySelector("[data-extension='chaosExtension'] #timeRemaining");
   timeRemaining.textContent = timerSeconds;
 
-  document.addEventListener("keydown", function(event) {
+  document.addEventListener("keydown", event => {
     if (event.shiftKey && event.key == "p" || event.shiftKey && event.key == "P") timerPaused = !timerPaused;
   });
 
@@ -50,13 +50,13 @@ chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
   }
 
   function newEffect() {
-    const enabledEffects = effects.filter(function(effect) { return effect.enabled == true });
+    const enabledEffects = effects.filter(effect => effect.enabled == true);
     const randomEffect = enabledEffects[Math.floor(Math.random() * enabledEffects.length)];
 
     const effectContainer = document.querySelector("[data-extension='chaosExtension'] #effectContainer");
     const effectName = document.querySelector("[data-extension='chaosExtension'] #effectName");
     
-    enabledEffects.forEach(function(enabledEffect) { enabledEffect.revertEffect() });
+    enabledEffects.forEach(enabledEffect => enabledEffect.revertEffect());
 
     if (randomEffect) {
       effectContainer.style.display = "block";
