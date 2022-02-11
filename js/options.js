@@ -10,7 +10,7 @@ saveButton.addEventListener("click", save);
 
 const themeSwitch = document.getElementById("themeSwitch");
 
-themeSwitch.addEventListener("input", function() {
+themeSwitch.addEventListener("input", () => {
     chrome.storage.sync.set({"themeSwitchChecked": themeSwitch.checked});
 
     themeSwitch.checked ? darkMode() : lightMode();
@@ -35,12 +35,9 @@ const effectsCheckboxes = document.querySelectorAll("#effectsCheckboxes input[ty
 
 let effectsCheckState;
 
-selectAllEffectsButton.addEventListener("click", function() {
+selectAllEffectsButton.addEventListener("click", () => {
     effectsCheckState = !effectsCheckState;
-
-    effectsCheckboxes.forEach(function(checkbox) {
-        checkbox.checked = effectsCheckState;
-    });
+    effectsCheckboxes.forEach(checkbox => checkbox.checked = effectsCheckState);
 });
 
 const nothingEffectCheckbox = document.getElementById("nothingEffectCheckbox")
@@ -100,11 +97,11 @@ function save() {
         "blackoutEffectChecked": blackoutEffectCheckbox.checked, "emptyValuesEffectChecked": emptyValuesEffectCheckbox.checked, "scrollToTopEffectChecked": scrollToTopEffectCheckbox.checked,
         "disableTextSelectionEffectChecked": disableTextSelectionEffectCheckbox.checked, "doublePlaybackSpeedEffectChecked": doublePlaybackSpeedEffectCheckbox.checked,
         "halfPlaybackSpeedEffectChecked": halfPlaybackSpeedEffectCheckbox.checked, "spinningPageEffectChecked": spinningPageEffectCheckbox.checked, "rollEffectChecked": rollEffectCheckbox.checked
-    }, function() {
+    }, () => {
         saveButton.textContent = "Saved!";
-        setTimeout(function() { saveButton.textContent = "Save" }, 3000);
+        setTimeout(() => { saveButton.textContent = "Save" }, 3000);
 
-        chrome.storage.sync.get({ newEffectTimer: 10 }, function(items) {
+        chrome.storage.sync.get({ newEffectTimer: 10 }, items => {
             if (items.newEffectTimer == "") {
                 newEffectTimerTextField.value = 10;
                 save();
@@ -128,7 +125,7 @@ function get() {
         playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
         midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
         doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true
-    }, function(items) {
+    }, items => {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
         nothingEffectCheckbox.checked = items.nothingEffectChecked;
