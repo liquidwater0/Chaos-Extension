@@ -130,9 +130,11 @@ chrome.storage.sync.get({
             enabled: items.randomSelectionColorEffectChecked,
             
             revertEffect: () => {
-                document.documentElement.classList.remove("randomSelectionColorEffect");
-                document.documentElement.style.removeProperty("--randomBackgroundColor");
-                document.documentElement.style.removeProperty("--randomTextColor");
+                const html = document.documentElement;
+
+                html.classList.remove("randomSelectionColorEffect");
+                html.style.removeProperty("--randomBackgroundColor");
+                html.style.removeProperty("--randomTextColor");
             },
     
             activateEffect: () => { 
@@ -258,8 +260,10 @@ chrome.storage.sync.get({
             enabled: items.randomTextColorEffectChecked,
             
             revertEffect: () => { 
-                document.documentElement.classList.remove("randomTextColorEffect");
-                document.documentElement.style.removeProperty("--randomTextColor");
+                const html = document.documentElement;
+
+                html.classList.remove("randomTextColorEffect");
+                html.style.removeProperty("--randomTextColor");
             },
 
             activateEffect: () => {
