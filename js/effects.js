@@ -243,19 +243,13 @@ chrome.storage.sync.get({
             enabled: items.noCSSEffectChecked,
             
             revertEffect: () => {
-                const styleSheets = document.styleSheets;
-
-                for (styleSheet of styleSheets) {
-                    styleSheet.disabled = false;
-                }
+                const styleSheets = [...document.styleSheets];
+                styleSheets.forEach(styleSheet => styleSheet.disabled = false);
             },
     
             activateEffect: () => {
-                const styleSheets = document.styleSheets;
-
-                for (styleSheet of styleSheets) {
-                    styleSheet.disabled = true;
-                }
+                const styleSheets = [...document.styleSheets];
+                styleSheets.forEach(styleSheet => styleSheet.disabled = true);
             }
         },
 
