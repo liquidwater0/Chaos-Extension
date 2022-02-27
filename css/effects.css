@@ -204,3 +204,8 @@ html[data-extension="chaosExtension"].rollEffect body {
         transform: rotateX(360deg);
     }
 }
+
+/* Comic Sans */
+html[data-extension="chaosExtension"].comicSansEffect * {
+    font-family: "Comic Sans MS", cursive !important;
+}
