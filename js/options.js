@@ -81,6 +81,7 @@ const halfPlaybackSpeedEffectCheckbox = document.getElementById("halfPlaybackSpe
 const spinningPageEffectCheckbox = document.getElementById("spinningPageEffectCheckbox");
 const rollEffectCheckbox = document.getElementById("rollEffectCheckbox");
 const designModeEffectCheckbox = document.getElementById("designModeEffectCheckbox");
+const comicSansEffectCheckbox = document.getElementById("comicSansEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -98,7 +99,7 @@ function save() {
         "blackoutEffectChecked": blackoutEffectCheckbox.checked, "emptyValuesEffectChecked": emptyValuesEffectCheckbox.checked, "scrollToTopEffectChecked": scrollToTopEffectCheckbox.checked,
         "disableTextSelectionEffectChecked": disableTextSelectionEffectCheckbox.checked, "doublePlaybackSpeedEffectChecked": doublePlaybackSpeedEffectCheckbox.checked,
         "halfPlaybackSpeedEffectChecked": halfPlaybackSpeedEffectCheckbox.checked, "spinningPageEffectChecked": spinningPageEffectCheckbox.checked, "rollEffectChecked": rollEffectCheckbox.checked,
-        "designModeEffectChecked": designModeEffectCheckbox.checked
+        "designModeEffectChecked": designModeEffectCheckbox.checked, "comicSansEffectChecked": comicSansEffectCheckbox.checked
     }, () => {
         saveButton.textContent = "Saved!";
         setTimeout(() => { saveButton.textContent = "Save" }, 3000);
@@ -126,7 +127,8 @@ function get() {
         hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
         playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
         midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
-        doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true
+        doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
+        comicSansEffectChecked: true
     }, items => {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -171,5 +173,6 @@ function get() {
         spinningPageEffectCheckbox.checked = items.spinningPageEffectChecked;
         rollEffectCheckbox.checked = items.rollEffectChecked;
         designModeEffectCheckbox.checked = items.designModeEffectChecked;
+        comicSansEffectCheckbox.checked = items.comicSansEffectChecked
     });
 }
