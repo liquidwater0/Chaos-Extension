@@ -12,7 +12,8 @@ chrome.storage.sync.get({
     hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
     midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
-    doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true
+    doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
+    comicSansEffectChecked: true
 }, items => {
     effects = [
         {
@@ -514,6 +515,14 @@ chrome.storage.sync.get({
             
             revertEffect: () => document.designMode = "off",
             activateEffect: () => document.designMode = "on"
+        },
+
+        {
+            name: "Comic Sans",
+            enabled: items.comicSansEffectChecked,
+            
+            revertEffect: () => document.documentElement.classList.remove("comicSansEffect"),
+            activateEffect: () => document.documentElement.classList.add("comicSansEffect")
         }
     ];
 });
