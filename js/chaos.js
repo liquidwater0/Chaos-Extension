@@ -27,7 +27,7 @@ chrome.storage.sync.get({ newEffectTimer: 10 }, items => {
   timeRemaining.textContent = timerSeconds;
 
   document.addEventListener("keydown", event => {
-    if (event.shiftKey && event.key == "p" || event.shiftKey && event.key == "P") timerPaused = !timerPaused;
+    if (event.shiftKey && event.key.toLowerCase() === "p") timerPaused = !timerPaused;
   });
 
   setInterval(updateTimerBar, 1000);
