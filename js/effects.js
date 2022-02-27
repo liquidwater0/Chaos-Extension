@@ -37,7 +37,7 @@ chrome.storage.sync.get({
                 const elements = document.querySelectorAll("*");
     
                 elements.forEach(element => {
-                    const interval = setInterval(randomizeColors, 1000);
+                    const interval = setInterval(randomizeColors, 1250);
 
                     randomizeColors();
 
