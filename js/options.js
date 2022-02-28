@@ -61,7 +61,7 @@ const selectAllTextEffectCheckbox = document.getElementById("selectAllTextEffect
 const hideTextSelectionEffectCheckbox = document.getElementById("hideTextSelectionEffectCheckbox");
 const noCSSEffectCheckbox = document.getElementById("noCSSEffectCheckbox");
 const randomTextColorEffectCheckbox = document.getElementById("randomTextColorEffectCheckbox");
-const hideCursorEffectCheckbox = document.getElementById("hideCursorEffectCheckbox");
+const noCursorEffectCheckbox = document.getElementById("noCursorEffectCheckbox");
 const doubleSizeEffectCheckbox = document.getElementById("doubleSizeEffectCheckbox");
 const unselectAllTextEffectCheckbox = document.getElementById("unselectAllTextEffectCheckbox");
 const muteEverythingEffectCheckbox = document.getElementById("muteEverythingEffectCheckbox");
@@ -92,7 +92,7 @@ function save() {
         "randomSelectionColorEffectChecked": randomSelectionColorEffectCheckbox.checked, "terminalEffectChecked": terminalEffectCheckbox.checked, "hideImagesEffectChecked": hideImagesEffectCheckbox.checked,
         "blurryVisionEffectChecked": blurryVisionEffectCheckbox.checked, "y1950sEffectChecked": y1950sEffectCheckbox.checked, "hideScrollbarsEffectChecked": hideScrollbarsEffectCheckbox.checked,
         "selectAllTextEffectChecked": selectAllTextEffectCheckbox.checked, "hideTextSelectionEffectChecked": hideTextSelectionEffectCheckbox.checked, "noCSSEffectChecked": noCSSEffectCheckbox.checked,
-        "randomTextColorEffectChecked": randomTextColorEffectCheckbox.checked, "hideCursorEffectChecked": hideCursorEffectCheckbox.checked, "doubleSizeEffectChecked": doubleSizeEffectCheckbox.checked,
+        "randomTextColorEffectChecked": randomTextColorEffectCheckbox.checked, "noCursorEffectChecked": noCursorEffectCheckbox.checked, "doubleSizeEffectChecked": doubleSizeEffectCheckbox.checked,
         "unselectAllTextEffectChecked": unselectAllTextEffectCheckbox.checked, "muteEverythingEffectChecked": muteEverythingEffectCheckbox.checked, "unmuteEverythingEffectChecked": unmuteEverythingEffectCheckbox.checked,
         "playEverythingEffectChecked": playEverythingEffectCheckbox.checked, "pauseEverythingEffectChecked": pauseEverythingEffectCheckbox.checked, "invertedColorsEffectChecked": invertedColorsEffectCheckbox.checked,
         "invertedPageEffectChecked": invertedPageEffectCheckbox.checked, "sidewaysPageEffectChecked": sidewaysPageEffectCheckbox.checked, "midasTouchEffectChecked": midasTouchEffectCheckbox.checked,
@@ -124,7 +124,7 @@ function get() {
         disableScrollingEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
         halfSizeEffectChecked: true, randomSelectionColorEffectChecked: true, terminalEffectChecked: true, hideImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
         hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
-        hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
+        noCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
         playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
         midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
         doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
@@ -153,7 +153,7 @@ function get() {
         hideTextSelectionEffectCheckbox.checked = items.hideTextSelectionEffectChecked;
         noCSSEffectCheckbox.checked = items.noCSSEffectChecked;
         randomTextColorEffectCheckbox.checked = items.randomTextColorEffectChecked;
-        hideCursorEffectCheckbox.checked = items.hideCursorEffectChecked;
+        noCursorEffectCheckbox.checked = items.noCursorEffectChecked;
         doubleSizeEffectCheckbox.checked = items.doubleSizeEffectChecked;
         unselectAllTextEffectCheckbox.checked = items.unselectAllTextEffectChecked;
         muteEverythingEffectCheckbox.checked = items.muteEverythingEffectChecked;
