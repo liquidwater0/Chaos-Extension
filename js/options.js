@@ -42,7 +42,7 @@ selectAllEffectsButton.addEventListener("click", () => {
 
 const nothingEffectCheckbox = document.getElementById("nothingEffectCheckbox")
 const rainbowTextEffectCheckbox = document.getElementById("rainbowTextEffectCheckbox");
-const flipPageEffectCheckbox = document.getElementById("flipPageEffectCheckbox");
+const upsideDownEffectCheckbox = document.getElementById("upsideDownEffectCheckbox");
 const disableMouseInputEffectCheckbox = document.getElementById("disableMouseInputEffectCheckbox");
 const disableScrollingEffectCheckbox = document.getElementById("disableScrollingEffectCheckbox");
 const newEffectTimerTextField = document.getElementById("newEffectTimerTextField");
@@ -85,7 +85,7 @@ const comicSansEffectCheckbox = document.getElementById("comicSansEffectCheckbox
 
 function save() {
     chrome.storage.sync.set({
-        "nothingEffectChecked": nothingEffectCheckbox.checked, "rainbowTextEffectChecked": rainbowTextEffectCheckbox.checked, "flipPageEffectChecked": flipPageEffectCheckbox.checked,
+        "nothingEffectChecked": nothingEffectCheckbox.checked, "rainbowTextEffectChecked": rainbowTextEffectCheckbox.checked, "upsideDownEffectChecked": upsideDownEffectCheckbox.checked,
         "disableMouseInputEffectChecked": disableMouseInputEffectCheckbox.checked, "disableScrollingEffectChecked": disableScrollingEffectCheckbox.checked, 
         "newEffectTimer": newEffectTimerTextField.value.split(" ")[0], "reloadPageEffectChecked": reloadPageEffectCheckbox.checked, "getAlertEffectChecked": getAlertEffectCheckbox.checked,
         "scrollToElementEffectChecked": scrollToElementEffectCheckbox.checked, "invisibleTextChecked": invisibleTextCheckbox.checked, "halfSizeEffectChecked": halfSizeEffectCheckbox.checked,
@@ -120,7 +120,7 @@ function save() {
 
 function get() {
     chrome.storage.sync.get({
-        currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true,
+        currentTheme: "dark", themeSwitchChecked: true, nothingEffectChecked: true, rainbowTextEffectChecked: true, upsideDownEffectChecked: true, disableMouseInputEffectChecked: true,
         disableScrollingEffectChecked: true, newEffectTimer: 10, reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true,
         halfSizeEffectChecked: true, randomSelectionColorEffectChecked: true, terminalEffectChecked: true, hideImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
         hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
@@ -134,7 +134,7 @@ function get() {
         themeSwitch.checked = items.themeSwitchChecked;
         nothingEffectCheckbox.checked = items.nothingEffectChecked;
         rainbowTextEffectCheckbox.checked = items.rainbowTextEffectChecked;
-        flipPageEffectCheckbox.checked = items.flipPageEffectChecked;
+        upsideDownEffectCheckbox.checked = items.upsideDownEffectChecked;
         disableMouseInputEffectCheckbox.checked = items.disableMouseInputEffectChecked;
         disableScrollingEffectCheckbox.checked = items.disableScrollingEffectChecked;
         newEffectTimerTextField.value = items.newEffectTimer == 1 ? `${items.newEffectTimer} second` : `${items.newEffectTimer} seconds`;
