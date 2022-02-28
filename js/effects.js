@@ -5,7 +5,7 @@ function getRandomNumber(min, max) {
 let effects = [];
 
 chrome.storage.sync.get({
-    nothingEffectChecked: true, rainbowTextEffectChecked: true, flipPageEffectChecked: true, disableMouseInputEffectChecked: true, disableScrollingEffectChecked: true, 
+    nothingEffectChecked: true, rainbowTextEffectChecked: true, upsideDownEffectChecked: true, disableMouseInputEffectChecked: true, disableScrollingEffectChecked: true, 
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
     randomSelectionColorEffectChecked: true, terminalEffectChecked: true, hideImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
@@ -51,11 +51,11 @@ chrome.storage.sync.get({
         },
     
         {
-            name: "Flip Page",
-            enabled: items.flipPageEffectChecked,
+            name: "Upside Down",
+            enabled: items.upsideDownEffectChecked,
 
-            revertEffect: () => document.documentElement.classList.remove("flipPageEffect"),
-            activateEffect: () => document.documentElement.classList.add("flipPageEffect")
+            revertEffect: () => document.documentElement.classList.remove("upsideDownEffect"),
+            activateEffect: () => document.documentElement.classList.add("upsideDownEffect")
         },
     
         {
