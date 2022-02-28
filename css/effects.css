@@ -11,13 +11,13 @@
     pointer-events: none !important;
 }
 
-/* Flip Page */
-html[data-extension="chaosExtension"].flipPageEffect,
-html[data-extension="chaosExtension"].flipPageEffect body {
+/* Upside Down */
+html[data-extension="chaosExtension"].upsideDownEffect,
+html[data-extension="chaosExtension"].upsideDownEffect body {
     overflow: auto !important;
 }
 
-html[data-extension="chaosExtension"].flipPageEffect body {
+html[data-extension="chaosExtension"].upsideDownEffect body {
     position: fixed !important;
     transform: rotate(180deg) !important;
     bottom: 0px !important;
