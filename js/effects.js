@@ -105,7 +105,7 @@ chrome.storage.sync.get({
             revertEffect: () => {},
     
             activateEffect: () => { 
-                const elements = document.querySelectorAll("*");
+                const elements = document.querySelectorAll("body *");
                 elements[Math.floor(Math.random() * elements.length)].scrollIntoView();
             }
         },
