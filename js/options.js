@@ -82,6 +82,10 @@ const spinningPageEffectCheckbox = document.getElementById("spinningPageEffectCh
 const rollEffectCheckbox = document.getElementById("rollEffectCheckbox");
 const designModeEffectCheckbox = document.getElementById("designModeEffectCheckbox");
 const comicSansEffectCheckbox = document.getElementById("comicSansEffectCheckbox");
+const playRandomEffectCheckbox = document.getElementById("playRandomEffectCheckbox");
+const pauseRandomEffectCheckbox = document.getElementById("pauseRandomEffectCheckbox");
+const muteRandomEffectCheckbox = document.getElementById("muteRandomEffectCheckbox");
+const unmuteRandomEffectCheckbox = document.getElementById("unmuteRandomEffectCheckbox");
 
 function save() {
     chrome.storage.sync.set({
@@ -99,7 +103,8 @@ function save() {
         "blackoutEffectChecked": blackoutEffectCheckbox.checked, "emptyInputsEffectChecked": emptyInputsEffectCheckbox.checked, "scrollToTopEffectChecked": scrollToTopEffectCheckbox.checked,
         "disableTextSelectionEffectChecked": disableTextSelectionEffectCheckbox.checked, "doublePlaybackSpeedEffectChecked": doublePlaybackSpeedEffectCheckbox.checked,
         "halfPlaybackSpeedEffectChecked": halfPlaybackSpeedEffectCheckbox.checked, "spinningPageEffectChecked": spinningPageEffectCheckbox.checked, "rollEffectChecked": rollEffectCheckbox.checked,
-        "designModeEffectChecked": designModeEffectCheckbox.checked, "comicSansEffectChecked": comicSansEffectCheckbox.checked
+        "designModeEffectChecked": designModeEffectCheckbox.checked, "comicSansEffectChecked": comicSansEffectCheckbox.checked, "playRandomEffectChecked": playRandomEffectCheckbox.checked,
+        "pauseRandomEffectChecked": pauseRandomEffectCheckbox.checked, "muteRandomEffectChecked": muteRandomEffectCheckbox.checked, "unmuteRandomEffectChecked": unmuteRandomEffectCheckbox.checked
     }, () => {
         saveButton.textContent = "Saved!";
         setTimeout(() => { saveButton.textContent = "Save" }, 3000);
@@ -128,7 +133,7 @@ function get() {
         playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
         midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyInputsEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
         doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
-        comicSansEffectChecked: true
+        comicSansEffectChecked: true, playRandomEffectChecked: true, pauseRandomEffectChecked: true, muteRandomEffectChecked: true, unmuteRandomEffectChecked: true
     }, items => {
         html.setAttribute("data-theme", items.currentTheme);
         themeSwitch.checked = items.themeSwitchChecked;
@@ -174,5 +179,9 @@ function get() {
         rollEffectCheckbox.checked = items.rollEffectChecked;
         designModeEffectCheckbox.checked = items.designModeEffectChecked;
         comicSansEffectCheckbox.checked = items.comicSansEffectChecked
+        playRandomEffectCheckbox.checked = items.playRandomEffectChecked;
+        pauseRandomEffectCheckbox.checked = items.pauseRandomEffectChecked;
+        muteRandomEffectCheckbox.checked = items.muteRandomEffectChecked;
+        unmuteRandomEffectCheckbox.checked = items.unmuteRandomEffectChecked;
     });
 }
