@@ -11,7 +11,7 @@ chrome.storage.sync.get({
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
     noCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
+    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyInputsEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
     doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
     comicSansEffectChecked: true
 }, items => {
@@ -416,8 +416,8 @@ chrome.storage.sync.get({
         },
 
         {
-            name: "Empty Input Values",
-            enabled: items.emptyValuesEffectChecked,
+            name: "Empty All Inputs",
+            enabled: items.emptyInputsEffectChecked,
             
             revertEffect: () => {},
     
