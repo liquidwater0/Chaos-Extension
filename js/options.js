@@ -73,7 +73,7 @@ const invertedPageEffectCheckbox = document.getElementById("invertedPageEffectCh
 const sidewaysPageEffectCheckbox = document.getElementById("sidewaysPageEffectCheckbox");
 const midasTouchEffectCheckbox = document.getElementById("midasTouchEffectCheckbox");
 const blackoutEffectCheckbox = document.getElementById("blackoutEffectCheckbox");
-const emptyValuesEffectCheckbox = document.getElementById("emptyValuesEffectCheckbox");
+const emptyInputsEffectCheckbox = document.getElementById("emptyInputsEffectCheckbox");
 const scrollToTopEffectCheckbox = document.getElementById("scrollToTopEffectCheckbox");
 const disableTextSelectionEffectCheckbox = document.getElementById("disableTextSelectionEffectCheckbox");
 const doublePlaybackSpeedEffectCheckbox = document.getElementById("doublePlaybackSpeedEffectCheckbox");
@@ -96,7 +96,7 @@ function save() {
         "unselectAllTextEffectChecked": unselectAllTextEffectCheckbox.checked, "muteEverythingEffectChecked": muteEverythingEffectCheckbox.checked, "unmuteEverythingEffectChecked": unmuteEverythingEffectCheckbox.checked,
         "playEverythingEffectChecked": playEverythingEffectCheckbox.checked, "pauseEverythingEffectChecked": pauseEverythingEffectCheckbox.checked, "invertedColorsEffectChecked": invertedColorsEffectCheckbox.checked,
         "invertedPageEffectChecked": invertedPageEffectCheckbox.checked, "sidewaysPageEffectChecked": sidewaysPageEffectCheckbox.checked, "midasTouchEffectChecked": midasTouchEffectCheckbox.checked,
-        "blackoutEffectChecked": blackoutEffectCheckbox.checked, "emptyValuesEffectChecked": emptyValuesEffectCheckbox.checked, "scrollToTopEffectChecked": scrollToTopEffectCheckbox.checked,
+        "blackoutEffectChecked": blackoutEffectCheckbox.checked, "emptyInputsEffectChecked": emptyInputsEffectCheckbox.checked, "scrollToTopEffectChecked": scrollToTopEffectCheckbox.checked,
         "disableTextSelectionEffectChecked": disableTextSelectionEffectCheckbox.checked, "doublePlaybackSpeedEffectChecked": doublePlaybackSpeedEffectCheckbox.checked,
         "halfPlaybackSpeedEffectChecked": halfPlaybackSpeedEffectCheckbox.checked, "spinningPageEffectChecked": spinningPageEffectCheckbox.checked, "rollEffectChecked": rollEffectCheckbox.checked,
         "designModeEffectChecked": designModeEffectCheckbox.checked, "comicSansEffectChecked": comicSansEffectCheckbox.checked
@@ -126,7 +126,7 @@ function get() {
         hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
         noCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
         playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-        midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
+        midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyInputsEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
         doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
         comicSansEffectChecked: true
     }, items => {
@@ -165,7 +165,7 @@ function get() {
         sidewaysPageEffectCheckbox.checked = items.sidewaysPageEffectChecked;
         midasTouchEffectCheckbox.checked = items.midasTouchEffectChecked;
         blackoutEffectCheckbox.checked = items.blackoutEffectChecked;
-        emptyValuesEffectCheckbox.checked = items.emptyValuesEffectChecked;
+        emptyInputsEffectCheckbox.checked = items.emptyInputsEffectChecked;
         scrollToTopEffectCheckbox.checked = items.scrollToTopEffectChecked;
         disableTextSelectionEffectCheckbox.checked = items.disableTextSelectionEffectChecked;
         doublePlaybackSpeedEffectCheckbox.checked = items.doublePlaybackSpeedEffectChecked;
