@@ -13,7 +13,7 @@ chrome.storage.sync.get({
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
     midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyInputsEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
     doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
-    comicSansEffectChecked: true
+    comicSansEffectChecked: true, playRandomEffectChecked: true, pauseRandomEffectChecked: true, muteRandomEffectChecked: true, unmuteRandomEffectChecked: true
 }, items => {
     effects = [
         {
@@ -523,6 +523,63 @@ chrome.storage.sync.get({
             
             revertEffect: () => document.documentElement.classList.remove("comicSansEffect"),
             activateEffect: () => document.documentElement.classList.add("comicSansEffect")
+        },
+
+        {
+            name: "Play Random Media",
+            enabled: items.playRandomEffectChecked,
+            
+            revertEffect: () => {},
+
+            activateEffect: () => {
+                const audioVideos = document.querySelectorAll("audio, video");
+                const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
+
+                document.body.focus();
+                if (randomMedia) randomMedia.play(); 
+            }
+        },
+
+        {
+            name: "Pause Random Media",
+            enabled: items.pauseRandomEffectChecked,
+            
+            revertEffect: () => {},
+
+            activateEffect: () => {
+                const audioVideos = document.querySelectorAll("audio, video");
+                const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
+               
+                if (randomMedia) randomMedia.pause(); 
+            }
+        },
+
+        {
+            name: "Mute Random Media",
+            enabled: items.muteRandomEffectChecked,
+            
+            revertEffect: () => {},
+
+            activateEffect: () => {
+                const audioVideos = document.querySelectorAll("audio, video");
+                const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
+
+                if (randomMedia) randomMedia.muted = true; 
+            }
+        },
+
+        {
+            name: "Unmute Random Media",
+            enabled: items.unmuteRandomEffectChecked,
+            
+            revertEffect: () => {},
+
+            activateEffect: () => {
+                const audioVideos = document.querySelectorAll("audio, video");
+                const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
+
+                if (randomMedia) randomMedia.muted = false; 
+            }
         }
     ];
 });
