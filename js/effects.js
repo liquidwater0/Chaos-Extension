@@ -9,7 +9,7 @@ chrome.storage.sync.get({
     reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
     randomSelectionColorEffectChecked: true, terminalEffectChecked: true, hideImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
     hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
-    hideCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
+    noCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
     midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyValuesEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
     doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
@@ -103,7 +103,7 @@ chrome.storage.sync.get({
             enabled: items.scrollToElementEffectChecked,
             
             revertEffect: () => {},
-    
+            
             activateEffect: () => { 
                 const elements = document.querySelectorAll("body *");
                 elements[Math.floor(Math.random() * elements.length)].scrollIntoView();
@@ -276,11 +276,11 @@ chrome.storage.sync.get({
         },
 
         {
-            name: "Hide Cursor",
-            enabled: items.hideCursorEffectChecked,
+            name: "No Cursor",
+            enabled: items.noCursorEffectChecked,
             
-            revertEffect: () => document.documentElement.classList.remove("hideCursorEffect"),
-            activateEffect: () => document.documentElement.classList.add("hideCursorEffect")
+            revertEffect: () => document.documentElement.classList.remove("noCursorEffect"),
+            activateEffect: () => document.documentElement.classList.add("noCursorEffect")
         },
 
         {
