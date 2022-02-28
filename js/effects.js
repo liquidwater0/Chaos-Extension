@@ -385,7 +385,7 @@ chrome.storage.sync.get({
 
             makeGold: event => event.target.classList.add("midasTouchGold"),
 
-            revertEffect: () => { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("midasTouchEffect");
                 document.removeEventListener("click", this.makeGold);
 
@@ -393,7 +393,7 @@ chrome.storage.sync.get({
                 elements.forEach(element => element.classList.remove("midasTouchGold"));
             },
     
-            activateEffect: () => {
+            activateEffect: function() {
                 document.documentElement.classList.add("midasTouchEffect");
                 document.addEventListener("click", this.makeGold);
             }
