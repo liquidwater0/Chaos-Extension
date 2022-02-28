@@ -97,8 +97,8 @@ html[data-extension="chaosExtension"].randomTextColorEffect * {
     color: var(--randomTextColor) !important;
 }
 
-/* Hide Cursor */
-html[data-extension="chaosExtension"].hideCursorEffect * {
+/* No Cursor */
+html[data-extension="chaosExtension"].noCursorEffect * {
     cursor: none !important;
 }
 
