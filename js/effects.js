@@ -534,8 +534,7 @@ chrome.storage.sync.get({
             activateEffect: () => {
                 const audioVideos = document.querySelectorAll("audio, video");
                 const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
-
-                document.body.focus();
+                
                 if (randomMedia) randomMedia.play(); 
             }
         },
