@@ -13,7 +13,8 @@ chrome.storage.sync.get({
     playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
     midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyInputsEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
     doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
-    comicSansEffectChecked: true, playRandomEffectChecked: true, pauseRandomEffectChecked: true, muteRandomEffectChecked: true, unmuteRandomEffectChecked: true
+    comicSansEffectChecked: true, playRandomEffectChecked: true, pauseRandomEffectChecked: true, muteRandomEffectChecked: true, unmuteRandomEffectChecked: true,
+    randomImagesEffectChecked: true
 }, items => {
     effects = [
         {
@@ -578,6 +579,43 @@ chrome.storage.sync.get({
                 const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
 
                 if (randomMedia) randomMedia.muted = false; 
+            }
+        },
+
+        {
+            name: "Random Images",
+            enabled: items.randomImagesEffectChecked,
+            
+            revertEffect: () => {
+                const images = document.querySelectorAll("img");
+
+                images.forEach(image => {
+                    if (!image.getAttribute("data-original-src")) return;
+
+                    image.src = image.getAttribute("data-original-src");
+                    image.srcset = image.getAttribute("data-original-srcset");
+                    image.alt = image.getAttribute("data-original-alt");
+
+                    image.removeAttribute("data-original-src");
+                    image.removeAttribute("data-original-srcset");
+                    image.removeAttribute("data-original-alt");
+                });
+            },
+
+            activateEffect: () => {
+                const images = document.querySelectorAll("img");
+
+                images.forEach(image => {
+                    const randomImage = images[Math.floor(Math.random() * images.length)];
+
+                    image.setAttribute("data-original-src", image.src);
+                    image.setAttribute("data-original-srcset", image.srcset);
+                    image.setAttribute("data-original-alt", image.alt);
+
+                    image.src = randomImage.src;
+                    image.srcset = randomImage.srcset;
+                    image.alt = randomImage.alt;
+                });
             }
         }
     ];
