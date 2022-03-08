@@ -89,7 +89,7 @@ chrome.storage.sync.get({
             enabled: getEnabledState("reloadPageEffect"),
             
             revertEffect: () => {},
-            activateEffect: () => location.reload()
+            activateEffect: () => setTimeout(() => location.reload(), 250)
         },
 
         {
@@ -97,7 +97,7 @@ chrome.storage.sync.get({
             enabled: getEnabledState("getAlertEffect"),
             
             revertEffect: () => {},
-            activateEffect: () => setTimeout(() => { alert("Alert!") }, 250)
+            activateEffect: () => setTimeout(() => alert("Alert!"), 250)
         },
 
         {
