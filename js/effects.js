@@ -5,21 +5,22 @@ function getRandomNumber(min, max) {
 let effects = [];
 
 chrome.storage.sync.get({
-    nothingEffectChecked: true, rainbowTextEffectChecked: true, upsideDownEffectChecked: true, disableMouseInputEffectChecked: true, disableScrollingEffectChecked: true, 
-    reloadPageEffectChecked: true, getAlertEffectChecked: true, scrollToElementEffectChecked: true, invisibleTextChecked: true, halfSizeEffectChecked: true,
-    randomSelectionColorEffectChecked: true, terminalEffectChecked: true, hideImagesEffectChecked: true, blurryVisionEffectChecked: true, y1950sEffectChecked: true,
-    hideScrollbarsEffectChecked: true, selectAllTextEffectChecked: true, hideTextSelectionEffectChecked: true, noCSSEffectChecked: true, randomTextColorEffectChecked: true,
-    noCursorEffectChecked: true, doubleSizeEffectChecked: true, unselectAllTextEffectChecked: true, muteEverythingEffectChecked: true, unmuteEverythingEffectChecked: true,
-    playEverythingEffectChecked: true, pauseEverythingEffectChecked: true, invertedColorsEffectChecked: true, invertedPageEffectChecked: true, sidewaysPageEffectChecked: true,
-    midasTouchEffectChecked: true, blackoutEffectChecked: true, emptyInputsEffectChecked: true, scrollToTopEffectChecked: true, disableTextSelectionEffectChecked: true,
-    doublePlaybackSpeedEffectChecked: true, halfPlaybackSpeedEffectChecked: true, spinningPageEffectChecked: true, rollEffectChecked: true, designModeEffectChecked: true,
-    comicSansEffectChecked: true, playRandomEffectChecked: true, pauseRandomEffectChecked: true, muteRandomEffectChecked: true, unmuteRandomEffectChecked: true,
-    randomImagesEffectChecked: true
+    checkStates: {}
 }, items => {
+    const checkStatesMap = new Map(Object.entries(items.checkStates));
+
+    function getEnabledState(checkbox) {
+        if (!checkStatesMap.has(checkbox)) {
+            return true;
+        } else {
+            return checkStatesMap.get(checkbox);
+        }
+    }
+
     effects = [
         {
             name: "Nothing",
-            enabled: items.nothingEffectChecked,
+            enabled: getEnabledState("nothingEffect"),
     
             revertEffect: () => {},
             activateEffect: () => {}
@@ -27,7 +28,7 @@ chrome.storage.sync.get({
 
         {
             name: "Rainbow Text",
-            enabled: items.rainbowTextEffectChecked,
+            enabled: getEnabledState("rainbowTextEffect"),
     
             revertEffect: () => { 
                 const elements = document.querySelectorAll("*");
@@ -53,7 +54,7 @@ chrome.storage.sync.get({
     
         {
             name: "Upside Down",
-            enabled: items.upsideDownEffectChecked,
+            enabled: getEnabledState("upsideDownEffect"),
 
             revertEffect: () => document.documentElement.classList.remove("upsideDownEffect"),
             activateEffect: () => document.documentElement.classList.add("upsideDownEffect")
@@ -61,7 +62,7 @@ chrome.storage.sync.get({
     
         {
             name: "Disable Mouse Input",
-            enabled: items.disableMouseInputEffectChecked,
+            enabled: getEnabledState("disableMouseInputEffect"),
     
             revertEffect: () => { 
                 const disableOverlay = document.querySelector("[data-extension='chaosExtension']#disableOverlay");
@@ -77,7 +78,7 @@ chrome.storage.sync.get({
     
         {
             name: "Disable Scrolling",
-            enabled: items.disableScrollingEffectChecked,
+            enabled: getEnabledState("disableScrollingEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("disableScrollingEffect"),
             activateEffect: () =>  document.documentElement.classList.add("disableScrollingEffect")
@@ -85,7 +86,7 @@ chrome.storage.sync.get({
 
         {
             name: "Reload Page",
-            enabled: items.reloadPageEffectChecked,
+            enabled: getEnabledState("reloadPageEffect"),
             
             revertEffect: () => {},
             activateEffect: () => location.reload()
@@ -93,7 +94,7 @@ chrome.storage.sync.get({
 
         {
             name: "Get Alert",
-            enabled: items.getAlertEffectChecked,
+            enabled: getEnabledState("getAlertEffect"),
             
             revertEffect: () => {},
             activateEffect: () => setTimeout(() => { alert("Alert!") }, 250)
@@ -101,7 +102,7 @@ chrome.storage.sync.get({
 
         {
             name: "Scroll To Random Element",
-            enabled: items.scrollToElementEffectChecked,
+            enabled: getEnabledState("scrollToRandomElementEffect"),
             
             revertEffect: () => {},
             
@@ -113,7 +114,7 @@ chrome.storage.sync.get({
 
         {
             name: "Invisible Text",
-            enabled: items.invisibleTextChecked,
+            enabled: getEnabledState("invisibleTextEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("invisibleTextEffect"),
             activateEffect: () => document.documentElement.classList.add("invisibleTextEffect")
@@ -121,7 +122,7 @@ chrome.storage.sync.get({
 
         {
             name: "Half Size",
-            enabled: items.halfSizeEffectChecked,
+            enabled: getEnabledState("halfSizeEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("halfSizeEffect"),
             activateEffect: () => document.documentElement.classList.add("halfSizeEffect")
@@ -129,7 +130,7 @@ chrome.storage.sync.get({
 
         {
             name: "Random Selection Color",
-            enabled: items.randomSelectionColorEffectChecked,
+            enabled: getEnabledState("randomSelectionColorEffect"),
             
             revertEffect: () => {
                 const html = document.documentElement;
@@ -150,7 +151,7 @@ chrome.storage.sync.get({
 
         {//Maybe find a better way to set a dark background on everything
             name: "Terminalify",
-            enabled: items.terminalEffectChecked,
+            enabled: getEnabledState("terminalifyEffect"),
             
             revertEffect: () => {
                 document.documentElement.classList.remove("terminalifyEffect");
@@ -180,7 +181,7 @@ chrome.storage.sync.get({
 
         {
             name: "Hide Images",
-            enabled: items.hideImagesEffectChecked,
+            enabled: getEnabledState("hideImagesEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("hideImagesEffect"),
             activateEffect: () => document.documentElement.classList.add("hideImagesEffect")
@@ -188,7 +189,7 @@ chrome.storage.sync.get({
 
         {
             name: "Blurry Vision",
-            enabled: items.blurryVisionEffectChecked,
+            enabled: getEnabledState("blurryVisionEffect"),
             
             revertEffect: () => { 
                 const blurOverlay = document.querySelector("[data-extension='chaosExtension']#blurOverlay");
@@ -204,7 +205,7 @@ chrome.storage.sync.get({
 
         {
             name: "1950s",
-            enabled: items.y1950sEffectChecked,
+            enabled: getEnabledState("y1950sEffect"),
             
             revertEffect: () => { 
                 const y1950sOverlay = document.querySelector("[data-extension='chaosExtension']#y1950sOverlay");
@@ -220,7 +221,7 @@ chrome.storage.sync.get({
 
         {
             name: "Hide Scrollbars",
-            enabled: items.hideScrollbarsEffectChecked,
+            enabled: getEnabledState("hideScrollbarsEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("hideScrollbarsEffect"),
             activateEffect: () => document.documentElement.classList.add("hideScrollbarsEffect")
@@ -228,7 +229,7 @@ chrome.storage.sync.get({
 
         {
             name: "Select All Text",
-            enabled: items.selectAllTextEffectChecked,
+            enabled: getEnabledState("selectAllTextEffect"),
             
             revertEffect: () => {},
             activateEffect: () => document.getSelection().selectAllChildren(document.body)
@@ -236,7 +237,7 @@ chrome.storage.sync.get({
 
         {
             name: "Hide Text Selection",
-            enabled: items.hideTextSelectionEffectChecked,
+            enabled: getEnabledState("hideTextSelectionEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("hideTextSelectionEffect"),
             activateEffect: () => document.documentElement.classList.add("hideTextSelectionEffect")
@@ -244,7 +245,7 @@ chrome.storage.sync.get({
 
         {
             name: "No CSS",
-            enabled: items.noCSSEffectChecked,
+            enabled: getEnabledState("noCSSEffect"),
             
             revertEffect: () => {
                 const styleSheets = [...document.styleSheets];
@@ -259,7 +260,7 @@ chrome.storage.sync.get({
 
         {
             name: "Random Text Color",
-            enabled: items.randomTextColorEffectChecked,
+            enabled: getEnabledState("randomTextColorEffect"),
             
             revertEffect: () => { 
                 const html = document.documentElement;
@@ -278,7 +279,7 @@ chrome.storage.sync.get({
 
         {
             name: "No Cursor",
-            enabled: items.noCursorEffectChecked,
+            enabled: getEnabledState("noCursorEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("noCursorEffect"),
             activateEffect: () => document.documentElement.classList.add("noCursorEffect")
@@ -286,7 +287,7 @@ chrome.storage.sync.get({
 
         {
             name: "Double Size",
-            enabled: items.doubleSizeEffectChecked,
+            enabled: getEnabledState("doubleSizeEffect"),
 
             revertEffect: () => document.documentElement.classList.remove("doubleSizeEffect"),
             activateEffect: () => document.documentElement.classList.add("doubleSizeEffect")
@@ -294,7 +295,7 @@ chrome.storage.sync.get({
 
         {
             name: "Unselect All Text",
-            enabled: items.unselectAllTextEffectChecked,
+            enabled: getEnabledState("unselectAllTextEffect"),
             
             revertEffect: () => {},
             activateEffect: () => document.getSelection().selectAllChildren(document.head)
@@ -302,7 +303,7 @@ chrome.storage.sync.get({
 
         {
             name: "Mute Everything",
-            enabled: items.muteEverythingEffectChecked,
+            enabled: getEnabledState("muteEverythingEffect"),
             
             revertEffect: () => {},
     
@@ -314,7 +315,7 @@ chrome.storage.sync.get({
 
         {
             name: "Unmute Everything",
-            enabled: items.unmuteEverythingEffectChecked,
+            enabled: getEnabledState("unmuteEverythingEffect"),
             
             revertEffect: () => {},
     
@@ -326,7 +327,7 @@ chrome.storage.sync.get({
 
         {
             name: "Play Everything",
-            enabled: items.playEverythingEffectChecked,
+            enabled: getEnabledState("playEverythingEffect"),
             
             revertEffect: () => {},
 
@@ -338,7 +339,7 @@ chrome.storage.sync.get({
 
         {
             name: "Pause Everything",
-            enabled: items.pauseEverythingEffectChecked,
+            enabled: getEnabledState("pauseEverythingEffect"),
             
             revertEffect: () => {},
     
@@ -350,7 +351,7 @@ chrome.storage.sync.get({
 
         {
             name: "Inverted Colors",
-            enabled: items.invertedColorsEffectChecked,
+            enabled: getEnabledState("invertedColorsEffect"),
             
             revertEffect: () => { 
                 const invertOverlay = document.querySelector("[data-extension='chaosExtension']#invertOverlay");
@@ -366,7 +367,7 @@ chrome.storage.sync.get({
 
         {
             name: "Inverted Page",
-            enabled: items.invertedPageEffectChecked,
+            enabled: getEnabledState("invertedPageEffect"),
 
             revertEffect: () => document.documentElement.classList.remove("invertedPageEffect"),
             activateEffect: () => document.documentElement.classList.add("invertedPageEffect")
@@ -374,7 +375,7 @@ chrome.storage.sync.get({
 
         {
             name: "Sideways Page",
-            enabled: items.sidewaysPageEffectChecked,
+            enabled: getEnabledState("sidewaysPageEffect"),
 
             revertEffect: () => document.documentElement.classList.remove("sidewaysPageEffect"),
             activateEffect: () => document.documentElement.classList.add("sidewaysPageEffect")
@@ -382,7 +383,7 @@ chrome.storage.sync.get({
 
         {
             name: "Midas Touch",
-            enabled: items.midasTouchEffectChecked,
+            enabled: getEnabledState("midasTouchEffect"),
 
             makeGold: event => event.target.classList.add("midasTouchGold"),
 
@@ -402,7 +403,7 @@ chrome.storage.sync.get({
 
         {
             name: "Blackout",
-            enabled: items.blackoutEffectChecked,
+            enabled: getEnabledState("blackoutEffect"),
             
             revertEffect: () => { 
                 const blackoutOverlay = document.querySelector("[data-extension='chaosExtension']#blackoutOverlay");
@@ -418,7 +419,7 @@ chrome.storage.sync.get({
 
         {
             name: "Empty All Inputs",
-            enabled: items.emptyInputsEffectChecked,
+            enabled: getEnabledState("emptyAllInputsEffect"),
             
             revertEffect: () => {},
     
@@ -434,7 +435,7 @@ chrome.storage.sync.get({
 
         {
             name: "Scroll To The Top",
-            enabled: items.scrollToTopEffectChecked,
+            enabled: getEnabledState("scrollToTheTopEffect"),
             
             revertEffect: () => {},
             activateEffect: () => window.scrollTo(window.scrollX, 0)
@@ -442,7 +443,7 @@ chrome.storage.sync.get({
 
         {
             name: "Disable Text Selection",
-            enabled: items.disableTextSelectionEffectChecked,
+            enabled: getEnabledState("disableTextSelectionEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("disableTextSelectionEffect"),
             activateEffect: () => document.documentElement.classList.add("disableTextSelectionEffect")
@@ -450,7 +451,7 @@ chrome.storage.sync.get({
 
         {
             name: "Double Playback Speed",
-            enabled: items.doublePlaybackSpeedEffectChecked,
+            enabled: getEnabledState("doublePlaybackSpeedEffect"),
             
             revertEffect: () => { 
                 const videoAndAudio = document.querySelectorAll("video, audio");
@@ -473,7 +474,7 @@ chrome.storage.sync.get({
 
         {
             name: "Half Playback Speed",
-            enabled: items.halfPlaybackSpeedEffectChecked,
+            enabled: getEnabledState("halfPlaybackSpeedEffect"),
             
             revertEffect: () => { 
                 const videoAndAudio = document.querySelectorAll("video, audio");
@@ -496,7 +497,7 @@ chrome.storage.sync.get({
 
         {
             name: "Spinning Page",
-            enabled: items.spinningPageEffectChecked,
+            enabled: getEnabledState("spinningPageEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("spinningPageEffect"),
             activateEffect: () => document.documentElement.classList.add("spinningPageEffect")
@@ -504,7 +505,7 @@ chrome.storage.sync.get({
 
         {
             name: "Roll",
-            enabled: items.rollEffectChecked,
+            enabled: getEnabledState("rollEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("rollEffect"),
             activateEffect: () => document.documentElement.classList.add("rollEffect")
@@ -512,7 +513,7 @@ chrome.storage.sync.get({
 
         {
             name: "Design Mode",
-            enabled: items.designModeEffectChecked,
+            enabled: getEnabledState("designModeEffect"),
             
             revertEffect: () => document.designMode = "off",
             activateEffect: () => document.designMode = "on"
@@ -520,7 +521,7 @@ chrome.storage.sync.get({
 
         {
             name: "Comic Sans",
-            enabled: items.comicSansEffectChecked,
+            enabled: getEnabledState("comicSansEffect"),
             
             revertEffect: () => document.documentElement.classList.remove("comicSansEffect"),
             activateEffect: () => document.documentElement.classList.add("comicSansEffect")
@@ -528,7 +529,7 @@ chrome.storage.sync.get({
 
         {
             name: "Play Random Media",
-            enabled: items.playRandomEffectChecked,
+            enabled: getEnabledState("playRandomMediaEffect"),
             
             revertEffect: () => {},
 
@@ -542,7 +543,7 @@ chrome.storage.sync.get({
 
         {
             name: "Pause Random Media",
-            enabled: items.pauseRandomEffectChecked,
+            enabled: getEnabledState("pauseRandomMediaEffect"),
             
             revertEffect: () => {},
 
@@ -556,7 +557,7 @@ chrome.storage.sync.get({
 
         {
             name: "Mute Random Media",
-            enabled: items.muteRandomEffectChecked,
+            enabled: getEnabledState("muteRandomMediaEffect"),
             
             revertEffect: () => {},
 
@@ -570,7 +571,7 @@ chrome.storage.sync.get({
 
         {
             name: "Unmute Random Media",
-            enabled: items.unmuteRandomEffectChecked,
+            enabled: getEnabledState("unmuteRandomMediaEffect"),
             
             revertEffect: () => {},
 
@@ -584,7 +585,7 @@ chrome.storage.sync.get({
 
         {
             name: "Random Images",
-            enabled: items.randomImagesEffectChecked,
+            enabled: getEnabledState("randomImagesEffect"),
             
             revertEffect: () => {
                 const images = document.querySelectorAll("img");
