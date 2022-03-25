@@ -1,3 +1,5 @@
+document.documentElement.setAttribute("data-extension", "chaosExtension");
+
 document.body.insertAdjacentHTML("beforebegin", `
   <div data-extension="chaosExtension">
     <div id="effectTimer">
@@ -13,44 +15,42 @@ document.body.insertAdjacentHTML("beforebegin", `
   </div>
 `);
 
-document.documentElement.setAttribute("data-extension", "chaosExtension");
-
 let timerPaused = false;
-let timer;
-let timerSeconds;
+let timeRemaining;
+
+document.addEventListener("keydown", event => {
+  if (event.shiftKey && event.key.toLowerCase() === "p") timerPaused = !timerPaused;
+});
 
 chrome.storage.sync.get({ newEffectTimer: 10 }, items => {
-  timer = items.newEffectTimer;
-  timerSeconds = timer;
+  const timerBar = document.querySelector("[data-extension='chaosExtension'] #timerBar");
+  const timeRemainingElement = document.querySelector("[data-extension='chaosExtension'] #timeRemaining");
 
-  const timeRemaining = document.querySelector("[data-extension='chaosExtension'] #timeRemaining");
-  timeRemaining.textContent = timerSeconds;
+  resetTimer();
+  setInterval(updateTimer, 1000);
 
-  document.addEventListener("keydown", event => {
-    if (event.shiftKey && event.key.toLowerCase() === "p") timerPaused = !timerPaused;
-  });
+  function resetTimer() {
+    timeRemaining = items.newEffectTimer;
+    timerBar.style.width = "100%";
+    timeRemainingElement.textContent = timeRemaining;
+  }
 
-  setInterval(updateTimerBar, 1000);
-
-  function updateTimerBar() {
+  function updateTimer() {
     if (timerPaused) return;
 
-    const timerBar = document.querySelector("[data-extension='chaosExtension'] #timerBar");
     const timerBarWidth = Number(window.getComputedStyle(timerBar, null).getPropertyValue("width").replace("px", ""));
 
-    timerBar.style.width = `${parseInt(timerBarWidth - (timerBarWidth / 100 * (100 / timerSeconds--)))}px`;
-    timeRemaining.textContent = timerSeconds;
+    timerBar.style.width = `${parseInt(timerBarWidth - (timerBarWidth / 100 * (100 / timeRemaining--)))}px`;
+    timeRemainingElement.textContent = timeRemaining;
 
-    if (timerSeconds < 0) {
-      timerBar.style.width = "100%";
-      timerSeconds = timer;
-      timeRemaining.textContent = timer;
+    if (timeRemaining < 0) {
+      resetTimer();
       newEffect();
     }
   }
 
   function newEffect() {
-    const enabledEffects = effects.filter(effect => effect.enabled == true);
+    const enabledEffects = effects.filter(effect => effect.enabled);
     const randomEffect = enabledEffects[Math.floor(Math.random() * enabledEffects.length)];
 
     const effectContainer = document.querySelector("[data-extension='chaosExtension'] #effectContainer");
