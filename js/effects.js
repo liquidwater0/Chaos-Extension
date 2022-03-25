@@ -16,7 +16,7 @@ chrome.storage.sync.get({
             return checkStatesMap.get(checkbox);
         }
     }
-
+    
     effects = [
         {
             name: "Nothing",
@@ -47,7 +47,7 @@ chrome.storage.sync.get({
                         element.style.color = `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`;
                     }
 
-                    setInterval(() => { if (timerSeconds <= 0) clearInterval(interval) }, 1000);
+                    setInterval(() => { if (timeRemaining <= 0) clearInterval(interval) }, 1000);
                 });
             }
         },
