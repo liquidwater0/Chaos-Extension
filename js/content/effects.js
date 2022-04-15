@@ -63,16 +63,20 @@ chrome.storage.sync.get({
         {
             name: "Disable Mouse Input",
             enabled: getEnabledState("disableMouseInputEffect"),
+
+            disableRightClick: event => event.preventDefault(),
     
-            revertEffect: () => { 
+            revertEffect: function() { 
                 document.documentElement.classList.remove("disableMouseInputEffect");
+                document.removeEventListener("contextmenu", this.disableRightClick);
 
                 const disableOverlay = document.querySelector("[data-extension='chaosExtension']#disableOverlay");
                 if (disableOverlay) disableOverlay.remove();
             },
     
-            activateEffect: () => {
+            activateEffect: function() {
                 document.documentElement.classList.add("disableMouseInputEffect");
+                document.addEventListener("contextmenu", this.disableRightClick);
 
                 document.body.insertAdjacentHTML("afterbegin", `
                     <div data-extension="chaosExtension" class="overlay" id="disableOverlay"></div>
