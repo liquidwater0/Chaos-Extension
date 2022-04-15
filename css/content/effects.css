@@ -211,16 +211,16 @@ html[data-extension="chaosExtension"].rollEffect body {
 }
 
 /* Comic Sans */
-html[data-extension="chaosExtension"].comicSansEffect > *:not([data-extension="chaosExtension"]) {
+html[data-extension="chaosExtension"].comicSansEffect * {
     font-family: "Comic Sans MS", cursive !important;
 }
 
 /* Lowercase Text */
-html[data-extension="chaosExtension"].lowercaseTextEffect > *:not([data-extension="chaosExtension"]) {
+html[data-extension="chaosExtension"].lowercaseTextEffect * {
     text-transform: lowercase !important;
 }
 
 /* Uppercase Text */
-html[data-extension="chaosExtension"].uppercaseTextEffect > *:not([data-extension="chaosExtension"]) {
+html[data-extension="chaosExtension"].uppercaseTextEffect * {
     text-transform: uppercase !important;
 }
