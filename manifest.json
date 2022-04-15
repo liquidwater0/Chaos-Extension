@@ -24,12 +24,12 @@
 		{
 			"matches": ["<all_urls>"],
 			"js": [
-				"js/effects.js",
-				"js/chaos.js"
+				"js/content/effects.js",
+				"js/content/chaos.js"
 			],
 			"css": [
-				"css/chaos.css",
-				"css/effects.css"
+				"css/content/chaos.css",
+				"css/content/effects.css"
 			]
 		}
 	]
