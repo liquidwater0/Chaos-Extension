@@ -25,6 +25,11 @@ html[data-extension="chaosExtension"].upsideDownEffect body {
     height: 100% !important;
 }
 
+/* Disable Mouse Input */
+html[data-extension="chaosExtension"].disableMouseInputEffect * {
+    cursor: not-allowed !important;
+}
+
 /* Disable Scrolling */
 html[data-extension="chaosExtension"].disableScrollingEffect,
 html[data-extension="chaosExtension"].disableScrollingEffect * {
