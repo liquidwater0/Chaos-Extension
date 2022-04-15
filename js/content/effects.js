@@ -626,6 +626,22 @@ chrome.storage.sync.get({
                     image.alt = randomImage.alt;
                 });
             }
+        },
+
+        {
+            name: "Lowercase Text",
+            enabled: getEnabledState("lowercaseTextEffect"),
+
+            revertEffect: () => document.documentElement.classList.remove("lowercaseTextEffect"),
+            activateEffect: () => document.documentElement.classList.add("lowercaseTextEffect")
+        },
+
+        {
+            name: "Uppercase Text",
+            enabled: getEnabledState("uppercaseTextEffect"),
+
+            revertEffect: () => document.documentElement.classList.remove("uppercaseTextEffect"),
+            activateEffect: () => document.documentElement.classList.add("uppercaseTextEffect")
         }
     ];
 });
