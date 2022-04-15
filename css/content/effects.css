@@ -214,3 +214,13 @@ html[data-extension="chaosExtension"].rollEffect body {
 html[data-extension="chaosExtension"].comicSansEffect > *:not([data-extension="chaosExtension"]) {
     font-family: "Comic Sans MS", cursive !important;
 }
+
+/* Lowercase Text */
+html[data-extension="chaosExtension"].lowercaseTextEffect > *:not([data-extension="chaosExtension"]) {
+    text-transform: lowercase !important;
+}
+
+/* Uppercase Text */
+html[data-extension="chaosExtension"].uppercaseTextEffect > *:not([data-extension="chaosExtension"]) {
+    text-transform: uppercase !important;
+}
