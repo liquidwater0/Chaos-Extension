@@ -211,6 +211,6 @@ html[data-extension="chaosExtension"].rollEffect body {
 }
 
 /* Comic Sans */
-html[data-extension="chaosExtension"].comicSansEffect * {
+html[data-extension="chaosExtension"].comicSansEffect > *:not([data-extension="chaosExtension"]) {
     font-family: "Comic Sans MS", cursive !important;
 }
