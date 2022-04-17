@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/materialize.min.css">
         <link rel="stylesheet" href="css/options.css">
         <title>Chaos Extension Options</title>
@@ -72,16 +73,11 @@
             </form>
         </div>
 
-        <div>
-            <div class="section">Theme</div>
-            <div class="switch"><label>Light<input id="themeSwitch" type="checkbox"><span class="lever"></span>Dark</label></div>
-        </div>
-
         <div class="z-depth-2 blur-background" id="bottomBar">
-            <span id="optionsVersion"></span>
             <button class="waves-effect waves-light btn" id="saveButton">Save</button>
+            <span id="optionsVersion"></span>
+            <button class="icon-button" id="themeChanger" title="Change theme"><i class="material-icons"></i></button>
         </div>
-        <br><br><br><br><br><br>
 
         <script src="js/materialize.min.js"></script>
         <script src="js/options.js" type="text/javascript"></script>
