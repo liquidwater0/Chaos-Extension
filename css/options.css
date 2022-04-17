@@ -202,7 +202,6 @@ form label {
 
 #bottomBar {
 	position: fixed;
-	/* background-color: var(--background); */
 	bottom: 0px;
 	transform: translateX(-20px);
 	width: calc(100% + 40px);
