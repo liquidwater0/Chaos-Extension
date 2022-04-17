@@ -3,13 +3,13 @@ document.documentElement.setAttribute("data-extension", "chaosExtension");
 document.body.insertAdjacentHTML("beforebegin", `
   <div data-extension="chaosExtension">
     <div id="effectTimer">
-      <div id="timerBarContainer">
+      <div class="blur-background" id="timerBarContainer">
         <span id="timeRemaining"></span>
         <span id="timerBar"></span>
       </div>
     </div>
 
-    <div id="effectContainer">
+    <div class="blur-background" id="effectContainer">
       <div id="effectName"></div>
     </div>
   </div>
