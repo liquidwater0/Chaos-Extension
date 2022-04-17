@@ -1,3 +1,15 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+*:not(.material-icons) {
+	font-family: Roboto, sans-serif;
+}
+
 :root {
 	--primaryColor: 0, 160, 255;
 	
@@ -11,14 +23,17 @@ html[data-theme="dark"] {
 	--background-transparent: rgb(45, 45, 45, 0.9);
 	--background2: rgb(55, 55, 55);
 
-    --textColor: white;
+    --text-color: white;
 	--primaryTextColor: rgb(230, 230, 230);
+	--checkbox-label-text-color: rgb(200, 200, 200);
+	--input-default-text-color: rgb(175, 175, 175);
 
-	--uncheckedHover: rgb(55, 55, 55);
+	--unchecked-hover: rgb(65, 65, 65);
+	--icon-button-hover: rgba(255, 255, 255, 0.66);
 
-	--scrollBarTrack: rgb(55, 55, 55);
-	--scrollBarThumb: rgb(110, 110, 110);
-	--scrollBarThumbHover: rgb(130, 130, 130);
+	--scrollbar-track: rgb(50, 50, 50);
+    --scrollbar-thumb: rgb(110, 110, 110);
+    --scrollbar-hover: rgb(130, 130, 130);
 }
 
 html[data-theme="light"] {
@@ -26,14 +41,17 @@ html[data-theme="light"] {
 	--background-transparent: rgb(235, 235, 235, 0.9);
 	--background2: rgb(225, 225, 225);
 
-    --textColor: black;
+    --text-color: black;
 	--primaryTextColor: rgb(50, 50, 50);
+	--checkbox-label-text-color: rgb(40, 40, 40);
+	--input-default-text-color: rgb(80, 80, 80);
 
-	--uncheckedHover: rgb(220, 220, 220);
+	--unchecked-hover: rgb(220, 220, 220);
+	--icon-button-hover: rgba(30, 30, 30, 0.66);
 
-	--scrollBarTrack: rgb(210, 210, 210);
-	--scrollBarThumb: rgb(165, 165, 165);
-	--scrollBarThumbHover: rgb(145, 145, 145);
+	--scrollbar-track: rgb(215, 215, 215);
+    --scrollbar-thumb: rgb(170, 170, 170);
+    --scrollbar-hover: rgb(190, 190, 190);
 }
 
 ::-webkit-scrollbar {
@@ -41,38 +59,57 @@ html[data-theme="light"] {
 }
 
 ::-webkit-scrollbar-track {
-	background-color: var(--scrollBarTrack);
+	background-color: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: var(--scrollBarThumb);
+	background-color: var(--scrollbar-thumb);
 	border-radius: 50px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background-color: var(--scrollBarThumbHover);
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	color: var(--textColor);
-    font-family: Roboto, sans-serif;
+	background-color: var(--scrollbar-hover);
 }
 
 body {
 	background-color: var(--background);
-	margin: 20px;
+	padding: 20px;
+	padding-bottom: 50px;
 }
 
 button {
+	cursor: pointer;
+	border: none;
+}
+
+button:not(.icon-button) {
 	background-color: var(--primaryColor1) !important;
 	font-weight: 500;
 	border-radius: 4px !important;
 }
 
-button:hover {
+button:not(.icon-button):hover {
 	background-color: var(--primaryColor3) !important;
+}
+
+.icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent !important;
+    color: var(--text-color);
+    padding: 5px;
+    border-radius: 100%;
+	transition: color 200ms;
+}
+
+.icon-button:hover {
+	background-color: transparent !important;
+    color: var(--icon-button-hover);
+}
+
+.icon-button i.material-icons {
+    font-size: 35px;
 }
 
 .blur-background {
@@ -93,12 +130,17 @@ button:hover {
 	box-shadow: 0px 1px 0px 0px var(--primaryColor1) !important;
 }
 
+.input-field input[type="text"],
 .input-field input[type="text"] + label {
-	color: var(--textColor) !important;
+	color: var(--text-color) !important;
 }
 
 .input-field input[type="text"]:focus + label {
 	color: var(--primaryColor1) !important;
+}
+
+input[type="checkbox"] + span {
+    color: var(--checkbox-label-text-color);
 }
 
 .filled-in:checked ~ span::after {
@@ -112,7 +154,7 @@ button:hover {
 }
 
 .filled-in:hover ~ span::after {
-	background-color: var(--uncheckedHover) !important;
+	background-color: var(--unchecked-hover) !important;
 }
 
 .switch {
@@ -173,14 +215,14 @@ form label {
 
 #keyCombination {
     font-size: 20px;
-    color: var(--textColor);
+    color: var(--text-color);
     font-weight: 500;
     text-align: center;
     margin-bottom: 20px;
 }
 
 .default {
-	color: var(--primaryTextColor);
+	color: var(--input-default-text-color);
 }
 
 .section {
@@ -201,18 +243,19 @@ form label {
 }
 
 #bottomBar {
+	display: flex;
+	align-items: center;
 	position: fixed;
+	left: 0px;
 	bottom: 0px;
-	transform: translateX(-20px);
-	width: calc(100% + 40px);
-	padding: 13px;
+	width: 100%;
+	padding: 7px 10px;
 	z-index: 1000;
 }
 
 #optionsVersion {
-	position: absolute;
-	font-size: 14px;
-	left: 50%;
-	bottom: 50%;
-	transform: translate(-50%, 50%);
+	color: var(--text-color);
+	font-size: 15px;
+	font-weight: 550;
+	margin: 0 auto;
 }
