@@ -21,7 +21,7 @@ function updateTheme() {
     }, items => {
         isDarkTheme = (items.currentTheme === "dark") ? true : false;
         themeChangerIcon.textContent = (items.currentTheme === "dark") ? "brightness_7" : "brightness_4";
-        document.documentElement.setAttribute("data-theme", items.currentTheme);
+        html.setAttribute("data-theme", items.currentTheme);
     });
 }
 
