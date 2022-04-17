@@ -8,27 +8,30 @@ version.textContent = `Chaos Extension v${manifest.version}`;
 document.addEventListener("DOMContentLoaded", get);
 saveButton.addEventListener("click", save);
 
-const themeSwitch = document.getElementById("themeSwitch");
+const themeChangerButton = document.getElementById("themeChanger");
+const themeChangerIcon = document.querySelector("#themeChanger i.material-icons");
 
-themeSwitch.addEventListener("input", () => {
-    chrome.storage.sync.set({ "themeSwitchChecked": themeSwitch.checked });
-    themeSwitch.checked ? darkMode() : lightMode();
-});
+themeChangerButton.addEventListener("click", changeTheme);
 
-function lightMode() {
-    html.setAttribute("data-theme", "light");
-    saveTheme();
+let isDarkTheme;
+
+function updateTheme() {
+    chrome.storage.sync.get({
+        currentTheme: "dark"
+    }, items => {
+        isDarkTheme = (items.currentTheme === "dark") ? true : false;
+        themeChangerIcon.textContent = (items.currentTheme === "dark") ? "brightness_7" : "brightness_4";
+        document.documentElement.setAttribute("data-theme", items.currentTheme);
+    });
 }
 
-function darkMode() {
-    html.setAttribute("data-theme", "dark");
-    saveTheme();
+function changeTheme() {
+    isDarkTheme = !isDarkTheme;
+    chrome.storage.sync.set({ "currentTheme": isDarkTheme ? "dark" : "light" });
+    updateTheme();
 }
 
-function saveTheme() {
-    chrome.storage.sync.set({ "currentTheme": html.getAttribute("data-theme") });
-}
-
+const newEffectTimerTextField = document.getElementById("newEffectTimerTextField");
 const selectAllEffectsButton = document.getElementById("selectAllEffectsButton");
 const effectsCheckboxes = document.querySelectorAll("#effectsCheckboxes input[data-checkbox]");
 
@@ -38,6 +41,7 @@ selectAllEffectsButton.addEventListener("click", () => {
     effectsCheckState = !effectsCheckState;
     effectsCheckboxes.forEach(checkbox => checkbox.checked = effectsCheckState);
 });
+
 
 function save() {
     const checkStates = new Map([]);
@@ -68,15 +72,14 @@ function save() {
 
 function get() {
     chrome.storage.sync.get({
-        currentTheme: "dark", newEffectTimer: 10, themeSwitchChecked: true, checkStates: {}
+        currentTheme: "dark", newEffectTimer: 10, checkStates: {}
     }, items => {
-        const checkStatesMap = new Map(Object.entries(items.checkStates));
-
-        html.setAttribute("data-theme", items.currentTheme);
-        themeSwitch.checked = items.themeSwitchChecked;
+        updateTheme();
         newEffectTimerTextField.value = (items.newEffectTimer == 1) ? `${items.newEffectTimer} second` : `${items.newEffectTimer} seconds`;
 
-        effectsCheckboxes.forEach(checkbox => {
+        const checkStatesMap = new Map(Object.entries(items.checkStates));
+
+        effectsCheckboxes.forEach(checkbox => {    
             if (!checkStatesMap.has(checkbox.getAttribute("data-checkbox"))) {
                 checkbox.checked = true;
             } else {
