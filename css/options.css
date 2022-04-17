@@ -8,8 +8,10 @@
 
 html[data-theme="dark"] {
 	--background: rgb(45, 45, 45);
+	--background-transparent: rgb(45, 45, 45, 0.9);
 	--background2: rgb(55, 55, 55);
-        --textColor: white;
+
+    --textColor: white;
 	--primaryTextColor: rgb(230, 230, 230);
 
 	--uncheckedHover: rgb(55, 55, 55);
@@ -21,8 +23,10 @@ html[data-theme="dark"] {
 
 html[data-theme="light"] {
 	--background: rgb(235, 235, 235);
+	--background-transparent: rgb(235, 235, 235, 0.9);
 	--background2: rgb(225, 225, 225);
-        --textColor: black;
+
+    --textColor: black;
 	--primaryTextColor: rgb(50, 50, 50);
 
 	--uncheckedHover: rgb(220, 220, 220);
@@ -50,9 +54,9 @@ html[data-theme="light"] {
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    color: var(--textColor);
+	margin: 0;
+	padding: 0;
+	color: var(--textColor);
     font-family: Roboto, sans-serif;
 }
 
@@ -69,6 +73,11 @@ button {
 
 button:hover {
 	background-color: var(--primaryColor3) !important;
+}
+
+.blur-background {
+	background-color: var(--background-transparent) !important;
+	backdrop-filter: blur(3px) !important;
 }
 
 .input-field {
@@ -176,8 +185,8 @@ form label {
 
 .section {
     display: grid;
-    grid-template-areas: "line section line2";
-    align-items: center;
+	grid-template-areas: "line section line2";
+	align-items: center;
     color: var(--primaryTextColor);
     font-size: 33px;
     font-weight: 500;
@@ -193,7 +202,7 @@ form label {
 
 #bottomBar {
 	position: fixed;
-	background-color: var(--background);
+	/* background-color: var(--background); */
 	bottom: 0px;
 	transform: translateX(-20px);
 	width: calc(100% + 40px);
