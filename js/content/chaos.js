@@ -22,6 +22,13 @@ document.addEventListener("keydown", event => {
   if (event.shiftKey && event.key.toLowerCase() === "p") timerPaused = !timerPaused;
 });
 
+function format(time) {
+  const minutes = String(Math.floor(time / 60)).padStart(2, "0");
+  const seconds = String(time % 60).padStart(2, "0");
+
+  return `${minutes}:${seconds}`;
+}
+
 chrome.storage.sync.get({ newEffectTimer: 10 }, items => {
   const timerBar = document.querySelector("[data-extension='chaosExtension'] #timerBar");
   const timeRemainingElement = document.querySelector("[data-extension='chaosExtension'] #timeRemaining");
@@ -32,7 +39,7 @@ chrome.storage.sync.get({ newEffectTimer: 10 }, items => {
   function resetTimer() {
     timeRemaining = items.newEffectTimer;
     timerBar.style.width = "100%";
-    timeRemainingElement.textContent = timeRemaining;
+    timeRemainingElement.textContent = format(timeRemaining);
   }
 
   function updateTimer() {
@@ -41,7 +48,7 @@ chrome.storage.sync.get({ newEffectTimer: 10 }, items => {
     const timerBarWidth = Number(window.getComputedStyle(timerBar, null).getPropertyValue("width").replace("px", ""));
 
     timerBar.style.width = `${parseInt(timerBarWidth - (timerBarWidth / 100 * (100 / timeRemaining--)))}px`;
-    timeRemainingElement.textContent = timeRemaining;
+    timeRemainingElement.textContent = format(timeRemaining);
 
     if (timeRemaining < 0) {
       resetTimer();
