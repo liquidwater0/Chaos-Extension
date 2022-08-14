@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="css/materialize.min.css">
+        <link rel="stylesheet" href="css/options.css">
+        <title>Chaos Extension Options</title>
+    </head>
+    <body>
+        <div id="keyCombination">Shift + P to Pause</div>
+        <div>
+            <div class="section">Effects</div>
+            <div class="selectAll"><button id="selectAllEffectsButton">Select All</button></div>
+            <form id="effectsCheckboxes">
+                <label><input class="filled-in" type="checkbox" data-checkbox="y1950sEffect"><span>1950s</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="bigTextEffect"><span>Big Text</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="blackoutEffect"><span>Blackout</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="blurryVisionEffect"><span>Blurry Vision</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="comicSansEffect"><span>Comic Sans</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="designModeEffect"><span>Design Mode</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="disableMouseInputEffect"><span>Disable Mouse Input</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="disableScrollingEffect"><span>Disable Scrolling</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="disableTextSelectionEffect"><span>Disable Text Selection</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="doublePlaybackSpeedEffect"><span>Double Playback Speed</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="doubleSizeEffect"><span>Double Size</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="emptyAllInputsEffect"><span>Empty All Inputs</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="getAlertEffect"><span>Get Alert</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="halfPlaybackSpeedEffect"><span>Half Playback Speed</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="halfSizeEffect"><span>Half Size</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="hideImagesEffect"><span>Hide Images</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="hideScrollbarsEffect"><span>Hide Scrollbars</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="hideTextSelectionEffect"><span>Hide Text Selection</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="invertedColorsEffect"><span>Inverted Colors</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="invertedPageEffect"><span>Inverted Page</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="invisibleTextEffect"><span>Invisible Text</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="lowercaseTextEffect"><span>Lowercase Text</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="midasTouchEffect"><span>Midas Touch</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="muteEverythingEffect"><span>Mute Everything</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="muteRandomMediaEffect"><span>Mute Random Media</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="noCSSEffect"><span>No CSS</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="noCursorEffect"><span>No Cursor</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="nothingEffect"><span>Nothing</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="pauseEverythingEffect"><span>Pause Everything</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="pauseRandomMediaEffect"><span>Pause Random Media</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="playEverythingEffect"><span>Play Everything</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="playRandomMediaEffect"><span>Play Random Media</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="rainbowTextEffect"><span>Rainbow Text</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="randomImagesEffect"><span>Random Images</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="randomSelectionColorEffect"><span>Random Selection Color</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="randomTextColorEffect"><span>Random Text Color</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="reloadPageEffect"><span>Reload Page</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="rollEffect"><span>Roll</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="scrollToRandomElementEffect"><span>Scroll To Random Element</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="scrollToTheTopEffect"><span>Scroll To The Top</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="selectAllTextEffect"><span>Select All Text</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="sidewaysPageEffect"><span>Sideways Page</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="smallTextEffect"><span>Small Text</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="spinningPageEffect"><span>Spinning Page</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="terminalifyEffect"><span>Terminalify</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="unmuteEverythingEffect"><span>Unmute Everything</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="unmuteRandomMediaEffect"><span>Unmute Random Media</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="unselectAllTextEffect"><span>Unselect All Text</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="uppercaseTextEffect"><span>Uppercase Text</span></label>
+                <label><input class="filled-in" type="checkbox" data-checkbox="upsideDownEffect"><span>Upside Down</span></label>
+            </form>
+        </div>
+
+        <div>
+            <div class="section">Options</div>
+            <form>
+                <div class="input-field"><input placeholder="Enter Seconds" id="newEffectTimerTextField" type="text"><label>New Effect Timer<span class="default"> - Default: 10 seconds</span></label></div>
+            </form>
+        </div>
+
+        <div class="z-depth-2 blur-background" id="bottomBar">
+            <button class="waves-effect waves-light btn" id="saveButton">Save</button>
+            <span id="optionsVersion"></span>
+            <button class="icon-button" id="themeChanger" title="Change theme"><i class="material-icons"></i></button>
+        </div>
+
+        <script src="js/materialize.min.js"></script>
+        <script src="js/options.js" type="text/javascript"></script>
+    </body>
+</html>
