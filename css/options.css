@@ -112,7 +112,7 @@ button:not(.icon-button):hover {
     font-size: 35px;
 }
 
-.blur-background {
+.ui-blur {
 	background-color: var(--background-transparent) !important;
 	backdrop-filter: blur(3px) !important;
 }
