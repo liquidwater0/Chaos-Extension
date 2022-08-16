@@ -48,8 +48,8 @@ chrome.storage.sync.get({
             name: "Upside Down",
             enabled: getEnabledState("upsideDownEffect"),
 
-            revertEffect: () => document.documentElement.classList.remove("upsideDownEffect"),
-            activateEffect: () => document.documentElement.classList.add("upsideDownEffect")
+            revertEffect: () => document.documentElement.classList.remove("upside-down-effect"),
+            activateEffect: () => document.documentElement.classList.add("upside-down-effect")
         },
     
         {
@@ -59,7 +59,7 @@ chrome.storage.sync.get({
             disableRightClick: event => event.preventDefault(),
     
             revertEffect: function() { 
-                document.documentElement.classList.remove("disableMouseInputEffect");
+                document.documentElement.classList.remove("disable-mouse-input-effect");
                 document.removeEventListener("contextmenu", this.disableRightClick);
 
                 const disableOverlay = document.querySelector("[data-extension='chaosExtension']#disableOverlay");
@@ -67,7 +67,7 @@ chrome.storage.sync.get({
             },
     
             activateEffect: function() {
-                document.documentElement.classList.add("disableMouseInputEffect");
+                document.documentElement.classList.add("disable-mouse-input-effect");
                 document.addEventListener("contextmenu", this.disableRightClick);
 
                 document.body.insertAdjacentHTML("afterbegin", `
@@ -80,8 +80,8 @@ chrome.storage.sync.get({
             name: "Disable Scrolling",
             enabled: getEnabledState("disableScrollingEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("disableScrollingEffect"),
-            activateEffect: () =>  document.documentElement.classList.add("disableScrollingEffect")
+            revertEffect: () => document.documentElement.classList.remove("disable-scrolling-effect"),
+            activateEffect: () =>  document.documentElement.classList.add("disable-scrolling-effect")
         },
 
         {
@@ -105,7 +105,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("scrollToRandomElementEffect"),
             
             revertEffect: () => {},
-            
             activateEffect: () => { 
                 const elements = document.querySelectorAll("body *");
                 elements[Math.floor(Math.random() * elements.length)].scrollIntoView();
@@ -116,16 +115,16 @@ chrome.storage.sync.get({
             name: "Invisible Text",
             enabled: getEnabledState("invisibleTextEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("invisibleTextEffect"),
-            activateEffect: () => document.documentElement.classList.add("invisibleTextEffect")
+            revertEffect: () => document.documentElement.classList.remove("invisible-text-effect"),
+            activateEffect: () => document.documentElement.classList.add("invisible-text-effect")
         },
 
         {
             name: "Half Size",
             enabled: getEnabledState("halfSizeEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("halfSizeEffect"),
-            activateEffect: () => document.documentElement.classList.add("halfSizeEffect")
+            revertEffect: () => document.documentElement.classList.remove("half-size-effect"),
+            activateEffect: () => document.documentElement.classList.add("half-size-effect")
         },
 
         {
@@ -135,7 +134,7 @@ chrome.storage.sync.get({
             revertEffect: () => {
                 const html = document.documentElement;
 
-                html.classList.remove("randomSelectionColorEffect");
+                html.classList.remove("random-selection-color-effect");
                 html.style.removeProperty("--randomBackgroundColor");
                 html.style.removeProperty("--randomTextColor");
             },
@@ -143,7 +142,7 @@ chrome.storage.sync.get({
             activateEffect: () => { 
                 const html = document.documentElement;
 
-                html.classList.add("randomSelectionColorEffect");
+                html.classList.add("random-selection-color-effect");
                 html.style.setProperty("--randomBackgroundColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
                 html.style.setProperty("--randomTextColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
             }
@@ -154,14 +153,14 @@ chrome.storage.sync.get({
             enabled: getEnabledState("terminalifyEffect"),
             
             revertEffect: () => {
-                document.documentElement.classList.remove("terminalifyEffect");
+                document.documentElement.classList.remove("terminalify-effect");
 
                 const elements = document.querySelectorAll("*");
                 elements.forEach(element => element.style.backgroundColor = "");
             },
     
             activateEffect: () => { 
-                document.documentElement.classList.add("terminalifyEffect");
+                document.documentElement.classList.add("terminalify-effect");
 
                 const elements = document.querySelectorAll("body *, body, html");
 
@@ -183,8 +182,8 @@ chrome.storage.sync.get({
             name: "Hide Images",
             enabled: getEnabledState("hideImagesEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("hideImagesEffect"),
-            activateEffect: () => document.documentElement.classList.add("hideImagesEffect")
+            revertEffect: () => document.documentElement.classList.remove("hide-images-effect"),
+            activateEffect: () => document.documentElement.classList.add("hide-images-effect")
         },
 
         {
@@ -198,7 +197,7 @@ chrome.storage.sync.get({
     
             activateEffect: () => {
                 document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" class="overlay noPointerEvents" id="blurOverlay"></div>
+                    <div data-extension="chaosExtension" class="overlay no-pointer-events" id="blurOverlay"></div>
                 `);
             }
         },
@@ -214,7 +213,7 @@ chrome.storage.sync.get({
     
             activateEffect: () => {
                 document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" class="overlay noPointerEvents" id="y1950sOverlay"></div>
+                    <div data-extension="chaosExtension" class="overlay no-pointer-events" id="y1950sOverlay"></div>
                 `);
             }
         },
@@ -223,8 +222,8 @@ chrome.storage.sync.get({
             name: "Hide Scrollbars",
             enabled: getEnabledState("hideScrollbarsEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("hideScrollbarsEffect"),
-            activateEffect: () => document.documentElement.classList.add("hideScrollbarsEffect")
+            revertEffect: () => document.documentElement.classList.remove("hide-scrollbars-effect"),
+            activateEffect: () => document.documentElement.classList.add("hide-scrollbars-effect")
         },
 
         {
@@ -239,8 +238,8 @@ chrome.storage.sync.get({
             name: "Hide Text Selection",
             enabled: getEnabledState("hideTextSelectionEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("hideTextSelectionEffect"),
-            activateEffect: () => document.documentElement.classList.add("hideTextSelectionEffect")
+            revertEffect: () => document.documentElement.classList.remove("hide-text-selection-effect"),
+            activateEffect: () => document.documentElement.classList.add("hide-text-selection-effect")
         },
 
         {
@@ -265,14 +264,14 @@ chrome.storage.sync.get({
             revertEffect: () => { 
                 const html = document.documentElement;
 
-                html.classList.remove("randomTextColorEffect");
+                html.classList.remove("random-text-color-effect");
                 html.style.removeProperty("--randomTextColor");
             },
 
             activateEffect: () => {
                 const html = document.documentElement;
 
-                html.classList.add("randomTextColorEffect");
+                html.classList.add("random-text-color-effect");
                 html.style.setProperty("--randomTextColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
             }
         },
@@ -281,16 +280,16 @@ chrome.storage.sync.get({
             name: "No Cursor",
             enabled: getEnabledState("noCursorEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("noCursorEffect"),
-            activateEffect: () => document.documentElement.classList.add("noCursorEffect")
+            revertEffect: () => document.documentElement.classList.remove("no-cursor-effect"),
+            activateEffect: () => document.documentElement.classList.add("no-cursor-effect")
         },
 
         {
             name: "Double Size",
             enabled: getEnabledState("doubleSizeEffect"),
 
-            revertEffect: () => document.documentElement.classList.remove("doubleSizeEffect"),
-            activateEffect: () => document.documentElement.classList.add("doubleSizeEffect")
+            revertEffect: () => document.documentElement.classList.remove("double-size-effect"),
+            activateEffect: () => document.documentElement.classList.add("double-size-effect")
         },
 
         {
@@ -306,7 +305,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("muteEverythingEffect"),
             
             revertEffect: () => {},
-    
             activateEffect: () => {
                 const audioVideos = document.querySelectorAll("audio, video");
                 audioVideos.forEach(element => element.muted = true);
@@ -318,7 +316,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("unmuteEverythingEffect"),
             
             revertEffect: () => {},
-    
             activateEffect: () => {
                 const audioVideos = document.querySelectorAll("audio, video");
                 audioVideos.forEach(element => element.muted = false);
@@ -330,7 +327,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("playEverythingEffect"),
             
             revertEffect: () => {},
-
             activateEffect: () => {
                 const audioVideos = document.querySelectorAll("audio, video");
                 audioVideos.forEach(element => element.play());
@@ -342,7 +338,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("pauseEverythingEffect"),
             
             revertEffect: () => {},
-    
             activateEffect: () => {
                 const audioVideos = document.querySelectorAll("audio, video");
                 audioVideos.forEach(element => element.pause());
@@ -357,10 +352,10 @@ chrome.storage.sync.get({
                 const invertOverlay = document.querySelector("[data-extension='chaosExtension']#invertOverlay");
                 if (invertOverlay) invertOverlay.remove();
             },
-    
+
             activateEffect: () => {
                 document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" class="overlay noPointerEvents" id="invertOverlay"></div>
+                    <div data-extension="chaosExtension" class="overlay no-pointer-events" id="invertOverlay"></div>
                 `);
             }
         },
@@ -369,34 +364,35 @@ chrome.storage.sync.get({
             name: "Inverted Page",
             enabled: getEnabledState("invertedPageEffect"),
 
-            revertEffect: () => document.documentElement.classList.remove("invertedPageEffect"),
-            activateEffect: () => document.documentElement.classList.add("invertedPageEffect")
+            revertEffect: () => document.documentElement.classList.remove("inverted-page-effect"),
+            activateEffect: () => document.documentElement.classList.add("inverted-page-effect")
         },
 
         {
             name: "Sideways Page",
             enabled: getEnabledState("sidewaysPageEffect"),
 
-            revertEffect: () => document.documentElement.classList.remove("sidewaysPageEffect"),
-            activateEffect: () => document.documentElement.classList.add("sidewaysPageEffect")
+            revertEffect: () => document.documentElement.classList.remove("sideways-page-effect"),
+            activateEffect: () => document.documentElement.classList.add("sideways-page-effect")
         },
 
         {
             name: "Midas Touch",
             enabled: getEnabledState("midasTouchEffect"),
 
-            makeGold: event => event.target.classList.add("midasTouchGold"),
+            makeGold: event => event.target.classList.add("midas-touch-gold"),
 
+            //These are not arrow functions, because arrow functions don't work properly with this effect.
             revertEffect: function() { 
-                document.documentElement.classList.remove("midasTouchEffect");
+                document.documentElement.classList.remove("midas-touch-effect");
                 document.removeEventListener("click", this.makeGold);
 
                 const elements = document.querySelectorAll("*");
-                elements.forEach(element => element.classList.remove("midasTouchGold"));
+                elements.forEach(element => element.classList.remove("midas-touch-gold"));
             },
     
             activateEffect: function() {
-                document.documentElement.classList.add("midasTouchEffect");
+                document.documentElement.classList.add("midas-touch-effect");
                 document.addEventListener("click", this.makeGold);
             }
         },
@@ -412,7 +408,7 @@ chrome.storage.sync.get({
     
             activateEffect: () => {
                 document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" class="overlay noPointerEvents" id="blackoutOverlay"></div>
+                    <div data-extension="chaosExtension" class="overlay no-pointer-events" id="blackoutOverlay"></div>
                 `);
             }
         },
@@ -422,7 +418,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("emptyAllInputsEffect"),
             
             revertEffect: () => {},
-    
             activateEffect: () => {
                 const inputs = document.querySelectorAll("input:not([type='button']), textarea");
 
@@ -445,8 +440,8 @@ chrome.storage.sync.get({
             name: "Disable Text Selection",
             enabled: getEnabledState("disableTextSelectionEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("disableTextSelectionEffect"),
-            activateEffect: () => document.documentElement.classList.add("disableTextSelectionEffect")
+            revertEffect: () => document.documentElement.classList.remove("disable-text-selection-effect"),
+            activateEffect: () => document.documentElement.classList.add("disable-text-selection-effect")
         },
 
         {
@@ -499,16 +494,16 @@ chrome.storage.sync.get({
             name: "Spinning Page",
             enabled: getEnabledState("spinningPageEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("spinningPageEffect"),
-            activateEffect: () => document.documentElement.classList.add("spinningPageEffect")
+            revertEffect: () => document.documentElement.classList.remove("spinning-page-effect"),
+            activateEffect: () => document.documentElement.classList.add("spinning-page-effect")
         },
 
         {
             name: "Roll",
             enabled: getEnabledState("rollEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("rollEffect"),
-            activateEffect: () => document.documentElement.classList.add("rollEffect")
+            revertEffect: () => document.documentElement.classList.remove("roll-effect"),
+            activateEffect: () => document.documentElement.classList.add("roll-effect")
         },
 
         {
@@ -523,8 +518,8 @@ chrome.storage.sync.get({
             name: "Comic Sans",
             enabled: getEnabledState("comicSansEffect"),
             
-            revertEffect: () => document.documentElement.classList.remove("comicSansEffect"),
-            activateEffect: () => document.documentElement.classList.add("comicSansEffect")
+            revertEffect: () => document.documentElement.classList.remove("comic-sans-effect"),
+            activateEffect: () => document.documentElement.classList.add("comic-sans-effect")
         },
 
         {
@@ -532,7 +527,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("playRandomMediaEffect"),
             
             revertEffect: () => {},
-
             activateEffect: () => {
                 const audioVideos = document.querySelectorAll("audio, video");
                 const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
@@ -546,7 +540,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("pauseRandomMediaEffect"),
             
             revertEffect: () => {},
-
             activateEffect: () => {
                 const audioVideos = document.querySelectorAll("audio, video");
                 const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
@@ -560,7 +553,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("muteRandomMediaEffect"),
             
             revertEffect: () => {},
-
             activateEffect: () => {
                 const audioVideos = document.querySelectorAll("audio, video");
                 const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
@@ -574,7 +566,6 @@ chrome.storage.sync.get({
             enabled: getEnabledState("unmuteRandomMediaEffect"),
             
             revertEffect: () => {},
-
             activateEffect: () => {
                 const audioVideos = document.querySelectorAll("audio, video");
                 const randomMedia = audioVideos[Math.floor(Math.random() * audioVideos.length)];
@@ -624,32 +615,32 @@ chrome.storage.sync.get({
             name: "Lowercase Text",
             enabled: getEnabledState("lowercaseTextEffect"),
 
-            revertEffect: () => document.documentElement.classList.remove("lowercaseTextEffect"),
-            activateEffect: () => document.documentElement.classList.add("lowercaseTextEffect")
+            revertEffect: () => document.documentElement.classList.remove("lowercase-text-effect"),
+            activateEffect: () => document.documentElement.classList.add("lowercase-text-effect")
         },
 
         {
             name: "Uppercase Text",
             enabled: getEnabledState("uppercaseTextEffect"),
 
-            revertEffect: () => document.documentElement.classList.remove("uppercaseTextEffect"),
-            activateEffect: () => document.documentElement.classList.add("uppercaseTextEffect")
+            revertEffect: () => document.documentElement.classList.remove("uppercase-text-effect"),
+            activateEffect: () => document.documentElement.classList.add("uppercase-text-effect")
         },
 
         {
             name: "Big Text",
             enabled: getEnabledState("bigTextEffect"),
 
-            revertEffect: () => document.documentElement.classList.remove("bigTextEffect"),
-            activateEffect: () => document.documentElement.classList.add("bigTextEffect")
+            revertEffect: () => document.documentElement.classList.remove("big-text-effect"),
+            activateEffect: () => document.documentElement.classList.add("big-text-effect")
         },
 
         {
             name: "Small Text",
             enabled: getEnabledState("smallTextEffect"),
 
-            revertEffect: () => document.documentElement.classList.remove("smallTextEffect"),
-            activateEffect: () => document.documentElement.classList.add("smallTextEffect")
+            revertEffect: () => document.documentElement.classList.remove("small-text-effect"),
+            activateEffect: () => document.documentElement.classList.add("small-text-effect")
         }
     ];
 });
