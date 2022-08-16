@@ -4,6 +4,18 @@ function getRandomNumber(min, max) {
 
 let effects = [];
 
+class Overlay {
+    constructor({ id, pointerEvents }) {
+        document.body.insertAdjacentHTML("afterbegin", `
+            <div 
+                data-extension="chaosExtension" 
+                class="overlay ${pointerEvents ? '' : 'no-pointer-events'}" 
+                id="${id}"
+            />
+        `);
+    }
+}
+
 chrome.storage.sync.get({
     checkStates: {}
 }, items => {
@@ -70,9 +82,7 @@ chrome.storage.sync.get({
                 document.documentElement.classList.add("disable-mouse-input-effect");
                 document.addEventListener("contextmenu", this.disableRightClick);
 
-                document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" class="overlay" id="disableOverlay"></div>
-                `);
+                new Overlay({ id: "disableOverlay", pointerEvents: true });
             }
         },
     
@@ -199,11 +209,7 @@ chrome.storage.sync.get({
                 if (blurOverlay) blurOverlay.remove();
             },
     
-            activateEffect: () => {
-                document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" class="overlay no-pointer-events" id="blurOverlay"></div>
-                `);
-            }
+            activateEffect: () =>  new Overlay({ id: "blurOverlay", pointerEvents: false })
         },
 
         {
@@ -215,11 +221,7 @@ chrome.storage.sync.get({
                 if (y1950sOverlay) y1950sOverlay.remove();
             },
     
-            activateEffect: () => {
-                document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" class="overlay no-pointer-events" id="y1950sOverlay"></div>
-                `);
-            }
+            activateEffect: () => new Overlay({ id: "y1950sOverlay", pointerEvents: false })
         },
 
         {
@@ -358,11 +360,7 @@ chrome.storage.sync.get({
                 if (invertOverlay) invertOverlay.remove();
             },
 
-            activateEffect: () => {
-                document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" class="overlay no-pointer-events" id="invertOverlay"></div>
-                `);
-            }
+            activateEffect: () => new Overlay({ id: "invertOverlay", pointerEvents: false })
         },
 
         {
@@ -411,11 +409,7 @@ chrome.storage.sync.get({
                 if (blackoutOverlay) blackoutOverlay.remove();
             },
     
-            activateEffect: () => {
-                document.body.insertAdjacentHTML("afterbegin", `
-                    <div data-extension="chaosExtension" class="overlay no-pointer-events" id="blackoutOverlay"></div>
-                `);
-            }
+            activateEffect: () => new Overlay({ id: "blackoutOverlay", pointerEvents: false })
         },
 
         {
