@@ -1,9 +1,3 @@
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-let effects = [];
-
 class Overlay {
     constructor({ id, pointerEvents }) {
         document.body.insertAdjacentHTML("afterbegin", `
@@ -15,6 +9,12 @@ class Overlay {
         `);
     }
 }
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+let effects = [];
 
 chrome.storage.sync.get({
     checkStates: {}
