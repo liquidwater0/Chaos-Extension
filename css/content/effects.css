@@ -50,8 +50,8 @@ html[data-extension="chaosExtension"].half-size-effect body {
 
 /* Random Selection Color */
 html[data-extension="chaosExtension"].random-selection-color-effect ::selection {
-    background-color: var(--randomBackgroundColor) !important;
-    color: var(--randomTextColor) !important;
+    background-color: var(--random-background-color) !important;
+    color: var(--random-text-color) !important;
 }
 
 /* Terminalify */
@@ -99,7 +99,7 @@ html[data-extension="chaosExtension"].hide-text-selection-effect ::selection {
 
 /* Random Text Color */
 html[data-extension="chaosExtension"].random-text-color-effect * {
-    color: var(--randomTextColor) !important;
+    color: var(--random-text-color) !important;
 }
 
 /* No Cursor */

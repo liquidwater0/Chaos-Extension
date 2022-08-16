@@ -135,16 +135,18 @@ chrome.storage.sync.get({
                 const html = document.documentElement;
 
                 html.classList.remove("random-selection-color-effect");
-                html.style.removeProperty("--randomBackgroundColor");
-                html.style.removeProperty("--randomTextColor");
+                html.style.removeProperty("--random-background-color");
+                html.style.removeProperty("--random-text-color");
             },
     
             activateEffect: () => { 
                 const html = document.documentElement;
+                const randomBackgroundColor = `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`;
+                const randomTextColor = `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`;
 
                 html.classList.add("random-selection-color-effect");
-                html.style.setProperty("--randomBackgroundColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
-                html.style.setProperty("--randomTextColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
+                html.style.setProperty("--random-background-color", randomBackgroundColor);
+                html.style.setProperty("--random-text-color", randomTextColor);
             }
         },
 
@@ -174,7 +176,9 @@ chrome.storage.sync.get({
                     }
                 }
 
-                elements.forEach(element => element.style.setProperty("background-color", getColor(element), "important"));
+                elements.forEach(element => {
+                    element.style.setProperty("background-color", getColor(element), "important");
+                });
             }
         },
 
@@ -265,14 +269,15 @@ chrome.storage.sync.get({
                 const html = document.documentElement;
 
                 html.classList.remove("random-text-color-effect");
-                html.style.removeProperty("--randomTextColor");
+                html.style.removeProperty("--random-text-color");
             },
 
             activateEffect: () => {
                 const html = document.documentElement;
+                const randomTextColor = `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`;
 
                 html.classList.add("random-text-color-effect");
-                html.style.setProperty("--randomTextColor", `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)}, ${getRandomNumber(0, 255)})`);
+                html.style.setProperty("--random-text-color", randomTextColor);
             }
         },
 
