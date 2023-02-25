@@ -1,0 +1,31 @@
+@use "./utilities" as *;
+@use "./timer" as *;
+@use "./activeEffects" as *;
+
+#chaosExtensionRoot[data-extension="chaosExtension"] {
+    --primary-color: hsl(200, 100%, 50%);
+    
+    position: fixed !important;
+    inset: 0 !important;
+    font-family: "Roboto", sans-serif !important;
+    isolation: isolate !important;
+    pointer-events: none !important;
+    user-select: none !important;
+    z-index: 10000000000000 !important;
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    [data-theme="dark"] {
+        --background: rgba(40, 40, 40, 0.8);
+        --text-color: white;
+    }
+
+    [data-theme="light"] {
+        --background: rgba(240, 240, 240, 0.8);
+        --text-color: black;
+    }
+}

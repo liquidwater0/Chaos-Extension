@@ -1,0 +1,27 @@
+.active-effects {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: fixed !important;
+    top: 50% !important;
+    right: 10px !important;
+    transform: translateY(-50%) !important;
+    padding: 15px !important;
+    border-radius: 5px !important;
+
+    .label {
+        font-size: 15px !important;
+        background-color: var(--primary-color) !important;
+        color: white !important;
+        padding: 5px !important;
+        border-radius: 5px !important;
+        margin-bottom: 5px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .active-effect-text {
+        font-size: 30px !important;
+    }
+}

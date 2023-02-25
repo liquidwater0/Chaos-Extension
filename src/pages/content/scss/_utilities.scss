@@ -1,0 +1,9 @@
+.ui-blur {
+    background-color: var(--background) !important;
+    color: var(--text-color) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+.hide-text {
+    opacity: 0 !important;
+}

@@ -1,0 +1,9 @@
+.keyboard-key {
+    background-color: hsl(0, 0%, calc(var(--keyboard-key-lightness) * 1%));
+    color: white;
+    font-size: inherit;
+    padding: 0.25em 0.55em;
+    border-radius: 7px;
+    margin: 0px 7px;
+    border-bottom: 5px solid hsl(0, 0%, calc((var(--keyboard-key-lightness) - 10) * 1%));
+}
