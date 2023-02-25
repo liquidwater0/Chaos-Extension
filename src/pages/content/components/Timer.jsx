@@ -33,6 +33,7 @@ export default function Timer() {
     
     useEffect(() => {
         let timeout = setTimeout(() => {
+            if (paused) return;
             if (timeRemaining === 0) {
                 setTimeRemaining(timer);
                 newEffect();
@@ -43,7 +44,7 @@ export default function Timer() {
         }, 1000);
 
         return () => clearTimeout(timeout);
-    }, [timeRemaining]);
+    }, [timeRemaining, paused]);
 
     return (
         <div className='timer-container'>
