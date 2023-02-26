@@ -49,9 +49,9 @@ export default function Timer() {
     return (
         <div className='timer-container'>
             <div className='timer'>
-                <div className="time-remaining-text">{ formatTime(timeRemaining) }</div>
                 <div className='timer-bar' style={{ width: getWidth(timer, timeRemaining) }}/>
                 <div className="timer-background ui-blur"/>
+                <div className="time-remaining-text">{ formatTime(timeRemaining) }</div>
             </div>
         </div>
     );
