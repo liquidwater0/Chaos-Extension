@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useChromeStorageSync } from 'use-chrome-storage';
 import { useUpdateEffect } from "../hooks/useUpdateEffect";
 import { Button } from '@mui/material';
 import LabelCheckbox from "./LabelCheckbox";
+import { effects } from '../../../initEffect';
 
 export default function EffectsSection({ saveToggle }) {
-    const [effects] = useChromeStorageSync("effects", []);
     const initialEffectOptions = effects.map(({ label, storageKey, enabled }) => {
         return { label, storageKey, enabled };
     });
