@@ -5,12 +5,8 @@ import { effectsMap } from "../../initEffect";
 async function getInitialEffectOptions() {
 	return new Promise((resolve, reject) => {
 		resolve(
-			Object.values(Object.fromEntries(effectsMap)).map(({ label, storageKey, defaultEnabled }) => {
-				return { 
-					label, 
-					storageKey, 
-					enabled: defaultEnabled 
-				}
+			Object.values(Object.fromEntries(effectsMap)).map(({ label, storageKey, enabled }) => {
+				return { label, storageKey, enabled };
 			})
 		); 
 	});
@@ -18,6 +14,7 @@ async function getInitialEffectOptions() {
 
 async function saveStorage() {
 	const initialEffectOptions = await getInitialEffectOptions();
+
 	console.log(initialEffectOptions);
 
 	chrome.storage.sync.set({
