@@ -12,7 +12,7 @@ function LabelCheckbox(props) {
     function handleChange() {
         setOptions(prev => {
             const optionsDupe = [...prev];
-            optionsDupe[index].checked = !optionsDupe[index].checked;
+            optionsDupe[index].enabled = !optionsDupe[index].enabled;
             return optionsDupe;
         });
     }
