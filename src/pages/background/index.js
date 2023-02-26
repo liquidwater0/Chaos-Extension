@@ -1,20 +1,12 @@
 import { initialTimerSeconds, initialTimerOptions } from "../../initialOptions";
 import "../../effects/index";
-import { effectsMap } from "../../initEffect";
+import { effects } from "../../initEffect";
 
-async function getInitialEffectOptions() {
-	return new Promise((resolve, reject) => {
-		resolve(
-			Object.values(Object.fromEntries(effectsMap)).map(({ label, storageKey, enabled }) => {
-				return { label, storageKey, enabled };
-			})
-		); 
-	});
-}
+const initialEffectOptions = effects.map(({ label, storageKey, enabled }) => {
+	return { label, storageKey, enabled };
+});
 
-async function saveStorage() {
-	const initialEffectOptions = await getInitialEffectOptions();
-
+function saveStorage() {
 	chrome.storage.sync.set({
 		checkedStates: initialEffectOptions,
 		timer: initialTimerSeconds,

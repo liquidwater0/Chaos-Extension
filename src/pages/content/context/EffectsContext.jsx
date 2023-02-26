@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { effectsMap } from "../../../initEffect";
+import { effects } from "../../../initEffect";
 
 const EffectsContext = React.createContext();
 
@@ -9,9 +9,9 @@ export function useChaosEffects() {
 
 export default function EffectsProvider({ children }) {
     const [activeEffect, setActiveEffect] = useState("");
-    const effects = Object.values(Object.fromEntries(effectsMap));
 
     function newEffect() {
+        console.log(effects);
         effects.forEach(effect => effect.revert());
 
         const enabledEffects = effects.filter(effect => effect.enabled);
