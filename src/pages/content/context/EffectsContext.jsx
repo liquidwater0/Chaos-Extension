@@ -11,7 +11,6 @@ export default function EffectsProvider({ children }) {
     const [activeEffect, setActiveEffect] = useState("");
 
     function newEffect() {
-        console.log(effects);
         effects.forEach(effect => effect.revert());
 
         const enabledEffects = effects.filter(effect => effect.enabled);
