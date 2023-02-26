@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "comicSans",
     label: "Comic Sans",
     storageKey: "comicSansEffect",
     defaultEnabled: true,

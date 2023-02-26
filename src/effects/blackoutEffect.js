@@ -2,7 +2,6 @@ import initEffect from "../initEffect";
 import Overlay from "../utitilies/overlay";
 
 initEffect({
-    effectName: "blackout",
     label: "Blackout",
     storageKey: "blackoutEffect",
     defaultEnabled: true,

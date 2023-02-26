@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "invertedPage",
     label: "Inverted Page",
     storageKey: "invertedPageEffect",
     defaultEnabled: true,

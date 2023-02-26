@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "upsideDown",
     label: "Upside Down",
     storageKey: "upsideDownEffect",
     defaultEnabled: true,

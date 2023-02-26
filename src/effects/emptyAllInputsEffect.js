@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "emptyAllInputs",
     label: "Empty All Inputs",
     storageKey: "emptyAllInputsEffect",
     defaultEnabled: true,

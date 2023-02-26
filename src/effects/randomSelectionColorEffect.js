@@ -2,7 +2,6 @@ import initEffect from "../initEffect";
 import getRandomNumber from "../utitilies/getRandomNumber";
 
 initEffect({
-    effectName: "randomSelectionColor",
     label: "Random Selection Color",
     storageKey: "randomSelectionColorEffect",
     defaultEnabled: true,

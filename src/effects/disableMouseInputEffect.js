@@ -2,7 +2,6 @@ import initEffect from "../initEffect";
 import Overlay from "../utitilies/overlay";
 
 initEffect({
-    effectName: "disableMouseInput",
     label: "Disable Mouse Input",
     storageKey: "disableMouseInputEffect",
     defaultEnabled: true,

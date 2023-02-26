@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "lowercaseText",
     label: "Lowercase Text",
     storageKey: "lowercaseTextEffect",
     defaultEnabled: true,

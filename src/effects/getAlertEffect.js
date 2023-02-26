@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "getAlert",
     label: "Get Alert",
     storageKey: "getAlertEffect",
     defaultEnabled: true,

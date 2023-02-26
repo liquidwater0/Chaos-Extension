@@ -2,7 +2,6 @@ import initEffect from "../initEffect";
 import Overlay from "../utitilies/overlay";
 
 initEffect({
-    effectName: "vignette",
     label: "Vignette",
     storageKey: "vignetteEffect",
     defaultEnabled: true,

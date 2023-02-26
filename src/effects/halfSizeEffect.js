@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "halfSize",
     label: "Half Size",
     storageKey: "halfSizeEffect",
     defaultEnabled: true,

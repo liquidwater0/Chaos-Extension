@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "reloadPage",
     label: "Reload Page",
     storageKey: "reloadPageEffect",
     defaultEnabled: true,

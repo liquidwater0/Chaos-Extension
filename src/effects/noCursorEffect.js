@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "noCursor",
     label: "No Cursor",
     storageKey: "noCursorEffect",
     defaultEnabled: true,

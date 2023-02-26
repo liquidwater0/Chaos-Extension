@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "roll",
     label: "Roll",
     storageKey: "rollEffect",
     defaultEnabled: true,

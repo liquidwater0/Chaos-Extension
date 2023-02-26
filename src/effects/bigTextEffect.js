@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "bigText",
     label: "Big Text",
     storageKey: "bigTextEffect",
     defaultEnabled: true,

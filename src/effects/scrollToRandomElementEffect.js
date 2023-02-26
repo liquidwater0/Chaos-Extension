@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "scrollToRandomElement",
     label: "Scroll To Random Element",
     storageKey: "scrollToRandomElementEffect",
     defaultEnabled: true,

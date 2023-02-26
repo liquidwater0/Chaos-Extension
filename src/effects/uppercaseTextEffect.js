@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "uppercaseText",
     label: "Uppercase Text",
     storageKey: "uppercaseTextEffect",
     defaultEnabled: true,

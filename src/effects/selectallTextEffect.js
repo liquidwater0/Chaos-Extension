@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "selectAllText",
     label: "Select All Text",
     storageKey: "selectAllTextEffect",
     defaultEnabled: true,

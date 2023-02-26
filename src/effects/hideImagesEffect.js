@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "hideImages",
     label: "Hide Images",
     storageKey: "hideImagesEffect",
     defaultEnabled: true,

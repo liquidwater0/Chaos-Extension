@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "muteEverything",
     label: "Mute Everything",
     storageKey: "muteEverythingEffect",
     defaultEnabled: true,

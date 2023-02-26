@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "unmuteRandomMedia",
     label: "Unmute Random Media",
     storageKey: "unmuteRandomMediaEffect",
     defaultEnabled: true,

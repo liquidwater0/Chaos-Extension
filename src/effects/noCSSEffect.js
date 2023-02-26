@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "noCSS",
     label: "No CSS",
     storageKey: "noCSSEffect",
     defaultEnabled: true,

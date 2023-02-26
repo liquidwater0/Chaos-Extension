@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "unmuteEverything",
     label: "Unmute Everything",
     storageKey: "unmuteEverythingEffect",
     defaultEnabled: true,

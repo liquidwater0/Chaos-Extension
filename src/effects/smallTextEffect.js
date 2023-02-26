@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "smallText",
     label: "Small Text",
     storageKey: "smallTextEffect",
     defaultEnabled: true,

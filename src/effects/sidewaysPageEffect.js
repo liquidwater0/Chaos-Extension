@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "sidewaysPage",
     label: "Sideways Page",
     storageKey: "sidewaysPageEffect",
     defaultEnabled: true,

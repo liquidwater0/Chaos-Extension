@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "playEverything",
     label: "Play Everything",
     storageKey: "playEverythingEffect",
     defaultEnabled: true,

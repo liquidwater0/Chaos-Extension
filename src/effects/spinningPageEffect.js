@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "spinningPage",
     label: "Spinning Page",
     storageKey: "spinningPageEffect",
     defaultEnabled: true,

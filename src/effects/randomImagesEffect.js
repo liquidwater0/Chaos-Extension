@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "randomImages",
     label: "Random Images",
     storageKey: "randomImagesEffect",
     defaultEnabled: true,

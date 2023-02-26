@@ -2,7 +2,6 @@ import initEffect from "../initEffect";
 import Overlay from "../utitilies/overlay";
 
 initEffect({
-    effectName: "invertedColors",
     label: "Inverted Colors",
     storageKey: "invertedColorsEffect",
     defaultEnabled: true,

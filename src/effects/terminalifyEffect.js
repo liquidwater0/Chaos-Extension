@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "terminalify",
     label: "Terminalify",
     storageKey: "terminalifyEffect",
     defaultEnabled: true,

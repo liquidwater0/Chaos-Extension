@@ -2,7 +2,6 @@ import initEffect from "../initEffect";
 import Overlay from "../utitilies/overlay";
 
 initEffect({
-    effectName: "y1950s",
     label: "1950s",
     storageKey: "y1950sEffect",
     defaultEnabled: true,

@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "disableScrolling",
     label: "Disable Scrolling",
     storageKey: "disableScrollingEffect",
     defaultEnabled: true,

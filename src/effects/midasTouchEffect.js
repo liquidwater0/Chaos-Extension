@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "midasTouch",
     label: "Midas Touch",
     storageKey: "midasTouchEffect",
     defaultEnabled: true,

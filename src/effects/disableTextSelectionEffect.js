@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "disableTextSelection",
     label: "Disable Text Selection",
     storageKey: "disableTextSelectionEffect",
     defaultEnabled: true,

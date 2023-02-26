@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "pauseEverything",
     label: "Pause Everything",
     storageKey: "pauseEverythingEffect",
     defaultEnabled: true,

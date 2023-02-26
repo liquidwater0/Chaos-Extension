@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "pauseRandomMedia",
     label: "Pause Random Media",
     storageKey: "pauseRandomMediaEffect",
     defaultEnabled: true,

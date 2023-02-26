@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "playRandomMedia",
     label: "Play Random Media",
     storageKey: "playRandomMediaEffect",
     defaultEnabled: true,

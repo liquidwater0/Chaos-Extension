@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "halfPlaybackSpeed",
     label: "Half Playback Speed",
     storageKey: "halfPlaybackSpeedEffect",
     defaultEnabled: true,

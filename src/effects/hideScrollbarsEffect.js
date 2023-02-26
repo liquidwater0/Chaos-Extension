@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "hideScrollbars",
     label: "Hide Scrollbars",
     storageKey: "hideScrollbarsEffect",
     defaultEnabled: true,

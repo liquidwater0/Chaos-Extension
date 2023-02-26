@@ -2,7 +2,6 @@ import initEffect from "../initEffect";
 import getRandomNumber from "../utitilies/getRandomNumber";
 
 initEffect({
-    effectName: "rainbowText",
     label: "Rainbow Text",
     storageKey: "rainbowTextEffect",
     defaultEnabled: true,

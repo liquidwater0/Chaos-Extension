@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "doubleSize",
     label: "Double Size",
     storageKey: "doubleSizeEffect",
     defaultEnabled: true,

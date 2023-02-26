@@ -1,6 +1,6 @@
 export const effects = [];
 
-export default function initEffect({ effectName, label, storageKey, defaultEnabled, activate, revert }) {
+export default function initEffect({ label, storageKey, defaultEnabled, activate, revert }) {
     effects.push({ 
         enabled: defaultEnabled,
         label, 

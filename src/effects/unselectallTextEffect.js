@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "unselectAllText",
     label: "Unselect All Text",
     storageKey: "unselectAllTextEffect",
     defaultEnabled: true,

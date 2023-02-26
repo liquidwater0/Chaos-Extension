@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "invisibleText",
     label: "Invisible Text",
     storageKey: "invisibleTextEffect",
     defaultEnabled: true,

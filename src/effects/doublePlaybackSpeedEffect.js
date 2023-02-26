@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "doublePlaybackSpeed",
     label: "Double Playback Speed",
     storageKey: "doublePlaybackSpeedEffect",
     defaultEnabled: true,

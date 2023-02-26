@@ -1,7 +1,6 @@
 import initEffect from "../initEffect";
 
 initEffect({
-    effectName: "designMode",
     label: "Design Mode",
     storageKey: "designModeEffect",
     defaultEnabled: true,
