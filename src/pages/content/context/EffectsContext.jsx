@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { effects } from "../../../initEffect";
+import { useChromeStorageSync } from 'use-chrome-storage';
 
 const EffectsContext = React.createContext();
 
@@ -9,8 +9,10 @@ export function useChaosEffects() {
 
 export default function EffectsProvider({ children }) {
     const [activeEffect, setActiveEffect] = useState("");
+    const [effects] = useChromeStorageSync("effects", []);
 
     function newEffect() {
+        console.log(effects);
         effects.forEach(effect => effect.revert());
 
         const enabledEffects = effects.filter(effect => effect.enabled);

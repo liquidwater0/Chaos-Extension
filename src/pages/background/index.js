@@ -8,6 +8,7 @@ const initialEffectOptions = effects.map(({ label, storageKey, enabled }) => {
 
 function saveStorage() {
 	chrome.storage.sync.set({
+		effects: effects,
 		checkedStates: initialEffectOptions,
 		timer: initialTimerSeconds,
 		timerOptions: initialTimerOptions
