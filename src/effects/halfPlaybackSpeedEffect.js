@@ -1,24 +1,30 @@
-export default {
-    name: "Half Playback Speed",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "halfPlaybackSpeed",
+    label: "Half Playback Speed",
     storageKey: "halfPlaybackSpeedEffect",
-    
-    revert: () => { 
-        const allMedia = document.querySelectorAll("video, audio");
+    defaultEnabled: true,
+    activate,
+    revert
+});
 
-        allMedia.forEach(media => {
-            if (!media) return;
-            media.preservesPitch = true;
-            media.playbackRate = 1;
-        });
-    },
+function activate() {
+    const allMedia = document.querySelectorAll("video, audio");
 
-    activate: () => { 
-        const allMedia = document.querySelectorAll("video, audio");
+    allMedia.forEach(media => {
+        if (!media) return;
+        media.preservesPitch = false;
+        media.playbackRate = 0.5;
+    });
+}
 
-        allMedia.forEach(media => {
-            if (!media) return;
-            media.preservesPitch = false;
-            media.playbackRate = 0.5;
-        });
-    }
+function revert() {
+    const allMedia = document.querySelectorAll("video, audio");
+
+    allMedia.forEach(media => {
+        if (!media) return;
+        media.preservesPitch = true;
+        media.playbackRate = 1;
+    });
 }

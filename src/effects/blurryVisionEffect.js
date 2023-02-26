@@ -1,13 +1,23 @@
+import initEffect from "../initEffect";
 import Overlay from "../utitilies/overlay";
 
-export default {
-    name: "Blurry Vision",
+initEffect({
+    effectName: "blurryVision",
+    label: "Blurry Vision",
     storageKey: "blurryVisionEffect",
-    
-    revert: () => { 
-        const blurOverlay = document.querySelector("[data-extension='chaosExtension']#blurOverlay");
-        if (blurOverlay) blurOverlay.remove();
-    },
+    defaultEnabled: true,
+    activate,
+    revert
+});
 
-    activate: () =>  new Overlay({ id: "blurOverlay", pointerEvents: false })
+function activate() {
+    new Overlay({ id: "blurOverlay", pointerEvents: false });
+}
+
+function revert() {
+    const blurOverlay = document.querySelector("[data-extension='chaosExtension']#blurOverlay");
+    
+    if (!blurOverlay) return;
+    
+    blurOverlay.remove();
 }

@@ -1,7 +1,14 @@
-export default {
-    name: "Nothing",
-    storageKey: "nothingEffect",
+import initEffect from "../initEffect";
 
-    revert: () => {},
-    activate: () => {}
-}
+initEffect({
+    effectName: "nothing",
+    label: "Nothing",
+    storageKey: "nothingEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {}
+
+function revert() {}

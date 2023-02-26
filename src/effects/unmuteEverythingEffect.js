@@ -1,13 +1,21 @@
-export default {
-    name: "Unmute Everything",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "unmuteEverything",
+    label: "Unmute Everything",
     storageKey: "unmuteEverythingEffect",
-    
-    revert: () => {},
-    activate: () => {
-        const allMedia = document.querySelectorAll("audio, video");
-        allMedia.forEach(media => {
-            if (!media) return;
-            media.muted = false;
-        });
-    }
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    const allMedia = document.querySelectorAll("audio, video");
+
+    allMedia.forEach(media => {
+        if (!media) return;
+        media.muted = false;
+    });
 }
+
+function revert() {}

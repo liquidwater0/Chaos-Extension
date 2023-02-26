@@ -1,13 +1,23 @@
+import initEffect from "../initEffect";
 import Overlay from "../utitilies/overlay";
 
-export default {
-    name: "Inverted Colors",
+initEffect({
+    effectName: "invertedColors",
+    label: "Inverted Colors",
     storageKey: "invertedColorsEffect",
-    
-    revert: () => { 
-        const invertOverlay = document.querySelector("[data-extension='chaosExtension']#invertOverlay");
-        if (invertOverlay) invertOverlay.remove();
-    },
+    defaultEnabled: true,
+    activate,
+    revert
+});
 
-    activate: () => new Overlay({ id: "invertOverlay", pointerEvents: false })
+function activate() {
+    new Overlay({ id: "invertOverlay", pointerEvents: false });
+}
+
+function revert() {
+    const invertOverlay = document.querySelector("[data-extension='chaosExtension']#invertOverlay");
+    
+    if (!invertOverlay) return;
+    
+    invertOverlay.remove();
 }

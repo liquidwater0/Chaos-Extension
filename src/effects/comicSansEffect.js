@@ -1,7 +1,18 @@
-export default {
-    name: "Comic Sans",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "comicSans",
+    label: "Comic Sans",
     storageKey: "comicSansEffect",
-    
-    revert: () => document.documentElement.classList.remove("comic-sans-effect"),
-    activate: () => document.documentElement.classList.add("comic-sans-effect")
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("comic-sans-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("comic-sans-effect");
 }

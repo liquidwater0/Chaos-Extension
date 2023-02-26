@@ -1,7 +1,16 @@
-export default {
-    name: "Scroll To The Top",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "scrollToTheTop",
+    label: "Scroll To The Top",
     storageKey: "scrollToTheTopEffect",
-    
-    revert: () => {},
-    activate: () => window.scrollTo(window.scrollX, 0)
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    window.scrollTo(window.scrollX, 0);
 }
+
+function revert() {}

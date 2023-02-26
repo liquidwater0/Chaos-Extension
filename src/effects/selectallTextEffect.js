@@ -1,7 +1,16 @@
-export default {
-    name: "Select All Text",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "selectAllText",
+    label: "Select All Text",
     storageKey: "selectAllTextEffect",
-    
-    revert: () => {},
-    activate: () => document.getSelection().selectAllChildren(document.body)
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.getSelection().selectAllChildren(document.body);
 }
+
+function revert() {}

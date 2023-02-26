@@ -1,24 +1,30 @@
-export default {
-    name: "Double Playback Speed",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "doublePlaybackSpeed",
+    label: "Double Playback Speed",
     storageKey: "doublePlaybackSpeedEffect",
-    
-    revert: () => { 
-        const allMedia = document.querySelectorAll("video, audio");
+    defaultEnabled: true,
+    activate,
+    revert
+});
 
-        allMedia.forEach(media => {
-            if (!media) return;
-            media.preservesPitch = true;
-            media.playbackRate = 1;
-        });
-    },
+function activate() {
+    const allMedia = document.querySelectorAll("video, audio");
 
-    activate: () => { 
-        const allMedia = document.querySelectorAll("video, audio");
+    allMedia.forEach(media => {
+        if (!media) return;
+        media.preservesPitch = false;
+        media.playbackRate = 2;
+    });
+}
 
-        allMedia.forEach(media => {
-            if (!media) return;
-            media.preservesPitch = false;
-            media.playbackRate = 2;
-        });
-    }
+function revert() {
+    const allMedia = document.querySelectorAll("video, audio");
+
+    allMedia.forEach(media => {
+        if (!media) return;
+        media.preservesPitch = true;
+        media.playbackRate = 1;
+    });
 }

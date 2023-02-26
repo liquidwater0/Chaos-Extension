@@ -1,13 +1,23 @@
+import initEffect from "../initEffect";
 import Overlay from "../utitilies/overlay";
 
-export default {
-    name: "Blackout",
+initEffect({
+    effectName: "blackout",
+    label: "Blackout",
     storageKey: "blackoutEffect",
-    
-    revert: () => { 
-        const blackoutOverlay = document.querySelector("[data-extension='chaosExtension']#blackoutOverlay");
-        if (blackoutOverlay) blackoutOverlay.remove();
-    },
+    defaultEnabled: true,
+    activate,
+    revert
+});
 
-    activate: () => new Overlay({ id: "blackoutOverlay", pointerEvents: false })
+function activate() {
+    new Overlay({ id: "blackoutOverlay", pointerEvents: false });
+}
+
+function revert() {
+    const blackoutOverlay = document.querySelector("[data-extension='chaosExtension']#blackoutOverlay");
+
+    if (!blackoutOverlay) return;
+    
+    blackoutOverlay.remove();
 }

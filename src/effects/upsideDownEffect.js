@@ -1,7 +1,18 @@
-export default {
-    name: "Upside Down",
-    storageKey: "upsideDownEffect",
+import initEffect from "../initEffect";
 
-    revert: () => document.documentElement.classList.remove("upside-down-effect"),
-    activate: () => document.documentElement.classList.add("upside-down-effect")
+initEffect({
+    effectName: "upsideDown",
+    label: "Upside Down",
+    storageKey: "upsideDownEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("upside-down-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("upside-down-effect");
 }

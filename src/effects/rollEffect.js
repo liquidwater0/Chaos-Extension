@@ -1,7 +1,18 @@
-export default {
-    name: "Roll",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "roll",
+    label: "Roll",
     storageKey: "rollEffect",
-    
-    revert: () => document.documentElement.classList.remove("roll-effect"),
-    activate: () => document.documentElement.classList.add("roll-effect")
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("roll-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("roll-effect");
 }

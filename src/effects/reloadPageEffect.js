@@ -1,7 +1,16 @@
-export default {
-    name: "Reload Page",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "reloadPage",
+    label: "Reload Page",
     storageKey: "reloadPageEffect",
-    
-    revert: () => {},
-    activate: () => setTimeout(() => window.location.reload(), 250)
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    setTimeout(() => window.location.reload(), 250);
 }
+
+function revert() {}

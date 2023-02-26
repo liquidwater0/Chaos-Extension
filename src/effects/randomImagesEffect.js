@@ -1,38 +1,44 @@
-export default {
-    name: "Random Images",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "randomImages",
+    label: "Random Images",
     storageKey: "randomImagesEffect",
-    
-    revert: () => {
-        const images = document.querySelectorAll("img");
+    defaultEnabled: true,
+    activate,
+    revert
+});
 
-        images.forEach(image => {
-            if (!image) return;
-            if (!image.getAttribute("data-original-src")) return;
+function activate() {
+    const images = document.querySelectorAll("img");
 
-            image.src = image.getAttribute("data-original-src");
-            image.srcset = image.getAttribute("data-original-srcset");
-            image.alt = image.getAttribute("data-original-alt");
+    images.forEach(image => {
+        if (!image) return;
+        const randomImage = images[Math.floor(Math.random() * images.length)];
 
-            image.removeAttribute("data-original-src");
-            image.removeAttribute("data-original-srcset");
-            image.removeAttribute("data-original-alt");
-        });
-    },
+        image.setAttribute("data-original-src", image.src);
+        image.setAttribute("data-original-srcset", image.srcset);
+        image.setAttribute("data-original-alt", image.alt);
 
-    activate: () => {
-        const images = document.querySelectorAll("img");
+        image.src = randomImage.src;
+        image.srcset = randomImage.srcset;
+        image.alt = randomImage.alt;
+    });
+}
 
-        images.forEach(image => {
-            if (!image) return;
-            const randomImage = images[Math.floor(Math.random() * images.length)];
+function revert() {
+    const images = document.querySelectorAll("img");
 
-            image.setAttribute("data-original-src", image.src);
-            image.setAttribute("data-original-srcset", image.srcset);
-            image.setAttribute("data-original-alt", image.alt);
+    images.forEach(image => {
+        if (!image) return;
+        if (!image.getAttribute("data-original-src")) return;
 
-            image.src = randomImage.src;
-            image.srcset = randomImage.srcset;
-            image.alt = randomImage.alt;
-        });
-    }
+        image.src = image.getAttribute("data-original-src");
+        image.srcset = image.getAttribute("data-original-srcset");
+        image.alt = image.getAttribute("data-original-alt");
+
+        image.removeAttribute("data-original-src");
+        image.removeAttribute("data-original-srcset");
+        image.removeAttribute("data-original-alt");
+    });
 }

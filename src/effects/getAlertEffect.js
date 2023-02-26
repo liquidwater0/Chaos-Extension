@@ -1,7 +1,16 @@
-export default {
-    name: "Get Alert",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "getAlert",
+    label: "Get Alert",
     storageKey: "getAlertEffect",
-    
-    revert: () => {},
-    activate: () => setTimeout(() => alert("Alert!"), 250)
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    setTimeout(() => alert("Alert!"), 250);
 }
+
+function revert() {}

@@ -1,13 +1,23 @@
+import initEffect from "../initEffect";
 import Overlay from "../utitilies/overlay";
 
-export default {
-    name: "1950s",
+initEffect({
+    effectName: "y1950s",
+    label: "1950s",
     storageKey: "y1950sEffect",
-    
-    revert: () => { 
-        const y1950sOverlay = document.querySelector("[data-extension='chaosExtension']#y1950sOverlay");
-        if (y1950sOverlay) y1950sOverlay.remove();
-    },
+    defaultEnabled: true,
+    activate,
+    revert
+});
 
-    activate: () => new Overlay({ id: "y1950sOverlay", pointerEvents: false })
+function activate() {
+    new Overlay({ id: "y1950sOverlay", pointerEvents: false });
+}
+
+function revert() {
+    const y1950sOverlay = document.querySelector("[data-extension='chaosExtension']#y1950sOverlay");
+
+    if (!y1950sOverlay) return;
+
+    y1950sOverlay.remove();
 }

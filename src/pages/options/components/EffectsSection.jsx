@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useUpdateEffect } from "../hooks/useUpdateEffect";
-import { initialEffectOptions } from '../../../initialOptions';
 import { Button } from '@mui/material';
 import LabelCheckbox from "./LabelCheckbox";
+import { effectsMap } from "../../../initEffect";
+
+const initialEffectOptions = Object.values(Object.fromEntries(effectsMap)).map(({ label, storageKey, enabled }) => {
+    return { label, storageKey, enabled };
+});
 
 export default function EffectsSection({ saveToggle }) {
     const [options, setOptions] = useState(initialEffectOptions);
@@ -17,9 +21,9 @@ export default function EffectsSection({ saveToggle }) {
     useUpdateEffect(() => {
         const storage = {};
 
-        options.forEach(({ storageKey, checked }) => {
+        options.forEach(({ storageKey, enabled }) => {
             storage.checkedStates = options;
-            storage[storageKey] = checked;
+            // storage[storageKey] = enabled;
         });
         
         chrome.storage.sync.set(storage);
@@ -29,7 +33,7 @@ export default function EffectsSection({ saveToggle }) {
         setAllToggle(prev => !prev);
         setOptions(prev => {
             const optionsDupe = [...prev];
-            optionsDupe.map(option => option.checked = allToggle);
+            optionsDupe.map(option => option.enabled = allToggle);
             return optionsDupe;
         });
     }
@@ -45,13 +49,13 @@ export default function EffectsSection({ saveToggle }) {
             </Button>
 
             {
-                options.map(({ label, checked }, index) => {
+                options.map(({ label, enabled }, index) => {
                     return (
                         <LabelCheckbox
                             key={index}
                             index={index}
                             label={label}
-                            checked={checked}
+                            checked={enabled}
                             setOptions={setOptions}
                         />
                     );

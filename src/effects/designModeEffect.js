@@ -1,7 +1,18 @@
-export default {
-    name: "Design Mode",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "designMode",
+    label: "Design Mode",
     storageKey: "designModeEffect",
-    
-    revert: () => document.designMode = "off",
-    activate: () => document.designMode = "on"
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.designMode = "on";
+}
+
+function revert() {
+    document.designMode = "off";
 }

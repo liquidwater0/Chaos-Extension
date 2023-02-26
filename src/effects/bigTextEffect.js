@@ -1,7 +1,18 @@
-export default {
-    name: "Big Text",
-    storageKey: "bigTextEffect",
+import initEffect from "../initEffect";
 
-    revert: () => document.documentElement.classList.remove("big-text-effect"),
-    activate: () => document.documentElement.classList.add("big-text-effect")
+initEffect({
+    effectName: "bigText",
+    label: "Big Text",
+    storageKey: "bigTextEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("big-text-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("big-text-effect");
 }

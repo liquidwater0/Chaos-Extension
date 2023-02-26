@@ -1,7 +1,18 @@
-export default {
-    name: "Half Size",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "halfSize",
+    label: "Half Size",
     storageKey: "halfSizeEffect",
-    
-    revert: () => document.documentElement.classList.remove("half-size-effect"),
-    activate: () => document.documentElement.classList.add("half-size-effect")
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("half-size-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("half-size-effect");
 }

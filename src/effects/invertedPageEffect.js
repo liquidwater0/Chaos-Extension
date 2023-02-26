@@ -1,7 +1,18 @@
-export default {
-    name: "Inverted Page",
-    storageKey: "invertedPageEffect",
+import initEffect from "../initEffect";
 
-    revert: () => document.documentElement.classList.remove("inverted-page-effect"),
-    activate: () => document.documentElement.classList.add("inverted-page-effect")
+initEffect({
+    effectName: "invertedPage",
+    label: "Inverted Page",
+    storageKey: "invertedPageEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("inverted-page-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("inverted-page-effect");
 }

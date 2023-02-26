@@ -1,7 +1,16 @@
-export default {
-    name: "Unselect All Text",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "unselectAllText",
+    label: "Unselect All Text",
     storageKey: "unselectAllTextEffect",
-    
-    revert: () => {},
-    activate: () => document.getSelection().selectAllChildren(document.head)
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.getSelection().selectAllChildren(document.head);
 }
+
+function revert() {}

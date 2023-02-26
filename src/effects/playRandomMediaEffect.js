@@ -1,12 +1,21 @@
-export default {
-    name: "Play Random Media",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "playRandomMedia",
+    label: "Play Random Media",
     storageKey: "playRandomMediaEffect",
-    
-    revert: () => {},
-    activate: () => {
-        const allMedia = document.querySelectorAll("audio, video");
-        const randomMedia = allMedia[Math.floor(Math.random() * allMedia.length)];
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    const allMedia = document.querySelectorAll("audio, video");
+    const randomMedia = allMedia[Math.floor(Math.random() * allMedia.length)];
         
-        if (randomMedia) randomMedia.play(); 
-    }
+    if (!randomMedia) return;
+    
+    randomMedia.play(); 
 }
+
+function revert() {}

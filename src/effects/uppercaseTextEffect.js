@@ -1,7 +1,18 @@
-export default {
-    name: "Uppercase Text",
-    storageKey: "uppercaseTextEffect",
+import initEffect from "../initEffect";
 
-    revert: () => document.documentElement.classList.remove("uppercase-text-effect"),
-    activate: () => document.documentElement.classList.add("uppercase-text-effect")
+initEffect({
+    effectName: "uppercaseText",
+    label: "Uppercase Text",
+    storageKey: "uppercaseTextEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("uppercase-text-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("uppercase-text-effect");
 }

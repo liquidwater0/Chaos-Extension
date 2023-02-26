@@ -7,8 +7,8 @@ async function getMap() {
         });
     });
 
-    [...await allCheckedStates].forEach(({ storageKey, checked }) => {
-        map.set(storageKey, checked);
+    [...await allCheckedStates].forEach(({ storageKey, enabled }) => {
+        map.set(storageKey, enabled);
     });
 
     return map;

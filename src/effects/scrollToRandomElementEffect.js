@@ -1,11 +1,21 @@
-export default {
-    name: "Scroll To Random Element",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "scrollToRandomElement",
+    label: "Scroll To Random Element",
     storageKey: "scrollToRandomElementEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    const elements = document.querySelectorAll("body *");
+    const randomElement = elements[Math.floor(Math.random() * elements.length)];
+
+    if (!randomElement) return;
     
-    revert: () => {},
-    activate: () => { 
-        const elements = document.querySelectorAll("body *");
-        const randomElement = elements[Math.floor(Math.random() * elements.length)];
-        if (randomElement) randomElement.scrollIntoView();
-    }
+    randomElement.scrollIntoView();
 }
+
+function revert() {}

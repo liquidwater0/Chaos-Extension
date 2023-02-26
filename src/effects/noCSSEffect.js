@@ -1,14 +1,20 @@
-export default {
-    name: "No CSS",
-    storageKey: "noCSSEffect",
-    
-    revert: () => {
-        const styleSheets = [...document.styleSheets];
-        styleSheets.forEach(styleSheet => styleSheet.disabled = false);
-    },
+import initEffect from "../initEffect";
 
-    activate: () => {
-        const styleSheets = [...document.styleSheets];
-        styleSheets.forEach(styleSheet => styleSheet.disabled = true);
-    }
+initEffect({
+    effectName: "noCSS",
+    label: "No CSS",
+    storageKey: "noCSSEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    const styleSheets = [...document.styleSheets];
+    styleSheets.forEach(styleSheet => styleSheet.disabled = true);
+}
+
+function revert() {
+    const styleSheets = [...document.styleSheets];
+    styleSheets.forEach(styleSheet => styleSheet.disabled = false);
 }

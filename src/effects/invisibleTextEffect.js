@@ -1,7 +1,18 @@
-export default {
-    name: "Invisible Text",
+import initEffect from "../initEffect";
+
+initEffect({
+    effectName: "invisibleText",
+    label: "Invisible Text",
     storageKey: "invisibleTextEffect",
-    
-    revert: () => document.documentElement.classList.remove("invisible-text-effect"),
-    activate: () => document.documentElement.classList.add("invisible-text-effect")
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("invisible-text-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("invisible-text-effect");
 }

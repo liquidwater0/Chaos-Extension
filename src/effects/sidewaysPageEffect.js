@@ -1,7 +1,18 @@
-export default {
-    name: "Sideways Page",
-    storageKey: "sidewaysPageEffect",
+import initEffect from "../initEffect";
 
-    revert: () => document.documentElement.classList.remove("sideways-page-effect"),
-    activate: () => document.documentElement.classList.add("sideways-page-effect")
+initEffect({
+    effectName: "sidewaysPage",
+    label: "Sideways Page",
+    storageKey: "sidewaysPageEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("sideways-page-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("sideways-page-effect");
 }
