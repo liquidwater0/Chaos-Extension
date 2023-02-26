@@ -15,8 +15,6 @@ async function getInitialEffectOptions() {
 async function saveStorage() {
 	const initialEffectOptions = await getInitialEffectOptions();
 
-	console.log(initialEffectOptions);
-
 	chrome.storage.sync.set({
 		checkedStates: initialEffectOptions,
 		timer: initialTimerSeconds,
