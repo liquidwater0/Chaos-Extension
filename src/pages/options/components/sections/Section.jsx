@@ -6,6 +6,7 @@ export default function Section({ children, text }) {
         <>
             <section className='section'>
                 <SectionText text={text}/>
+                
                 <div className="section-items">
                     { children }
                 </div>

@@ -5,9 +5,9 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { initialTheme } from '../../initialOptions';
 import { dark, light } from "../../themes";
 import Font from "../../global components/Font";
-import Section from "./components/Section";
-import EffectsSection from "./components/EffectsSection";
-import OptionsSection from "./components/OptionsSection";
+import Section from "./components/sections/Section";
+import EffectsSection from "./components/sections/EffectsSection";
+import OptionsSection from "./components/sections/OptionsSection";
 import KeyboardKey from './components/KeyboardKey';
 import Footer from "./components/Footer"
 

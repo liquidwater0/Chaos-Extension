@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useUpdateEffect } from '../hooks/useUpdateEffect';
-import { initialTimerOptions } from '../../../initialOptions';
-import LabelSelect from "./LabelSelect";
+import { useUpdateEffect } from '../../hooks/useUpdateEffect';
+import { initialTimerOptions } from '../../../../initialOptions';
+import LabelSelect from "../LabelSelect";
 
 export default function OptionsSection({ saveToggle }) {
     const [timerSelectOptions, setTimerSelectOptions] = useState(initialTimerOptions);

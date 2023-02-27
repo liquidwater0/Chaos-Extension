@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useUpdateEffect } from "../hooks/useUpdateEffect";
 import { Button } from '@mui/material';
-import LabelCheckbox from "./LabelCheckbox";
-import { effects } from '../../../initEffect';
+import { useUpdateEffect } from "../../hooks/useUpdateEffect";
+import LabelCheckbox from "../LabelCheckbox";
+import { effects } from '../../../../initEffect';
 
 export default function EffectsSection({ saveToggle }) {
     const initialEffectOptions = effects.map(({ label, storageKey, enabled }) => {
