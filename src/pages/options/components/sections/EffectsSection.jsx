@@ -48,7 +48,7 @@ export default function EffectsSection({ saveToggle }) {
             </Button>
 
             {
-                options.sort((a, b) => (a.label > b.label ? 1 : -1)).map(({ label, enabled }, index) => {
+                options.sort((a, b) => a.label > b.label ? 1 : -1).map(({ label, enabled }, index) => {
                     return (
                         <Checkbox
                             key={index}
