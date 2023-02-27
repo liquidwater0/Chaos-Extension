@@ -5,11 +5,11 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { initialTheme } from '../../initialOptions';
 import { dark, light } from "../../themes";
 import Font from "../../global components/Font";
-import Header from "./components/Header";
 import Section from "./components/Section";
 import EffectsSection from "./components/EffectsSection";
 import OptionsSection from "./components/OptionsSection";
-import Footer from './components/Footer';
+import KeyboardKey from './components/KeyboardKey';
+import Footer from "./components/Footer"
 
 const manifest = chrome.runtime.getManifest();
 
@@ -26,16 +26,26 @@ export default function OptionsPage() {
             <CssBaseline/>
             <Font/>
 
-            <Header/>
+            <header className='header'>
+                <div className="key-combination-text" aria-label='shift + p to pause'>
+                    <KeyboardKey value="Shift"/>
+                    <span>+</span>
+                    <KeyboardKey value="P"/>
+                    <span>to Pause</span>
+                </div>
+            </header>
 
-            <Section text="Effects">
-                <EffectsSection saveToggle={saveToggle}/>
-            </Section>
+            <main>
+                <Section text="Effects">
+                    <EffectsSection saveToggle={saveToggle}/>
+                </Section>
 
-            <Section text="Options">
-                <OptionsSection saveToggle={saveToggle}/>
-            </Section>
+                <Section text="Options">
+                    <OptionsSection saveToggle={saveToggle}/>
+                </Section>
+            </main>
 
+            {/* Apparently mui can't find the custom footer background color when footer is here directly??? */}
             <Footer 
                 version={manifest.version}
                 theme={theme} 
