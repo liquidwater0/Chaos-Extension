@@ -47,12 +47,13 @@ export default function Timer() {
     }, [timeRemaining, paused]);
 
     return (
-        <div className='timer-container'>
-            <div className='timer'>
+        <div className="timer">
+            <div className="timer-bar-container">
                 <div className='timer-bar' style={{ width: getWidth(timer, timeRemaining) }}/>
                 <div className="timer-background ui-blur"/>
-                <div className="time-remaining-text">{ formatTime(timeRemaining) }</div>
             </div>
+
+            <div className="time-remaining">{ formatTime(timeRemaining) }</div>
         </div>
     );
 }
