@@ -1,7 +1,10 @@
 import React from 'react';
-import { Checkbox, FormControlLabel } from '@mui/material';
+import { 
+    Checkbox as MUICheckbox, 
+    FormControlLabel 
+} from '@mui/material';
 
-function LabelCheckbox(props) {
+function Checkbox(props) {
     const {
         label,
         checked,
@@ -21,7 +24,7 @@ function LabelCheckbox(props) {
         <FormControlLabel 
             label={label}
             control={ 
-                <Checkbox 
+                <MUICheckbox 
                     color='primary'
                     checked={checked}
                     onChange={handleChange}
@@ -31,4 +34,4 @@ function LabelCheckbox(props) {
     );
 }
 
-export default React.memo(LabelCheckbox);
+export default React.memo(Checkbox);

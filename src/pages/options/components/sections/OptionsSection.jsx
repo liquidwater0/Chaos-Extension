@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useUpdateEffect } from '../../hooks/useUpdateEffect';
 import { initialTimerOptions } from '../../../../initialOptions';
-import LabelSelect from "../LabelSelect";
+import Select from "../Select";
 
 export default function OptionsSection({ saveToggle }) {
     const [timerSelectOptions, setTimerSelectOptions] = useState(initialTimerOptions);
@@ -19,7 +19,7 @@ export default function OptionsSection({ saveToggle }) {
 
     return (
         <>
-            <LabelSelect 
+            <Select 
                 variant="filled"
                 label="Timer"
                 options={timerSelectOptions}

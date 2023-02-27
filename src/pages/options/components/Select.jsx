@@ -1,7 +1,12 @@
 import React from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { 
+    FormControl, 
+    InputLabel, 
+    Select as MUISelect, 
+    MenuItem 
+} from '@mui/material';
 
-export default function LabelSelect(props) {
+export default function Select(props) {
     const {
         variant,
         label,
@@ -25,7 +30,7 @@ export default function LabelSelect(props) {
     return (
         <FormControl variant={variant}>
             <InputLabel>{ label }</InputLabel>
-            <Select
+            <MUISelect
                 value={selected}
                 onChange={handleChange}
             >
@@ -38,7 +43,7 @@ export default function LabelSelect(props) {
                         );
                     })
                 }
-            </Select>
+            </MUISelect>
         </FormControl>
     );
 }

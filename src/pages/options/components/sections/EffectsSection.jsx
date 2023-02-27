@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { useUpdateEffect } from "../../hooks/useUpdateEffect";
-import LabelCheckbox from "../LabelCheckbox";
+import Checkbox from "../Checkbox";
 import { effects } from '../../../../initEffect';
 
 export default function EffectsSection({ saveToggle }) {
@@ -50,7 +50,7 @@ export default function EffectsSection({ saveToggle }) {
             {
                 options.map(({ label, enabled }, index) => {
                     return (
-                        <LabelCheckbox
+                        <Checkbox
                             key={index}
                             index={index}
                             label={label}
