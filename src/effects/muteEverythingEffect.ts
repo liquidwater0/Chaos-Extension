@@ -1,0 +1,20 @@
+import initEffect from "../initEffect";
+
+initEffect({
+    label: "Mute Everything",
+    storageKey: "muteEverythingEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    const allMedia = document.querySelectorAll<HTMLAudioElement | HTMLVideoElement>("video, audio");
+
+    allMedia.forEach(media => {
+        if (!media) return;
+        media.muted = true;
+    });
+}
+
+function revert() {}
