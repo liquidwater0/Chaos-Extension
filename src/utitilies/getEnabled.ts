@@ -1,13 +1,9 @@
-type CheckedStates = {
-    label: string,
-    storageKey: string,
-    enabled: boolean
-}
+import { EffectOptions } from "../types";
 
 async function getMap() {
     const map: Map<string, boolean> = new Map();
 
-    const allCheckedStates: Promise<CheckedStates[]> = new Promise((resolve, reject) => {
+    const allCheckedStates: Promise<EffectOptions[]> = new Promise((resolve, reject) => {
         chrome.storage.sync.get({ checkedStates: [] }, items => {
             resolve(items.checkedStates);
         });
