@@ -1,9 +1,8 @@
 import React, { useState, useContext, ReactNode } from "react";
 import { effects } from "../../../initEffect";
-import { Effect } from "../../../types";
 
 type EffectsContextType = {
-    effects: Effect[],
+    effects: typeof effects,
     activeEffect: string,
     newEffect: () => void
 }
