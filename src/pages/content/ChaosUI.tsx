@@ -3,7 +3,7 @@ import "./scss/content.scss";
 import { useChromeStorageSync } from 'use-chrome-storage';
 import { initialTheme } from '../../initialOptions';
 import { useChaosEffects } from '../../context/EffectsContext';
-import Font from "../../global components/Font";
+import Font from "../../components/Font";
 import Timer from './components/Timer';
 
 export default function ChaosUI() {
