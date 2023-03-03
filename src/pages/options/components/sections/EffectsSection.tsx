@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { useUpdateEffect } from "../../hooks/useUpdateEffect";
 import Checkbox from "../Checkbox";
-import { effects } from '../../../../Effect';
+import { useChaosEffects } from '../../../../context/EffectsContext';
 
 export default function EffectsSection({ saveToggle }: { saveToggle: boolean }) {
+    const { effects } = useChaosEffects();
     const initialEffectOptions = effects.map(({ label, storageKey, enabled }) => {
         return { label, storageKey, enabled };
     });
