@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import "./scss/content.scss";
 import { useChromeStorageSync } from 'use-chrome-storage';
 import { initialTheme } from '../../initialOptions';
-import { useChaosEffects } from './context/EffectsContext';
+import { useChaosEffects } from '../../context/EffectsContext';
 import Font from "../../global components/Font";
 import Timer from './components/Timer';
 

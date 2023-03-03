@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useChromeStorageSync } from 'use-chrome-storage';
 import { initialTimerSeconds } from '../../../initialOptions';
-import { useChaosEffects } from '../context/EffectsContext';
+import { useChaosEffects } from '../../../context/EffectsContext';
 
 function getWidth(timer: number, timeRemaining: number) {
     return `${(timeRemaining / timer) * 100}%`;

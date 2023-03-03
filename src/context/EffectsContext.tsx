@@ -1,5 +1,6 @@
 import React, { useState, useContext, ReactNode } from "react";
-import { effects } from "../../../Effect";
+import "../effects/index";
+import { effects } from "../Effect";
 
 type EffectsContextType = {
     effects: typeof effects,
@@ -17,8 +18,6 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
     const [activeEffect, setActiveEffect] = useState<string>("");
 
     function newEffect() {
-        console.log(effects);
-
         effects.forEach(effect => effect.revert());
 
         const enabledEffects = effects.filter(effect => effect.enabled);
