@@ -1,5 +1,5 @@
 import React, { useState, useContext, ReactNode } from "react";
-import { effects } from "../../../initEffect";
+import { effects } from "../../../Effect";
 
 type EffectsContextType = {
     effects: typeof effects,

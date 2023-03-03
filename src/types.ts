@@ -1,4 +1,4 @@
-export type Effect = {
+export type TEffect = {
     label: string,
     storageKey: string,
     enabled: boolean,

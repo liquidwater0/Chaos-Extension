@@ -1,6 +1,6 @@
-import initEffect from "../initEffect";
+import Effect from "../Effect";
 
-initEffect({
+new Effect({
     label: "Sideways Page",
     storageKey: "sidewaysPageEffect",
     defaultEnabled: true,

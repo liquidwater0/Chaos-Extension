@@ -1,7 +1,7 @@
-import initEffect from "../initEffect";
+import Effect from "../Effect";
 import getRandomNumber from "../utitilies/getRandomNumber";
 
-initEffect({
+new Effect({
     label: "Random Selection Color",
     storageKey: "randomSelectionColorEffect",
     defaultEnabled: true,

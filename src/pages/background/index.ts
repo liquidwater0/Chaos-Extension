@@ -1,6 +1,6 @@
 import { initialTimerSeconds, initialTimerOptions } from "../../initialOptions";
 import "../../effects/index";
-import { effects } from "../../initEffect";
+import { effects } from "../../Effect";
 
 const initialEffectOptions = effects.map(({ label, storageKey, enabled }) => {
 	return { label, storageKey, enabled };

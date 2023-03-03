@@ -1,6 +1,6 @@
-import initEffect from "../initEffect";
+import Effect from "../Effect";
 
-initEffect({
+new Effect({
     label: "Get Alert",
     storageKey: "getAlertEffect",
     defaultEnabled: true,

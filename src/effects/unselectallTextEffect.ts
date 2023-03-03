@@ -1,6 +1,6 @@
-import initEffect from "../initEffect";
+import Effect from "../Effect";
 
-initEffect({
+new Effect({
     label: "Unselect All Text",
     storageKey: "unselectAllTextEffect",
     defaultEnabled: true,

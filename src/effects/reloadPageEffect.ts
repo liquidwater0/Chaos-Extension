@@ -1,6 +1,6 @@
-import initEffect from "../initEffect";
+import Effect from "../Effect";
 
-initEffect({
+new Effect({
     label: "Reload Page",
     storageKey: "reloadPageEffect",
     defaultEnabled: true,

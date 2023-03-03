@@ -1,7 +1,7 @@
-import initEffect from "../initEffect";
+import Effect from "../Effect";
 import Overlay from "../utitilies/overlay";
 
-initEffect({
+new Effect({
     label: "Blurry Vision",
     storageKey: "blurryVisionEffect",
     defaultEnabled: true,

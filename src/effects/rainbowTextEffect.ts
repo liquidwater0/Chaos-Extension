@@ -1,7 +1,7 @@
-import initEffect from "../initEffect";
+import Effect from "../Effect";
 import getRandomNumber from "../utitilies/getRandomNumber";
 
-initEffect({
+new Effect({
     label: "Rainbow Text",
     storageKey: "rainbowTextEffect",
     defaultEnabled: true,
