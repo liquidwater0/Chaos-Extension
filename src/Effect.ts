@@ -7,15 +7,13 @@ export default class Effect {
     #label;
     #storageKey;
     #enabled;
-    #defaultEnabled;
     #activate;
     #revert;
 
     constructor({ label, storageKey, defaultEnabled, activate, revert }: Omit<TEffect, "enabled">) {
         this.#label = label;
         this.#storageKey = storageKey;
-        this.#enabled = this.#getEnabledState();
-        this.#defaultEnabled = defaultEnabled;
+        this.#enabled = this.#getEnabledState(defaultEnabled);
         this.#activate = activate;
         this.#revert = revert;
 
@@ -38,8 +36,8 @@ export default class Effect {
         this.#enabled = value;
     }
 
-    #getEnabledState() {
-        let value = this.#defaultEnabled;
+    #getEnabledState(defaultValue: boolean) {
+        let value = defaultValue;
         getEnabled(this.#storageKey).then(checkedState => value = checkedState);
         return value;
     }
