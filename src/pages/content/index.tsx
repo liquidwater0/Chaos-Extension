@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import "../../effects/index";
 import ChaosUI from "./ChaosUI";
 import EffectsProvider from "./context/EffectsContext";
 
