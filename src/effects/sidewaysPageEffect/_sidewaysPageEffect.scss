@@ -1,0 +1,23 @@
+html[data-extension="chaosExtension"] {
+    &.sideways-page-effect,
+    &.sideways-page-effect body {
+        overflow: auto !important;
+    }
+
+    &.sideways-page-effect {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    &.sideways-page-effect {
+        body {
+            position: fixed !important;
+            transform: rotate(-90deg) !important;
+            width: 100vh !important;
+            height: 100vw !important;
+        }
+    }
+}

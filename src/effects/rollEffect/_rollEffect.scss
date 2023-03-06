@@ -1,0 +1,20 @@
+html[data-extension="chaosExtension"] {
+    &.roll-effect {
+        --perspective: 1000px;
+    
+        body {
+            transform-origin: center !important;
+            animation: roll 5s infinite linear !important;
+        }
+    }
+}
+
+@keyframes roll {
+    from {
+        transform: perspective(var(--perspective)) rotateX(0deg);
+    }
+
+    to {
+        transform: perspective(var(--perspective)) rotateX(360deg);
+    }
+}

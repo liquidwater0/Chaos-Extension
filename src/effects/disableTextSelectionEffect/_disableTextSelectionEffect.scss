@@ -1,0 +1,7 @@
+html[data-extension="chaosExtension"] {
+    &.disable-text-selection-effect {
+        * {
+            user-select: none !important;
+        }
+    }
+}

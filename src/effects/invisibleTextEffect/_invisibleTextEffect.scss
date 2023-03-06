@@ -1,0 +1,7 @@
+html[data-extension="chaosExtension"] {
+    &.invisible-text-effect *,
+    &.invisible-text-effect *::placeholder {
+        color: transparent !important;
+        text-shadow: none !important;
+    }
+}

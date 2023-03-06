@@ -1,0 +1,5 @@
+html[data-extension="chaosExtension"] {
+    &.disable-mouse-input-effect * {
+        cursor: not-allowed !important;
+    }
+}

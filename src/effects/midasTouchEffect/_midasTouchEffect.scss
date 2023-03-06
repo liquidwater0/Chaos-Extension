@@ -1,0 +1,8 @@
+html[data-extension="chaosExtension"] {
+    &.midas-touch-effect {
+        .midas-touch-gold:not(html [data-extension="chaosExtension"] *, [data-extension="chaosExtension"]) {
+            background-color: gold !important;
+            color: white !important;
+        }
+    }
+}

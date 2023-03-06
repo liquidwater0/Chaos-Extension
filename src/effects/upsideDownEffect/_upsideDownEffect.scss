@@ -1,0 +1,14 @@
+html[data-extension="chaosExtension"] {
+    &.upside-down-effect,
+    &.upside-down-effect body {
+        overflow: auto !important;
+    }
+
+    &.upside-down-effect body {
+        position: fixed !important;
+        transform: rotate(180deg) !important;
+        bottom: 0px !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}

@@ -1,0 +1,7 @@
+html[data-extension="chaosExtension"] {
+    &.uppercase-text-effect {
+        * {
+            text-transform: uppercase !important;
+        }
+    }
+}

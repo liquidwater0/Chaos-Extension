@@ -1,0 +1,8 @@
+html[data-extension="chaosExtension"] {
+    &.double-size-effect {
+        body {
+            transform: scale(2) translate(25%, 25%) !important;
+            overflow-x: auto !important;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+html[data-extension="chaosExtension"] {
+    &.no-cursor-effect {
+        * {
+            cursor: none !important;
+        }
+    }
+}

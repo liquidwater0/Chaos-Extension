@@ -1,0 +1,7 @@
+html[data-extension="chaosExtension"] {
+    &.inverted-page-effect {
+        body {
+            transform: rotateY(180deg) !important;
+        }
+    }
+}

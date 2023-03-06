@@ -1,0 +1,43 @@
+@use "./bigTextEffect/bigTextEffect" as *;
+@use "./blackoutEffect/blackoutEffect" as *;
+@use "./blurryVisionEffect/blurryVisionEffect" as *;
+@use "./comicSansEffect/comicSansEffect" as *;
+@use "./disableMouseInputEffect/disableMouseInputEffect" as *;
+@use "./disableScrollingEffect/disableScrollingEffect" as *;
+@use "./disableTextSelectionEffect/disableTextSelectionEffect" as *;
+@use "./doubleSizeEffect/doubleSizeEffect" as *;
+@use "./halfSizeEffect/halfSizeEffect" as *;
+@use "./hideImagesEffect/hideImagesEffect" as *;
+@use "./hideScrollbarsEffect/hideScrollbarsEffect" as *;
+@use "./hideTextSelectionEffect/hideTextSelectionEffect" as *;
+@use "./invertedColorsEffect/invertedColorsEffect" as *;
+@use "./invertedPageEffect/invertedPageEffect" as *;
+@use "./invisibleTextEffect/invisibleTextEffect" as *;
+@use "./lowercaseTextEffect/lowercaseTextEffect" as *;
+@use "./midasTouchEffect/midasTouchEffect" as *;
+@use "./noCursorEffect/noCursorEffect" as *;
+@use "./randomSelectionColorEffect/randomSelectionColorEffect" as *;
+@use "./randomTextColorEffect/randomTextColorEffect" as *;
+@use "./rollEffect/rollEffect" as *;
+@use "./sidewaysPageEffect/sidewaysPageEffect" as *;
+@use "./smallTextEffect/smallTextEffect" as *;
+@use "./spinningPageEffect/spinningPageEffect" as *;
+@use "./terminalifyEffect/terminalifyEffect" as *;
+@use "./uppercaseTextEffect/uppercaseTextEffect" as *;
+@use "./upsideDownEffect/upsideDownEffect" as *;
+@use "./vignetteEffect/vignetteEffect" as *;
+@use "./y1950sEffect/y1950sEffect" as *;
+
+[data-extension="chaosExtension"] {
+    &.overlay {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 1000000000 !important;
+    }
+
+    &.no-pointer-events {
+        pointer-events: none !important;
+    }
+}

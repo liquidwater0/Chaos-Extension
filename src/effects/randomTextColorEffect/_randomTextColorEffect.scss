@@ -1,0 +1,7 @@
+html[data-extension="chaosExtension"] {
+    &.random-text-color-effect {
+        * {
+            color: var(--random-text-color) !important;
+        }
+    }
+}
