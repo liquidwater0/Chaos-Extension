@@ -1,0 +1,17 @@
+import Effect from "../../Effect";
+
+new Effect({
+    label: "Disable Scrolling",
+    id: "disableScrollingEffect",
+    defaultEnabled: true,
+    activate,
+    revert
+});
+
+function activate() {
+    document.documentElement.classList.add("disable-scrolling-effect");
+}
+
+function revert() {
+    document.documentElement.classList.remove("disable-scrolling-effect");
+}
