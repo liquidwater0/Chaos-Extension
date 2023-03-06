@@ -4,8 +4,8 @@ import { effects } from "../Effect";
 
 type EffectsContextType = {
     effects: typeof effects,
-    effectTheme: string;
-    activeEffect: string,
+    activeEffectLabel: string,
+    activeEffectId: string,
     newEffect: () => void
 }
 
@@ -16,8 +16,8 @@ export function useChaosEffects() {
 }
 
 export default function EffectsProvider({ children }: { children: ReactNode }) {
-    const [activeEffect, setActiveEffect] = useState<string>("");
-    const [effectTheme, setEffectTheme] = useState<string>("");
+    const [activeEffectLabel, setActiveEffectLabel] = useState<string>("");
+    const [activeEffectId, setActiveEffectId] = useState<string>("");
 
     function newEffect() {
         effects.forEach(effect => effect.revert());
@@ -25,21 +25,20 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
         const enabledEffects = effects.filter(effect => effect.enabled);
         const randomEffect = enabledEffects[Math.floor(Math.random() * enabledEffects.length)];
 
-        if (!randomEffect.theme) setEffectTheme("");
-
         if (!randomEffect) {
-            setActiveEffect("");
+            setActiveEffectLabel("");
+            setActiveEffectId("");
             return;
         }
-        
-        setActiveEffect(randomEffect.label);
-        setEffectTheme(randomEffect.theme);
-        
+
+        setActiveEffectLabel(randomEffect.label);
+        setActiveEffectId(randomEffect.id);
+
         randomEffect.activate();
     }
 
     return(
-        <EffectsContext.Provider value={{ effects, effectTheme, activeEffect, newEffect }}>
+        <EffectsContext.Provider value={{ effects, activeEffectLabel, activeEffectId, newEffect }}>
             { children }
         </EffectsContext.Provider>
     );

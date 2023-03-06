@@ -8,7 +8,7 @@ import Timer from './components/Timer';
 
 export default function ChaosUI() {
     const [theme] = useChromeStorageSync("theme", initialTheme);
-    const { activeEffect, effectTheme } = useChaosEffects();
+    const { activeEffectLabel, activeEffectId } = useChaosEffects();
 
     useEffect(() => {
         document.documentElement.setAttribute("data-extension", "chaosExtension");
@@ -18,15 +18,15 @@ export default function ChaosUI() {
         <div 
             id="chaosUI"
             data-extension="chaosExtension"
-            data-theme={theme} 
-            data-effect-theme={effectTheme}
+            data-theme={theme}
+            data-effect-theme={activeEffectId}
         >
             <Font/>
             <Timer/>
             
             {
-                activeEffect !== "" && 
-                <div className="active-effect ui-blur">{ activeEffect }</div>
+                activeEffectLabel !== "" && 
+                <div className="active-effect ui-blur">{ activeEffectLabel }</div>
             }
         </div>
     );

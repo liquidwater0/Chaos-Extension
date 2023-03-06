@@ -1,7 +1,6 @@
 export type TEffect = {
     label: string,
     id: string,
-    theme?: string,
     enabled: boolean,
     defaultEnabled: boolean,
     activate: () => void,

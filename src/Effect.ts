@@ -7,15 +7,13 @@ export default class Effect {
     #label;
     #id;
     #enabled;
-    #theme;
     #activate;
     #revert;
 
-    constructor({ label, id, defaultEnabled, theme, activate, revert }: Omit<TEffect, "enabled">) {
+    constructor({ label, id, defaultEnabled, activate, revert }: Omit<TEffect, "enabled">) {
         this.#label = label;
         this.#id = id;
         this.#enabled = defaultEnabled;
-        this.#theme = theme;
         this.#activate = activate;
         this.#revert = revert;
 
@@ -35,10 +33,6 @@ export default class Effect {
 
     get enabled() {
         return this.#enabled;
-    }
-
-    get theme() {
-        return this.#theme;
     }
 
     activate() {
