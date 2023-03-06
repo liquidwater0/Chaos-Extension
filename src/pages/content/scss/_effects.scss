@@ -1,8 +1,7 @@
 [data-extension="chaosExtension"] {
     &.overlay {
         position: fixed !important;
-        top: 0px !important;
-        left: 0px !important;
+        inset: 0 !important;
         width: 100vw !important;
         height: 100vh !important;
         z-index: 1000000000 !important;
