@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Scroll To The Top",
-    storageKey: "scrollToTheTopEffect",
+    id: "scrollToTheTopEffect",
     defaultEnabled: true,
     activate,
     revert

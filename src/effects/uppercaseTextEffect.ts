@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Uppercase Text",
-    storageKey: "uppercaseTextEffect",
+    id: "uppercaseTextEffect",
     defaultEnabled: true,
     activate,
     revert

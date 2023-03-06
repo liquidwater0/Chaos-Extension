@@ -3,7 +3,7 @@ import getRandomNumber from "../utitilies/getRandomNumber";
 
 new Effect({
     label: "Rainbow Text",
-    storageKey: "rainbowTextEffect",
+    id: "rainbowTextEffect",
     defaultEnabled: true,
     activate,
     revert

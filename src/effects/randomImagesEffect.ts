@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Random Images",
-    storageKey: "randomImagesEffect",
+    id: "randomImagesEffect",
     defaultEnabled: true,
     activate,
     revert

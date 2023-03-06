@@ -6,8 +6,8 @@ import Checkbox from "../Checkbox";
 
 export default function EffectsSection({ saveToggle }: { saveToggle: boolean }) {
     const { effects } = useChaosEffects();
-    const initialEffectOptions = effects.map(({ label, storageKey, enabled }) => {
-        return { label, storageKey, enabled };
+    const initialEffectOptions = effects.map(({ label, id, enabled }) => {
+        return { label, id, enabled };
     });
     const [options, setOptions] = useState(initialEffectOptions);
     const [allToggle, setAllToggle] = useState<boolean>(true);

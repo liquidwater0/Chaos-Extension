@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Big Text",
-    storageKey: "bigTextEffect",
+    id: "bigTextEffect",
     defaultEnabled: true,
     activate,
     revert

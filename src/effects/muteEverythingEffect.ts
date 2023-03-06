@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Mute Everything",
-    storageKey: "muteEverythingEffect",
+    id: "muteEverythingEffect",
     defaultEnabled: true,
     activate,
     revert

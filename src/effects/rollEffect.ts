@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Roll",
-    storageKey: "rollEffect",
+    id: "rollEffect",
     defaultEnabled: true,
     activate,
     revert

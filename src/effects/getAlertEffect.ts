@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Get Alert",
-    storageKey: "getAlertEffect",
+    id: "getAlertEffect",
     defaultEnabled: true,
     activate,
     revert

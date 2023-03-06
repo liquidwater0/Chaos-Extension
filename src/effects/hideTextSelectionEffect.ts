@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Hide Text Selection",
-    storageKey: "hideTextSelectionEffect",
+    id: "hideTextSelectionEffect",
     defaultEnabled: true,
     activate,
     revert

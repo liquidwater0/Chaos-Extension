@@ -9,20 +9,20 @@ async function getMap() {
         });
     });
 
-    [...await allCheckedStates].forEach(({ storageKey, enabled }) => {
-        map.set(storageKey, enabled);
+    [...await allCheckedStates].forEach(({ id, enabled }) => {
+        map.set(id, enabled);
     });
 
     return map;
 }
 
-export default async function getEnabled(storageKey: string) {
+export default async function getEnabled(id: string) {
     const checkedStatesMap = await getMap();
 
-    if (!checkedStatesMap.has(storageKey)) {
-        console.log(`Checked state of [${storageKey}] does not exist!`);
+    if (!checkedStatesMap.has(id)) {
+        console.log(`Checked state of [${id}] does not exist!`);
         return false;
     }
 
-    return checkedStatesMap.get(storageKey);
+    return checkedStatesMap.get(id);
 }

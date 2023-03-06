@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Select All Text",
-    storageKey: "selectAllTextEffect",
+    id: "selectAllTextEffect",
     defaultEnabled: true,
     activate,
     revert

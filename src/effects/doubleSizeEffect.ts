@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Double Size",
-    storageKey: "doubleSizeEffect",
+    id: "doubleSizeEffect",
     defaultEnabled: true,
     activate,
     revert

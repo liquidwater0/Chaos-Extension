@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Unmute Random Media",
-    storageKey: "unmuteRandomMediaEffect",
+    id: "unmuteRandomMediaEffect",
     defaultEnabled: true,
     activate,
     revert

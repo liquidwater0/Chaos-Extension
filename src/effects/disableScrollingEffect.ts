@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Disable Scrolling",
-    storageKey: "disableScrollingEffect",
+    id: "disableScrollingEffect",
     defaultEnabled: true,
     activate,
     revert

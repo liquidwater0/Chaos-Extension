@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Comic Sans",
-    storageKey: "comicSansEffect",
+    id: "comicSansEffect",
     defaultEnabled: true,
     activate,
     revert

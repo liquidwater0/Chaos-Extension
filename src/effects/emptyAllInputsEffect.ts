@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Empty All Inputs",
-    storageKey: "emptyAllInputsEffect",
+    id: "emptyAllInputsEffect",
     defaultEnabled: true,
     activate,
     revert

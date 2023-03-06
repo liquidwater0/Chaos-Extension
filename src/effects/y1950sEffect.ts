@@ -3,7 +3,7 @@ import Overlay from "../utitilies/overlay";
 
 new Effect({
     label: "1950s",
-    storageKey: "y1950sEffect",
+    id: "y1950sEffect",
     defaultEnabled: true,
     activate,
     revert

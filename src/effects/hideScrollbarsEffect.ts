@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Hide Scrollbars",
-    storageKey: "hideScrollbarsEffect",
+    id: "hideScrollbarsEffect",
     defaultEnabled: true,
     activate,
     revert

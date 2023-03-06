@@ -3,7 +3,7 @@ import Overlay from "../utitilies/overlay";
 
 new Effect({
     label: "Inverted Colors",
-    storageKey: "invertedColorsEffect",
+    id: "invertedColorsEffect",
     defaultEnabled: true,
     activate,
     revert

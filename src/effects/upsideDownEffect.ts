@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Upside Down",
-    storageKey: "upsideDownEffect",
+    id: "upsideDownEffect",
     defaultEnabled: true,
     activate,
     revert

@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Disable Text Selection",
-    storageKey: "disableTextSelectionEffect",
+    id: "disableTextSelectionEffect",
     defaultEnabled: true,
     activate,
     revert

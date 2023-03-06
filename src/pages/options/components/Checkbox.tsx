@@ -12,7 +12,6 @@ type CheckboxProps = {
 }
 
 function Checkbox({ label, checked, index, setOptions }: CheckboxProps) {
-
     function handleChange() {
         setOptions((prev: any) => {
             const optionsDupe = [...prev];

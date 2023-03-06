@@ -3,7 +3,7 @@ import Overlay from "../utitilies/overlay";
 
 new Effect({
     label: "Disable Mouse Input",
-    storageKey: "disableMouseInputEffect",
+    id: "disableMouseInputEffect",
     defaultEnabled: true,
     activate,
     revert

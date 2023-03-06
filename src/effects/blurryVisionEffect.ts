@@ -3,7 +3,7 @@ import Overlay from "../utitilies/overlay";
 
 new Effect({
     label: "Blurry Vision",
-    storageKey: "blurryVisionEffect",
+    id: "blurryVisionEffect",
     defaultEnabled: true,
     activate,
     revert

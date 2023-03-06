@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "No Cursor",
-    storageKey: "noCursorEffect",
+    id: "noCursorEffect",
     defaultEnabled: true,
     activate,
     revert

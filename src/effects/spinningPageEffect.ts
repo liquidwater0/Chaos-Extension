@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Spinning Page",
-    storageKey: "spinningPageEffect",
+    id: "spinningPageEffect",
     defaultEnabled: true,
     activate,
     revert

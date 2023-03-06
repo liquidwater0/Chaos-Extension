@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Hide Images",
-    storageKey: "hideImagesEffect",
+    id: "hideImagesEffect",
     defaultEnabled: true,
     activate,
     revert

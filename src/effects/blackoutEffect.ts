@@ -3,7 +3,7 @@ import Overlay from "../utitilies/overlay";
 
 new Effect({
     label: "Blackout",
-    storageKey: "blackoutEffect",
+    id: "blackoutEffect",
     defaultEnabled: true,
     activate,
     revert

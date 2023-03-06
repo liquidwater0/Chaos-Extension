@@ -3,8 +3,8 @@ import "../../effects/index";
 import { effects } from "../../Effect";
 import { EffectOption } from "../../types";
 
-const initialEffectOptions = effects.map(({ label, storageKey, enabled }) => {
-	return { label, storageKey, enabled };
+const initialEffectOptions = effects.map(({ label, id, enabled }) => {
+	return { label, id, enabled };
 });
 
 chrome.runtime.onInstalled.addListener(details => {
@@ -30,7 +30,7 @@ function handleUpdatedEffects() {
 
 		initialEffectOptions.forEach(effect => {
 			const newEffect: EffectOption | undefined = items.checkedStates.find((item: EffectOption) => {
-				return item.storageKey === effect.storageKey;
+				return item.id === effect.id;
 			});
 
 			if (newEffect === undefined) finalArray.push(effect);
@@ -38,11 +38,11 @@ function handleUpdatedEffects() {
 
 		items.checkedStates.forEach((effect: EffectOption) => {
 			const removedEffect: EffectOption | undefined = initialEffectOptions.find((item: EffectOption) => {
-				return item.storageKey === effect.storageKey;
+				return item.id === effect.id;
 			});
 
 			if (removedEffect === undefined) {
-				finalArray = finalArray.filter(item => item.storageKey !== effect.storageKey);
+				finalArray = finalArray.filter(item => item.id !== effect.id);
 			}
 		});
 

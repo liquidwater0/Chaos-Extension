@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Small Text",
-    storageKey: "smallTextEffect",
+    id: "smallTextEffect",
     defaultEnabled: true,
     activate,
     revert

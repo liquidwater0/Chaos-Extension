@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "No CSS",
-    storageKey: "noCSSEffect",
+    id: "noCSSEffect",
     defaultEnabled: true,
     activate,
     revert

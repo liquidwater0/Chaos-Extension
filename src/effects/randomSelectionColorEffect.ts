@@ -3,7 +3,7 @@ import getRandomNumber from "../utitilies/getRandomNumber";
 
 new Effect({
     label: "Random Selection Color",
-    storageKey: "randomSelectionColorEffect",
+    id: "randomSelectionColorEffect",
     defaultEnabled: true,
     activate,
     revert

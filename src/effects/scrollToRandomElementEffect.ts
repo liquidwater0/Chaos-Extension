@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Scroll To Random Element",
-    storageKey: "scrollToRandomElementEffect",
+    id: "scrollToRandomElementEffect",
     defaultEnabled: true,
     activate,
     revert

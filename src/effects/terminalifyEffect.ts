@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Terminalify",
-    storageKey: "terminalifyEffect",
+    id: "terminalifyEffect",
     defaultEnabled: true,
     activate,
     revert

@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Half Playback Speed",
-    storageKey: "halfPlaybackSpeedEffect",
+    id: "halfPlaybackSpeedEffect",
     defaultEnabled: true,
     activate,
     revert

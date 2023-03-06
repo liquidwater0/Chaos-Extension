@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Double Playback Speed",
-    storageKey: "doublePlaybackSpeedEffect",
+    id: "doublePlaybackSpeedEffect",
     defaultEnabled: true,
     activate,
     revert

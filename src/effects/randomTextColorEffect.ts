@@ -3,7 +3,7 @@ import getRandomNumber from "../utitilies/getRandomNumber";
 
 new Effect({
     label: "Random Text Color",
-    storageKey: "randomTextColorEffect",
+    id: "randomTextColorEffect",
     defaultEnabled: true,
     activate,
     revert

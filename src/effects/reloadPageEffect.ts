@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Reload Page",
-    storageKey: "reloadPageEffect",
+    id: "reloadPageEffect",
     defaultEnabled: true,
     activate,
     revert

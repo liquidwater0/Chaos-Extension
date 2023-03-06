@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Pause Everything",
-    storageKey: "pauseEverythingEffect",
+    id: "pauseEverythingEffect",
     defaultEnabled: true,
     activate,
     revert

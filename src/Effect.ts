@@ -5,19 +5,19 @@ export const effects: Omit<TEffect, "defaultEnabled">[] = [];
 
 export default class Effect {
     #label;
-    #storageKey;
+    #id;
     #enabled;
     #activate;
     #revert;
 
-    constructor({ label, storageKey, defaultEnabled, activate, revert }: Omit<TEffect, "enabled">) {
+    constructor({ label, id, defaultEnabled, activate, revert }: Omit<TEffect, "enabled">) {
         this.#label = label;
-        this.#storageKey = storageKey;
+        this.#id = id;
         this.#enabled = defaultEnabled;
         this.#activate = activate;
         this.#revert = revert;
 
-        getEnabled(this.#storageKey)
+        getEnabled(this.#id)
             .then(checkedState => this.#enabled = checkedState);
 
         effects.push(this);
@@ -27,8 +27,8 @@ export default class Effect {
         return this.#label;
     }
 
-    get storageKey() {
-        return this.#storageKey;
+    get id() {
+        return this.#id;
     }
 
     get enabled() {

@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Play Everything",
-    storageKey: "playEverythingEffect",
+    id: "playEverythingEffect",
     defaultEnabled: true,
     activate,
     revert

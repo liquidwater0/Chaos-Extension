@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Half Size",
-    storageKey: "halfSizeEffect",
+    id: "halfSizeEffect",
     defaultEnabled: true,
     activate,
     revert

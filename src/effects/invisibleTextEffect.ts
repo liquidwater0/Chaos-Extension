@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Invisible Text",
-    storageKey: "invisibleTextEffect",
+    id: "invisibleTextEffect",
     defaultEnabled: true,
     activate,
     revert

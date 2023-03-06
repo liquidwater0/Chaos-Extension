@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Sideways Page",
-    storageKey: "sidewaysPageEffect",
+    id: "sidewaysPageEffect",
     defaultEnabled: true,
     activate,
     revert

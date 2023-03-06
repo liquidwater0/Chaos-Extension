@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Midas Touch",
-    storageKey: "midasTouchEffect",
+    id: "midasTouchEffect",
     defaultEnabled: true,
     activate,
     revert

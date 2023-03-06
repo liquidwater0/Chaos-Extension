@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Lowercase Text",
-    storageKey: "lowercaseTextEffect",
+    id: "lowercaseTextEffect",
     defaultEnabled: true,
     activate,
     revert

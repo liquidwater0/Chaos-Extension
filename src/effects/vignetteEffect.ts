@@ -3,7 +3,7 @@ import Overlay from "../utitilies/overlay";
 
 new Effect({
     label: "Vignette",
-    storageKey: "vignetteEffect",
+    id: "vignetteEffect",
     defaultEnabled: true,
     activate,
     revert

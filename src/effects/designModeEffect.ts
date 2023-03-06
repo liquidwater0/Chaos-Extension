@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Design Mode",
-    storageKey: "designModeEffect",
+    id: "designModeEffect",
     defaultEnabled: true,
     activate,
     revert

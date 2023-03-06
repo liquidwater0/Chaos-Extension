@@ -1,6 +1,6 @@
 export type TEffect = {
     label: string,
-    storageKey: string,
+    id: string,
     enabled: boolean,
     defaultEnabled: boolean,
     activate: () => void,
@@ -9,6 +9,6 @@ export type TEffect = {
 
 export type EffectOption = {
     label: string,
-    storageKey: string,
+    id: string,
     enabled: boolean,
 }

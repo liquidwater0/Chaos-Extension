@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Pause Random Media",
-    storageKey: "pauseRandomMediaEffect",
+    id: "pauseRandomMediaEffect",
     defaultEnabled: true,
     activate,
     revert

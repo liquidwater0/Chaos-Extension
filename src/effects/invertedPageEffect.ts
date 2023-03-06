@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Inverted Page",
-    storageKey: "invertedPageEffect",
+    id: "invertedPageEffect",
     defaultEnabled: true,
     activate,
     revert

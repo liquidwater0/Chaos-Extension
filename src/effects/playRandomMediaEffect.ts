@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Play Random Media",
-    storageKey: "playRandomMediaEffect",
+    id: "playRandomMediaEffect",
     defaultEnabled: true,
     activate,
     revert

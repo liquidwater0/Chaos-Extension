@@ -2,7 +2,7 @@ import Effect from "../Effect";
 
 new Effect({
     label: "Nothing",
-    storageKey: "nothingEffect",
+    id: "nothingEffect",
     defaultEnabled: true,
     activate,
     revert
