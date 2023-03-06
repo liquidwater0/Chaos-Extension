@@ -9,7 +9,15 @@ rootElement.setAttribute("data-extension", "chaosExtension");
 
 document.documentElement.prepend(rootElement);
 
-createRoot(rootElement).render(
+const shadow = rootElement.attachShadow({ mode: "open" });
+
+const link = document.createElement("link");
+link.rel = "stylesheet";
+link.href = chrome.runtime.getURL("content/content.css");
+
+shadow.appendChild(link);
+
+createRoot(shadow).render(
     <EffectsProvider>
         <ChaosUI />
     </EffectsProvider>

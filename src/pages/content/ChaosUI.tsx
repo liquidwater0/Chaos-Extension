@@ -8,14 +8,19 @@ import Timer from './components/Timer';
 
 export default function ChaosUI() {
     const [theme] = useChromeStorageSync("theme", initialTheme);
-    const { activeEffect } = useChaosEffects();
+    const { activeEffect, effectTheme } = useChaosEffects();
 
     useEffect(() => {
         document.documentElement.setAttribute("data-extension", "chaosExtension");
     }, []);
 
     return (
-        <div data-theme={theme}>
+        <div 
+            id="chaosUI"
+            data-extension="chaosExtension"
+            data-theme={theme} 
+            data-effect-theme={effectTheme}
+        >
             <Font/>
             <Timer/>
             
