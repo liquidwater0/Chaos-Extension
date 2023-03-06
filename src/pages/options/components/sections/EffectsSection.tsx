@@ -19,14 +19,7 @@ export default function EffectsSection({ saveToggle }: { saveToggle: boolean }) 
     }, []);
 
     useUpdateEffect(() => {
-        const storage: { checkedStates?: typeof options } = {};
-
-        options.forEach(({ storageKey, enabled }) => {
-            storage.checkedStates = options;
-            // storage[storageKey] = enabled;
-        });
-        
-        chrome.storage.sync.set(storage);
+        chrome.storage.sync.set({ checkedStates: options });
     }, [saveToggle]);
 
     function handleToggleAll() {
