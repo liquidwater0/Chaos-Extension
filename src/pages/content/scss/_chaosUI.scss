@@ -4,10 +4,12 @@
 
 #chaosExtensionRoot[data-extension="chaosExtension"] {
     --primary-color: hsl(200, 100%, 50%);
+    --font: "Roboto", sans-serif;
+    --text-color: var(--theme-text-color);
     
     position: fixed !important;
     inset: 0 !important;
-    font-family: "Roboto", sans-serif !important;
+    font-family: var(--font) !important;
     isolation: isolate !important;
     pointer-events: none !important;
     user-select: none !important;
@@ -21,11 +23,11 @@
 
     [data-theme="dark"] {
         --background: rgba(40, 40, 40, 0.8);
-        --text-color: white;
+        --theme-text-color: white;
     }
 
     [data-theme="light"] {
         --background: rgba(240, 240, 240, 0.8);
-        --text-color: black;
+        --theme-text-color: black;
     }
 }

@@ -1,4 +1,5 @@
 .active-effect {
+    color: var(--text-color, var(--theme-text-color)) !important;
     position: fixed !important;
     top: 50% !important;
     right: 10px !important;

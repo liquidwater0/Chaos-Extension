@@ -35,7 +35,7 @@
 
     .time-remaining {
         background-color: var(--primary-color) !important;
-        color: white !important;
+        color: var(--text-color, white) !important;
         font-size: var(--time-remaining-font-size) !important;
         padding: 0.25em 0.5em !important;
         font-weight: bold !important;
