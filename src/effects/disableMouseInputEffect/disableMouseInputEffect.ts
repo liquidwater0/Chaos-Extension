@@ -1,5 +1,5 @@
 import Effect from "../../Effect";
-import Overlay from "../../utitilies/overlay";
+import { Overlay } from "../index";
 
 new Effect({
     label: "Disable Mouse Input",
