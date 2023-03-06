@@ -19,12 +19,10 @@ export default function ChaosUI() {
             <Font/>
             <Timer/>
             
-            <div className="active-effects ui-blur">
-                <div className='label'>Effect Activated</div>
-                <div className={`active-effect-text ${activeEffect === "" ? "hide-text" : ""}`}>
-                    { activeEffect === "" ? "a" : activeEffect }
-                </div>
-            </div>
+            {
+                activeEffect !== "" && 
+                <div className="active-effect ui-blur">{ activeEffect }</div>
+            }
         </div>
     );
 }
