@@ -4,7 +4,7 @@ import { initialTimerSeconds } from '../../../initialOptions';
 import { useChaosEffects } from '../../../context/EffectsContext';
 
 function getWidth(timer: number, timeRemaining: number) {
-    return `${(timeRemaining / timer) * 100}%`;
+    return `${100 - ((timeRemaining / timer) * 100)}%`;
 }
 
 function formatTime(time: number) {
@@ -50,7 +50,7 @@ export default function Timer() {
     return (
         <div className="timer">
             <div className="timer-bar-container">
-                <div className='timer-bar' style={{ width: getWidth(timer, timeRemaining) }}/>
+                <div className='timer-bar' style={{ transform: `translateX(-${getWidth(timer, timeRemaining)})` }}/>
                 <div className="timer-background ui-blur"/>
             </div>
 

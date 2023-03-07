@@ -19,16 +19,21 @@
         width: 100% !important;
         height: var(--timer-bar-height) !important;
         margin: var(--timer-margin) 0px !important;
+        overflow: hidden !important;
+
+        &, .timer-bar {
+            border-radius: 1000px !important;
+        }
 
         .timer-bar,
         .timer-background {
             height: 100% !important;
-            border-radius: 1000px !important;
         }
 
         .timer-bar {
             position: absolute !important;
             background-color: var(--primary-color) !important;
+            width: 100% !important;
             z-index: 1 !important;
         }
     }
