@@ -16,6 +16,7 @@ function formatTime(time: number) {
 
 export default function Timer() {
     const [paused, setPaused] = useState<boolean>(false);
+    const [transitionActive, setTransitionActive] = useState<boolean>(paused ? false : true);
     const [timer] = useChromeStorageSync("timer", initialTimerSeconds);
     const [timeRemaining, setTimeRemaining] = useState<number>(timer);
     const { newEffect } = useChaosEffects();
@@ -34,12 +35,20 @@ export default function Timer() {
     
     useEffect(() => {
         let timeout = setTimeout(() => {
-            if (paused) return;
-            if (timeRemaining === 0) {
-                setTimeRemaining(timer);
-                newEffect();
+            if (paused) {
+                setTransitionActive(false);
                 return;
             }
+
+            if (timeRemaining === 0) {
+                setTransitionActive(false);
+                setTimeRemaining(timer);
+                newEffect();
+
+                return;
+            }
+
+            setTransitionActive(true);
             
             setTimeRemaining(prev => prev - 1);
         }, 1000);
@@ -50,7 +59,10 @@ export default function Timer() {
     return (
         <div className="timer">
             <div className="timer-bar-container">
-                <div className='timer-bar' style={{ transform: `translateX(-${getWidth(timer, timeRemaining)})` }}/>
+                <div className='timer-bar' style={{ 
+                    transform: `translateX(-${getWidth(timer, timeRemaining)})`,
+                    transition: transitionActive ? "transform 1s linear" : "initial"
+                }}/>
                 <div className="timer-background ui-blur"/>
             </div>
 
