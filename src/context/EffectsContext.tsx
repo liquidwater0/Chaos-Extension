@@ -27,9 +27,9 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
     }
 
     function newEffect() {
-        updateEnabledStates();
-        
         effects.forEach(effect => effect.revert());
+
+        updateEnabledStates();
 
         const enabledEffects = effects.filter(effect => effect.enabled);
         const randomEffect = enabledEffects[Math.floor(Math.random() * enabledEffects.length)];
