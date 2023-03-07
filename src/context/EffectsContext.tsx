@@ -7,7 +7,7 @@ type EffectsContextType = {
     effects: typeof effects,
     activeEffectLabel: string,
     activeEffectId: string,
-    newEffect: () => void
+    activateNewEffect: () => void
 }
 
 const EffectsContext = React.createContext<EffectsContextType>(null);
@@ -26,7 +26,7 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
         });
     }
 
-    function newEffect() {
+    function activateNewEffect() {
         effects.forEach(effect => effect.revert());
 
         updateEnabledStates();
@@ -47,7 +47,7 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
     }
 
     return(
-        <EffectsContext.Provider value={{ effects, activeEffectLabel, activeEffectId, newEffect }}>
+        <EffectsContext.Provider value={{ effects, activeEffectLabel, activeEffectId, activateNewEffect }}>
             { children }
         </EffectsContext.Provider>
     );

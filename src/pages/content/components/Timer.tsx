@@ -19,7 +19,7 @@ export default function Timer() {
     const [transitionActive, setTransitionActive] = useState<boolean>(paused ? false : true);
     const [timer] = useChromeStorageSync("timer", initialTimerSeconds);
     const [timeRemaining, setTimeRemaining] = useState<number>(timer);
-    const { newEffect } = useChaosEffects();
+    const { activateNewEffect } = useChaosEffects();
 
     useEffect(() => {
         document.addEventListener("keydown", ({ key, shiftKey }: KeyboardEvent) => {
@@ -43,7 +43,7 @@ export default function Timer() {
             if (timeRemaining === 0) {
                 setTransitionActive(false);
                 setTimeRemaining(timer);
-                newEffect();
+                activateNewEffect();
 
                 return;
             }
