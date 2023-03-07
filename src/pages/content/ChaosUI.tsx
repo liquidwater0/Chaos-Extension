@@ -5,7 +5,7 @@ import Font from "../../components/Font";
 import Timer from './components/Timer';
 
 export default function ChaosUI() {
-    const { activeEffectLabel, activeEffectId } = useChaosEffects();
+    const { activeEffect } = useChaosEffects();
 
     useEffect(() => {
         document.documentElement.setAttribute("data-extension", "chaosExtension");
@@ -15,14 +15,14 @@ export default function ChaosUI() {
         <div 
             id="chaosUI"
             data-extension="chaosExtension"
-            data-effect-theme={activeEffectId}
+            data-effect-theme={activeEffect.id}
         >
             <Font/>
             <Timer/>
             
             {
-                activeEffectLabel !== "" && 
-                <div className="active-effect ui-blur">{ activeEffectLabel }</div>
+                activeEffect.label !== "" && 
+                <div className="active-effect ui-blur">{ activeEffect.label }</div>
             }
         </div>
     );

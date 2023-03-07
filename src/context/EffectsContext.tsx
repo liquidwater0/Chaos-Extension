@@ -5,8 +5,7 @@ import getEnabled from "../utitilies/getEnabled";
 
 type EffectsContextType = {
     effects: typeof effects,
-    activeEffectLabel: string,
-    activeEffectId: string,
+    activeEffect: { label: string, id: string },
     activateNewEffect: () => void
 }
 
@@ -17,8 +16,7 @@ export function useChaosEffects() {
 }
 
 export default function EffectsProvider({ children }: { children: ReactNode }) {
-    const [activeEffectLabel, setActiveEffectLabel] = useState<string>("");
-    const [activeEffectId, setActiveEffectId] = useState<string>("");
+    const [activeEffect, setActiveEffect] = useState<{ label: string, id: string }>({ label: "", id: "" });
 
     function updateEnabledStates() {
         effects.forEach(effect => {
@@ -35,19 +33,16 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
         const randomEffect = enabledEffects[Math.floor(Math.random() * enabledEffects.length)];
 
         if (!randomEffect) {
-            setActiveEffectLabel("");
-            setActiveEffectId("");
+            setActiveEffect({ label: "", id: "" });
             return;
         }
 
-        setActiveEffectLabel(randomEffect.label);
-        setActiveEffectId(randomEffect.id);
-
+        setActiveEffect({ label: randomEffect.label, id: randomEffect.id });
         randomEffect.activate();
     }
 
     return(
-        <EffectsContext.Provider value={{ effects, activeEffectLabel, activeEffectId, activateNewEffect }}>
+        <EffectsContext.Provider value={{ effects, activeEffect, activateNewEffect }}>
             { children }
         </EffectsContext.Provider>
     );
