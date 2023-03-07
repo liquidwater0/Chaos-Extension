@@ -17,8 +17,7 @@ export default class Effect {
         this.#activate = activate;
         this.#revert = revert;
 
-        getEnabled(this.#id)
-            .then(checkedState => this.#enabled = checkedState);
+        getEnabled(this.#id).then(checkedState => this.#enabled = checkedState);
 
         effects.push(this);
     }
