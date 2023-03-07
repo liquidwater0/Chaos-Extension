@@ -1,6 +1,7 @@
 import React, { useState, useContext, ReactNode } from "react";
 import "../effects/index";
 import { effects } from "../Effect";
+import getEnabled from "../utitilies/getEnabled";
 
 type EffectsContextType = {
     effects: typeof effects,
@@ -19,7 +20,15 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
     const [activeEffectLabel, setActiveEffectLabel] = useState<string>("");
     const [activeEffectId, setActiveEffectId] = useState<string>("");
 
+    function updateEnabledStates() {
+        effects.forEach(effect => {
+            getEnabled(effect.id).then(checkedState => effect.enabled = checkedState);
+        });
+    }
+
     function newEffect() {
+        updateEnabledStates();
+        
         effects.forEach(effect => effect.revert());
 
         const enabledEffects = effects.filter(effect => effect.enabled);

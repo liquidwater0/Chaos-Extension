@@ -34,6 +34,10 @@ export default class Effect {
         return this.#enabled;
     }
 
+    set enabled(value) {
+        this.#enabled = value;
+    }
+
     activate() {
         this.#activate();
     }
