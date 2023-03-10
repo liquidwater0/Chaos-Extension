@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import "./scss/content.scss";
 import { useChaosEffects } from '../../context/EffectsContext';
-import Font from "../../components/Font";
 import Timer from './components/Timer';
 
 export default function ChaosUI() {
@@ -17,7 +16,6 @@ export default function ChaosUI() {
             data-extension="chaosExtension"
             data-effect-theme={activeEffect.id}
         >
-            <Font/>
             <Timer/>
             
             {
