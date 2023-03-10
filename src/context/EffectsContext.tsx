@@ -6,7 +6,8 @@ import getEnabled from "../utitilies/getEnabled";
 type EffectsContextType = {
     effects: typeof effects,
     activeEffect: { label: string, id: string },
-    activateNewEffect: () => void
+    activateNewEffect: () => void,
+    revertAllEffects: () => void
 }
 
 const EffectsContext = React.createContext<EffectsContextType>(null);
@@ -27,10 +28,9 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
     }
 
     async function activateNewEffect() {
-        effects.forEach(effect => effect.revert());
-
+        revertAllEffects();
         await updateEnabledStates();
-        
+
         const enabledEffects = effects.filter(effect => effect.enabled);
         const randomEffect = enabledEffects[Math.floor(Math.random() * enabledEffects.length)];
 
@@ -43,8 +43,12 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
         randomEffect.activate();
     }
 
+    function revertAllEffects() {
+        effects.forEach(effect => effect.revert());
+    }
+
     return(
-        <EffectsContext.Provider value={{ effects, activeEffect, activateNewEffect }}>
+        <EffectsContext.Provider value={{ effects, activeEffect, activateNewEffect, revertAllEffects }}>
             { children }
         </EffectsContext.Provider>
     );
