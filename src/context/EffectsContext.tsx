@@ -19,16 +19,18 @@ export default function EffectsProvider({ children }: { children: ReactNode }) {
     const [activeEffect, setActiveEffect] = useState<{ label: string, id: string }>({ label: "", id: "" });
 
     function updateEnabledStates() {
-        effects.forEach(effect => {
-            getEnabled(effect.id).then(checkedState => effect.enabled = checkedState);
-        });
+        return Promise.all(
+            effects.map(async effect => {
+                return getEnabled(effect.id).then(checkedState => effect.enabled = checkedState);
+            })
+        );
     }
 
-    function activateNewEffect() {
+    async function activateNewEffect() {
         effects.forEach(effect => effect.revert());
 
-        updateEnabledStates();
-
+        await updateEnabledStates();
+        
         const enabledEffects = effects.filter(effect => effect.enabled);
         const randomEffect = enabledEffects[Math.floor(Math.random() * enabledEffects.length)];
 
