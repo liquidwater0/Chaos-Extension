@@ -49,6 +49,8 @@ import "./uppercaseTextEffect/uppercaseTextEffect";
 import "./upsideDownEffect/upsideDownEffect";
 import "./y1950sEffect/y1950sEffect";
 import "./vignetteEffect/vignetteEffect";
+import "./circleCursorEffect/circleCursorEffect";
+import "./squareCursorEffect/squareCursorEffect";
 
 export class Overlay {
     constructor({ id, pointerEvents }: { id: string, pointerEvents: boolean }) {

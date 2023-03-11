@@ -1,0 +1,22 @@
+html[data-extension="chaosExtension"] {
+    &.square-cursor-effect {
+        * {
+            cursor: none !important;
+        }
+    }
+}
+
+[data-extension="chaosExtension"].square-cursor {
+    --x: 0;
+    --y: 0;
+
+    position: absolute !important;
+    left: calc(var(--x) * 1px - 10px) !important;
+    top: calc(var(--y) * 1px - 10px) !important;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: white !important;
+    border: 1px solid black !important;
+    pointer-events: none !important;
+    z-index: 100000000000 !important;
+}

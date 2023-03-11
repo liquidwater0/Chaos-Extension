@@ -27,6 +27,8 @@
 @use "./upsideDownEffect/upsideDownEffect" as *;
 @use "./vignetteEffect/vignetteEffect" as *;
 @use "./y1950sEffect/y1950sEffect" as *;
+@use "./circleCursorEffect/circleCursorEffect" as *;
+@use "./squareCursorEffect/squareCursorEffect" as *;
 
 [data-extension="chaosExtension"] {
     &.overlay {
