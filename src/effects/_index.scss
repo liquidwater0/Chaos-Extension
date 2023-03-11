@@ -29,6 +29,7 @@
 @use "./y1950sEffect/y1950sEffect" as *;
 @use "./circleCursorEffect/circleCursorEffect" as *;
 @use "./squareCursorEffect/squareCursorEffect" as *;
+@use "./rainbowTextEffect/rainbowTextEffect" as *;
 
 [data-extension="chaosExtension"] {
     &.overlay {
