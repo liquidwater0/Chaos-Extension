@@ -29,7 +29,6 @@ import "./pauseEverythingEffect/pauseEverythingEffect";
 import "./pauseRandomMediaEffect/pauseRandomMediaEffect";
 import "./playEverythingEffect/playEverythingEffect";
 import "./playRandomMediaEffect/playRandomMediaEffect";
-import "./rainbowTextEffect/rainbowTextEffect";
 import "./randomImagesEffect/randomImagesEffect";
 import "./randomSelectionColorEffect/randomSelectionColorEffect";
 import "./randomTextColorEffect/randomTextColorEffect";
@@ -51,6 +50,7 @@ import "./y1950sEffect/y1950sEffect";
 import "./vignetteEffect/vignetteEffect";
 import "./circleCursorEffect/circleCursorEffect";
 import "./squareCursorEffect/squareCursorEffect";
+import "./rainbowEffect/rainbowEffect";
 
 export class Overlay {
     constructor({ id, pointerEvents }: { id: string, pointerEvents: boolean }) {

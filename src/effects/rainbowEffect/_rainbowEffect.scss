@@ -1,0 +1,35 @@
+[data-effect-theme="rainbowEffect"] {
+    --animation: rainbowUI 5s linear infinite alternate;
+
+    .timer-bar {
+        animation: var(--animation) !important;
+    }
+
+    .time-remaining {
+        animation: var(--animation) !important;
+    }
+}
+
+[data-extension="chaosExtension"]#rainbowOverlay {
+    animation: rainbowOverlay 5s linear infinite alternate !important;
+}
+
+@keyframes rainbowUI {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes rainbowOverlay {
+    from {
+        backdrop-filter: hue-rotate(0deg);
+    }
+
+    to {
+        backdrop-filter: hue-rotate(360deg);
+    }
+}
