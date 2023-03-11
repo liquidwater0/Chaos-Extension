@@ -16,11 +16,7 @@ html[data-extension="chaosExtension"] {
         *:not(html [data-extension="chaosExtension"] *, [data-extension="chaosExtension"]) {
             font-family: 'Roboto Mono', monospace !important;
             color: rgb(0, 255, 0) !important;
-        }
-    }
-    
-    &.terminalify-effect {
-        *:not(html [data-extension="chaosExtension"] *, [data-extension="chaosExtension"]) {
+
             a {
                 color: rgba(0, 255, 0, 0.5) !important;
             }
