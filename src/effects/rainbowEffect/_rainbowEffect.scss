@@ -1,13 +1,5 @@
 [data-effect-theme="rainbowEffect"] {
-    --animation: rainbowUI 5s linear infinite alternate;
-
-    .timer-bar {
-        animation: var(--animation) !important;
-    }
-
-    .time-remaining {
-        animation: var(--animation) !important;
-    }
+    animation: rainbowUI 5s linear infinite alternate !important;
 }
 
 [data-extension="chaosExtension"]#rainbowOverlay {
