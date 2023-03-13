@@ -1,3 +1,7 @@
+[data-effect-theme="invertedColorsEffect"] {
+    filter: invert(100%) !important;
+}
+
 [data-extension="chaosExtension"] {
     &#invertOverlay {
         backdrop-filter: invert(100%) !important;
