@@ -1,0 +1,4 @@
+@mixin blur-background($color) {
+    background-color: hsl(from $color h s l / 0.75);
+    backdrop-filter: blur(10px);
+}

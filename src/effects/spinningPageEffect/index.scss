@@ -1,0 +1,36 @@
+html[chaos-extension] {
+    &.spinning-page-effect,
+    &.spinning-page-effect body {
+        overflow: auto !important;
+    }
+
+    &.spinning-page-effect {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    &.spinning-page-effect {
+        body {
+            animation: spinningPage 10s infinite linear !important;
+        }
+    }
+}
+
+@keyframes spinningPage {
+    0%, 50%, 100% {
+        width: 100%;
+        height: 100%;
+    }
+
+    25%, 75% {
+        width: 100vh;
+        height: 100vw;
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

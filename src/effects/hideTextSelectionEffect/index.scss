@@ -1,0 +1,8 @@
+html[chaos-extension] {
+    &.hide-text-selection-effect {
+        ::selection {
+            background-color: transparent !important;
+            color: currentColor !important;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+html[chaos-extension] {
+    &.hide-scrollbars-effect {
+        ::-webkit-scrollbar {
+            width: 0px !important;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+[chaos-extension-overlay] {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 100000000 !important;
+}
+
+[chaos-extension-pointer-events="false"] {
+    pointer-events: none !important;
+}
+
+[chaos-extension-cursor] {
+    --x: 0;
+    --y: 0;
+
+    position: absolute !important;
+    left: calc(var(--x) * 1px - 10px) !important;
+    top: calc(var(--y) * 1px - 10px) !important;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: white !important;
+    border: 1px solid black !important;
+    pointer-events: none !important;
+    z-index: 100e100 !important;
+}

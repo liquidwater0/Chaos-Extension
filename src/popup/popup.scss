@@ -1,0 +1,40 @@
+@use "@scss/_font" as *;
+@use "@scss/_colors" as *;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif !important;
+}
+
+body {
+    background-color: $theme-100;
+    color: $color-white;
+    width: max-content;
+    padding: 2.5rem;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.play-pause-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+    aspect-ratio: 1;
+
+    svg {
+        font-size: 4rem;
+    }
+}

@@ -1,0 +1,5 @@
+html[chaos-extension] {
+    &.half-size-effect body {
+        transform: scale(0.5) translateY(-50%) !important;
+    }
+}

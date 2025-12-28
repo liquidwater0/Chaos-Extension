@@ -1,0 +1,13 @@
+// [data-effect-theme="midasTouchEffect"] {
+//     --primary-color: gold !important;
+//     --text-color: white !important;
+// }
+
+html[chaos-extension] {
+    &.midas-touch-effect {
+        .midas-touch-gold:not(html[chaos-extension], html[chaos-extension] body, [chaos-extension-overlay]) {
+            background-color: gold !important;
+            color: white !important;
+        }
+    }
+}

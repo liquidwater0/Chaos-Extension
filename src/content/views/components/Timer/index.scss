@@ -1,0 +1,39 @@
+@use "@scss/_colors.scss" as *;
+@use "@scss/_mixins.scss" as *;
+
+.timer {
+    --timer-thickness: 25px;
+    --time-remaining-size: 20px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--timer-thickness);
+
+    .timer-background,
+    .timer-progress-bar,
+    .time-remaining {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .timer-background {
+        @include blur-background($theme-300);
+    }
+
+    .timer-progress-bar {
+        background-color: $color-primary;
+        transform-origin: left;
+    }
+
+    .time-remaining {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $color-white;
+        font-weight: bold;
+        font-size: var(--time-remaining-size);
+    }
+}

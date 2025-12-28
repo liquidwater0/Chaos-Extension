@@ -1,0 +1,25 @@
+@use "@scss/_colors.scss" as *;
+
+.button {
+    background-color: $color-primary;
+    color: $color-white;
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+    user-select: none;
+    cursor: pointer;
+    transition: 
+        background-color 200ms;
+
+    &[data-hovered="true"],
+    &[data-focus-visible="true"] {
+        background-color: hsl(from $color-primary h s 40%);
+    }
+
+    &[data-pressed="true"] {
+        background-color: hsl(from $color-primary h s 35%);
+    }
+}

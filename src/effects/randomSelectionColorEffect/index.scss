@@ -1,0 +1,6 @@
+html[chaos-extension] {
+    &.random-selection-color-effect ::selection {
+        background-color: var(--random-background-color) !important;
+        color: var(--random-text-color) !important;
+    }
+}

@@ -1,0 +1,9 @@
+// [data-effect-theme="invertedColorsEffect"] {
+//     filter: invert(100%) !important;
+// }
+
+html[chaos-extension] {
+    [chaos-extension-overlay]#invertOverlay {
+        backdrop-filter: invert(100%) !important;
+    }
+}

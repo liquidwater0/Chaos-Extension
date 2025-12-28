@@ -1,0 +1,9 @@
+html[chaos-extension] {
+    &.invisible-text-effect *,
+    &.invisible-text-effect *::before,
+    &.invisible-text-effect *::after,
+    &.invisible-text-effect *::placeholder {
+        color: transparent !important;
+        text-shadow: none !important;
+    }
+}

@@ -1,0 +1,11 @@
+html[chaos-extension] {
+    &.circle-cursor-effect {
+        * {
+            cursor: none !important;
+        }
+    }
+}
+
+[chaos-extension-cursor]#circleCursor {
+    border-radius: 100000px !important;
+}

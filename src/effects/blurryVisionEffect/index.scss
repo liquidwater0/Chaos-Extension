@@ -1,0 +1,5 @@
+html[chaos-extension] {
+    [chaos-extension-overlay]#blurOverlay {
+        backdrop-filter: blur(1.5px) !important;
+    }
+}

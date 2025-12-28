@@ -1,0 +1,6 @@
+html[chaos-extension] {
+    &.disable-scrolling-effect,
+    &.disable-scrolling-effect * {
+        overflow: hidden !important;
+    }
+}

@@ -1,0 +1,78 @@
+@use "@scss/_colors.scss" as *;
+@use "@scss/_mixins.scss" as *;
+
+.select {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .select-label {
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .select-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: $theme-300;
+        color: $color-white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding: 0.5em 1em;
+        border-radius: 0.25em;
+        transition: 
+            background-color 200ms;
+
+        &[data-hovered="true"],
+        &[data-focus-visible="true"] {
+            background-color: hsl(from $color-primary h s 40%);
+        }
+
+        &[data-pressed="true"] {
+            background-color: hsl(from $color-primary h s 35%);
+        }   
+    }
+
+    .caret {
+        position: absolute;
+        right: 0.25em;
+        transition: 
+            rotate 200ms;
+    }
+
+    &[data-open="true"] .caret {
+        rotate: 180deg;
+    }
+}
+
+.select-items {
+    border-radius: 0.75rem;
+    overflow: hidden;
+
+    .option {
+        @include blur-background($theme-300);
+        
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 0.5em 1em;
+        outline: none;
+        border: none;
+        transition: 
+            background-color 200ms;
+
+        &[data-hovered="true"],
+        &[data-focus-visible="true"] {
+            background-color: hsl(from $color-primary h s 40%);
+        }
+
+        &[data-pressed="true"] {
+            background-color: hsl(from $color-primary h s 35%);
+        }
+    }
+}

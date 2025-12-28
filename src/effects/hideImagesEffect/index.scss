@@ -1,0 +1,7 @@
+html[chaos-extension] {
+    &.hide-images-effect {
+        img {
+            opacity: 0 !important;
+        }
+    }
+}

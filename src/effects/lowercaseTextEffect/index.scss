@@ -1,0 +1,7 @@
+html[chaos-extension] {
+    &.lowercase-text-effect {
+        * {
+            text-transform: lowercase !important;
+        }
+    }
+}

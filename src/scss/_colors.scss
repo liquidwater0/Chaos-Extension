@@ -1,0 +1,7 @@
+$color-primary: hsl(225, 100%, 50%);
+$color-white: hsl(0 0% 100%);
+
+$theme-100: hsl(from $color-primary h s 5%);
+$theme-200: hsl(from $color-primary h s 10%);
+$theme-300: hsl(from $color-primary h s 15%);
+$theme-400: hsl(from $color-primary h s 20%);
