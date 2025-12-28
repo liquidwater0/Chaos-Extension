@@ -6,7 +6,10 @@ export default defineManifest({
   name: "Chaos Extension",
   version: pkg.version,
   icons: {
-    48: 'public/logo.png',
+    16: 'public/icon_16.png',
+    32: 'public/icon_32.png',
+    48: 'public/icon_48.png',
+    128: 'public/icon_128.png'
   },
   options_ui: {
 		page: "src/options/index.html",
@@ -14,7 +17,7 @@ export default defineManifest({
 	},
   action: {
     default_icon: {
-      48: 'public/logo.png',
+      16: 'public/icon_16.png'
     },
     default_popup: 'src/popup/index.html',
   },
