@@ -20,11 +20,11 @@
     }
     
     .timer-background {
-        @include blur-background($theme-300);
+        @include blur-background(var(--chaos-extension-ui-blur-color));
     }
 
     .timer-progress-bar {
-        background-color: $color-primary;
+        background-color: var(--chaos-extension-ui-progress-bar-color);
         transform-origin: left;
     }
 
@@ -32,7 +32,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: $color-white;
+        color: var(--chaos-extension-ui-text-color);
         font-weight: bold;
         font-size: var(--time-remaining-size);
     }
