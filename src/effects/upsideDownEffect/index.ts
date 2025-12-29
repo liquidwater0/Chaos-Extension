@@ -6,7 +6,7 @@ export default new Effect({
     id: "upsideDownEffect",
     label: "Upside Down",
     durationMs: DEFAULT_EFFECT_DURATION_MS,
-    tags: [TAGS.PAGE, TAGS.OVERLAY],
+    tags: [TAGS.PAGE],
     activate,
     revert
 });

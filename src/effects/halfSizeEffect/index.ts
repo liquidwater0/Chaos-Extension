@@ -6,7 +6,7 @@ export default new Effect({
     id: "halfSizeEffect",
     label: "Half Size",
     durationMs: DEFAULT_EFFECT_DURATION_MS,
-    tags: [TAGS.SIZE, TAGS.CURSOR, TAGS.OVERLAY],
+    tags: [TAGS.SIZE],
     activate,
     revert
 });

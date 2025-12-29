@@ -2,7 +2,7 @@ import "./effectElements.scss";
 
 export class Overlay {
     constructor({ id, pointerEvents }: { id: string, pointerEvents: boolean }) {
-        document.body.insertAdjacentHTML("afterbegin", `
+        document.documentElement.insertAdjacentHTML("afterbegin", `
             <div 
                 chaos-extension-element
                 chaos-extension-overlay
@@ -15,7 +15,7 @@ export class Overlay {
 
 export class Cursor {
     constructor({ id }: { id: string }) {
-        document.body.insertAdjacentHTML("afterbegin", `
+        document.documentElement.insertAdjacentHTML("afterbegin", `
             <div 
                 chaos-extension-element
                 chaos-extension-cursor
