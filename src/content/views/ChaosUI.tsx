@@ -42,10 +42,10 @@ export default function ChaosUI() {
 			const newActiveEffects: ActiveEffect[] = [];
 
 			prev.forEach(activeEffect => {
-				const isSameEffectActive = activeEffect.isActive && activeEffect.effect.id === randomEffect.id;
+				const isSameEffect = activeEffect.effect.id === randomEffect.id;
 				const hasConflictingTags = activeEffect.effect.tags?.some(tag => randomEffect.tags?.includes(tag));
 
-				if (isSameEffectActive || hasConflictingTags) {
+				if ((isSameEffect || hasConflictingTags) && activeEffect.isActive) {
 					activeEffect.effect.revert();
 
 					newActiveEffects.push({
