@@ -1,8 +1,10 @@
-// [data-effect-theme="invertedColorsEffect"] {
-//     filter: invert(100%) !important;
-// }
-
 html[chaos-extension] {
+    &.inverted-colors-effect {
+        [chaos-extension-root] {
+            filter: invert(100%) !important;
+        }
+    }
+
     [chaos-extension-overlay]#invertOverlay {
         backdrop-filter: invert(100%) !important;
     }
