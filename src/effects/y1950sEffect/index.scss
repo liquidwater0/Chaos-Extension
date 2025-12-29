@@ -1,8 +1,10 @@
-// [data-effect-theme="y1950sEffect"] {
-//     filter: grayscale(100%) sepia(15%) blur(0.66px) !important;
-// }
-
 html[chaos-extension] {
+    &.y1950s-effect {
+        [chaos-extension-root] {
+            filter: grayscale(100%) sepia(15%) blur(0.66px) !important;
+        }
+    }
+
     [chaos-extension-overlay]#y1950sOverlay {
         backdrop-filter: grayscale(100%) sepia(15%) blur(0.66px) !important;
     }
