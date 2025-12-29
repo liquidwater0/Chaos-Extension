@@ -1,11 +1,12 @@
 import Effect from "@effects/Effect";
 import "./index.scss";
-import { DEFAULT_EFFECT_DURATION_MS } from "@/constants/effects";
+import { DEFAULT_EFFECT_DURATION_MS, TAGS } from "@/constants/effects";
 
 export default new Effect({
     id: "midasTouchEffect",
     label: "Midas Touch",
     durationMs: DEFAULT_EFFECT_DURATION_MS,
+    tags: [TAGS.THEME_BACKGROUND, TAGS.THEME_TEXT_COLOR],
     activate,
     revert
 });
