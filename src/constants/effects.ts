@@ -1,5 +1,5 @@
 export const REMOVE_OLD_EFFECTS_DELAY_MS = 10_000;
-export const DEFAULT_EFFECT_DURATION_MS = 10_000;
+export const DEFAULT_EFFECT_DURATION_MS = 20_000;
 
 export type Tag = typeof TAGS[keyof typeof TAGS];
 export const TAGS = {
