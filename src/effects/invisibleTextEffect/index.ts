@@ -6,7 +6,7 @@ export default new Effect({
     id: "invisibleTextEffect",
     label: "Invisible Text",
     durationMs: DEFAULT_EFFECT_DURATION_MS,
-    tags: [TAGS.TEXT],
+    tags: [TAGS.TEXT, TAGS.TEXT_CASE],
     activate,
     revert
 });
