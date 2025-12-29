@@ -1,8 +1,8 @@
 import Effect from "@effects/Effect";
 
 export default new Effect({
-    id: "scrollToTheTopEffect",
-    label: "Scroll To The Top",
+    id: "scrollToTopEffect",
+    label: "Scroll To Top",
     activate,
     revert
 });
