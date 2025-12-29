@@ -1,6 +1,6 @@
 html[chaos-extension] {
     &.square-cursor-effect {
-        * {
+        &, * {
             cursor: none !important;
         }
     }
