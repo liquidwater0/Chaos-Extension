@@ -14,8 +14,21 @@ export async function initEffects() {
     const existing = storedEffects[EFFECTS_STORAGE_KEY] ?? {};
     const mergedEffects: any = { ...existing };
 
+    const effectIds = [...effectInstances].map(effect => effect.id);
+    const effectStorageKeys = Object.entries(mergedEffects).map(([key, _]) => key);
+
+    effectStorageKeys.forEach(effectStorageKey => {
+        const effectExists = effectIds.includes(effectStorageKey);
+
+        if (!effectExists) {
+            delete mergedEffects[effectStorageKey];
+        }
+    });
+
     effectInstances.forEach(({ id, label, enabled }) => {
-        if (!mergedEffects[id]) {
+        const isInStorage = mergedEffects[id] !== undefined;
+
+        if (!isInStorage) {
             mergedEffects[id] = { id, label, enabled };
         }
     });
