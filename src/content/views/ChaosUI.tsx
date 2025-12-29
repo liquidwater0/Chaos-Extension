@@ -24,14 +24,14 @@ export default function ChaosUI() {
 	const activeEffectsContainerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const timeout = setTimeout(() => {
+		const interval = setInterval(() => {
 			setActiveEffects(prev => {
 				return prev.filter(effect => effect.expireTime > Date.now());
 			});
-		}, 250);
+		}, 500);
 
-		return () => clearTimeout(timeout);
-	}, [activeEffects]);
+		return () => clearInterval(interval);
+	}, []);
 
 	const activateRandomEffect = () => {
 		const randomEffect = enabledEffects[Math.floor(Math.random() * enabledEffects.length)];
