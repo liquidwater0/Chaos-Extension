@@ -22,7 +22,7 @@ export type EffectOptionObjectWithoutFuncs = {
 
 export default class Effect {
     #id: IEffect["id"];
-    #enabled: IEffect["enabled"] = DEFAULT_EFFECT_ENABLED;
+    #enabled: IEffect["enabled"];
     #durationMs: IEffect["durationMs"];
     #label: IEffect["label"];
     #tags: IEffect["tags"];
