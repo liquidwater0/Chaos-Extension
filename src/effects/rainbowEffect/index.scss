@@ -1,6 +1,10 @@
-// [data-effect-theme="rainbowEffect"] {
-//     animation: rainbowUI 5s linear infinite alternate !important;
-// }
+html[chaos-extension] {
+    &.rainbow-effect {
+        [chaos-extension-root] {
+            animation: rainbowUI 5s linear infinite alternate !important;
+        }
+    }
+}
 
 [chaos-extension-overlay]#rainbowOverlay {
     animation: rainbowOverlay 5s linear infinite alternate !important;
