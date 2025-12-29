@@ -1,5 +1,7 @@
 html[chaos-extension] {
     &.comic-sans-effect {
+        --chaos-extension-ui-font: "Comic Sans MS", cursive;
+
         * {
             font-family: "Comic Sans MS", cursive !important;
         }

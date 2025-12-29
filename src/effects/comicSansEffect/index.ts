@@ -6,7 +6,7 @@ export default new Effect({
     id: "comicSansEffect",
     label: "Comic Sans",
     durationMs: DEFAULT_EFFECT_DURATION_MS,
-    tags: [TAGS.FONT],
+    tags: [TAGS.FONT, TAGS.THEME_FONT],
     activate,
     revert
 });
