@@ -18,17 +18,6 @@ export default new Effect({
 
 function activate() {
     document.documentElement.classList.add("terminalify-effect");
-
-    const elements = document.querySelectorAll<HTMLElement>("*:not([chaos-extension-element])");
-
-    elements.forEach(element => {
-        if (!element) return;
-
-        const parts = window.getComputedStyle(element).getPropertyValue("background-color").match(/[\d.]+/g);
-        const terminalifyBackgroundColor = `rgb(25 25 25 / ${parts![3]})`;
-
-        element.style.setProperty("--terminalify-background", terminalifyBackgroundColor);
-    });
 }
 
 function revert() {
@@ -38,6 +27,5 @@ function revert() {
 
     elements.forEach(element => {
         if (!element) return;
-        element.style.removeProperty("--terminalify-background");
     });
 }
