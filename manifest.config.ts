@@ -5,6 +5,7 @@ export default defineManifest({
   manifest_version: 3,
   name: "Chaos Extension",
   version: pkg.version,
+  description: "A fun little extension that activates a random effect on a site after a certain amount of time.",
   icons: {
     16: 'public/icon_16.png',
     32: 'public/icon_32.png',
